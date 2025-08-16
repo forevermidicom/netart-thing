@@ -507,6 +507,176 @@ updateClock()
 const observer=new MutationObserver((mutations)=>{for(const m of mutations){for(const node of m.addedNodes){if(node.nodeType===1){if(node.classList&&node.classList.contains('window')){attachWindowInteractions(node)} if(node.classList&&node.classList.contains('icon')){moveIcon(node)}}}}})
 observer.observe(desktop,{childList:true,subtree:true})
 </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+
+const container = document.createElement('div');
+container.id = 'palm3d';
+container.style.position = 'fixed';
+container.style.left = '0';
+container.style.top = '0';
+container.style.width = '100%';
+container.style.height = '100%';
+container.style.pointerEvents = 'none';
+container.style.zIndex = '10';
+document.body.appendChild(container);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 1.5, 5);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = false;
+renderer.domElement.style.pointerEvents = 'none';
+container.appendChild(renderer.domElement);
+
+const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 0.9);
+scene.add(hemi);
+
+const dir = new THREE.DirectionalLight(0xffffff, 0.8);
+dir.position.set(3, 5, 2);
+scene.add(dir);
+
+const palm = new THREE.Group();
+scene.add(palm);
+
+const brown = new THREE.MeshPhongMaterial({ color: 0x8b5a2b, flatShading: true, shininess: 10 });
+const green = new THREE.MeshPhongMaterial({ color: 0x2aa84a, flatShading: true, shininess: 20 });
+const nutMat = new THREE.MeshPhongMaterial({ color: 0x5c3b1a, flatShading: true, shininess: 5 });
+
+// trunk
+const trunk = new THREE.Group();
+palm.add(trunk);
+const segments = 9;
+const h = 1.9;
+for (let i = 0; i < segments; i++) {
+  const t = i / (segments - 1);
+  const topR = 0.12 - t * 0.06;
+  const botR = 0.15 - t * 0.06;
+  const seg = new THREE.Mesh(new THREE.CylinderGeometry(topR, botR, h / segments, 6, 1), brown);
+  seg.position.y = (i + 0.5) * (h / segments);
+  seg.rotation.z = Math.sin(i * 0.45) * 0.08;
+  trunk.add(seg);
+}
+
+// crown
+const crown = new THREE.Group();
+crown.position.y = h + 0.05;
+palm.add(crown);
+
+const leafCount = 7;
+for (let i = 0; i < leafCount; i++) {
+  const leaf = new THREE.Group();
+  const spine = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, 1.2), green);
+  spine.position.z = 0.6;
+  leaf.add(spine);
+
+  const tri = new THREE.BufferGeometry();
+  const verts = new Float32Array([0, 0, 0, -0.55, 0, 1.25, 0.55, 0, 1.25]);
+  tri.setAttribute('position', new THREE.BufferAttribute(verts, 3));
+  tri.computeVertexNormals();
+  const blade = new THREE.Mesh(tri, green);
+  blade.position.z = 0.05;
+  leaf.add(blade);
+
+  leaf.rotation.y = (i / leafCount) * Math.PI * 2;
+  leaf.rotation.x = -0.7 + Math.random() * 0.2;
+  crown.add(leaf);
+}
+
+// coconuts
+for (let i = 0; i < 3; i++) {
+  const nut = new THREE.Mesh(new THREE.SphereGeometry(0.09, 6, 6), nutMat);
+  const a = (i / 3) * Math.PI * 2;
+  nut.position.set(Math.cos(a) * 0.18, -0.08, Math.sin(a) * 0.18);
+  crown.add(nut);
+}
+
+// scale palm to 0.65 (smaller)
+palm.scale.set(0.65, 0.65, 0.65);
+
+// movement vars
+let posX = window.innerWidth / 2;
+let posY = window.innerHeight / 2;
+let velX = (Math.random() - 0.5) * 6;
+let velY = (Math.random() - 0.5) * 6;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // rotate palm
+  palm.rotation.y += 0.01;
+
+  // sway leaves
+  crown.rotation.x = Math.sin(Date.now() * 0.002) * 0.08;
+
+  // move across screen
+  posX += velX;
+  posY += velY;
+
+  if (posX < 100 || posX > window.innerWidth - 100) velX *= -1;
+  if (posY < 150 || posY > window.innerHeight - 150) velY *= -1;
+
+  palm.position.x = (posX - window.innerWidth / 2) / 120;
+  palm.position.y = (posY - window.innerHeight / 2) / 120;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
 </body>
 </html>
 
