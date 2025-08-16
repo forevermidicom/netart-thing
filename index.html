@@ -1,5 +1,36 @@
-I have updated the code to include your requests.
-html
+                   ___..-.---.---.--..___
+               _..-- `.`.   `.  `.  `.      --.._
+              /    ___________\   \   \______    \
+              |   |.-----------`.  `.  `.---.|   |
+              |`. |'  \`.        \   \   \  '|   |
+              |`. |'   \ `-._     `.  `.  `.'|   |
+             /|   |'    `-._o)\  /(o\   \   \|   |\
+           .' |   |'  `.     .'  '.  `.  `.  `.  | `.
+          /  .|   |'    `.  (_.==._)   \   \   \ |.  \         _.--.
+        .' .' |   |'      _.-======-._  `.  `.  `. `. `.    _.-_.-'\\
+       /  /   |   |'    .'   |_||_|   `.  \   \   \  \  \ .'_.'     ||
+      / .'    |`. |'   /_.-'========`-._\  `.  `-._`._`. \(.__      :|
+     ( '      |`. |'.______________________.'\      _.) ` )`-._`-._/ /
+      \\      |   '.------------------------.'`-._-'    //     `-._.'
+      _\\_    \    |          4 0 4 * * `.`.|    '     //
+     (_  _)    '-._|________________________|_.-'|   _//_
+     /  /      /`-._      |`-._     / /      /   |  (_  _)
+   .'   \     |`-._ `-._   `-._`-._/ /      /    |    \  \
+  /      `.   |    `-._ `-._   `-._|/      /     |    /   `.
+ /  / / /. )  |  `-._  `-._ `-._          /     /   .'      \
+| | | \ \|/   |  `-._`-._  `-._ `-._     /     /.  ( .\ \ \  \
+ \ \ \ \/     |  `-._`-._`-._  `-._ `-._/     /  \  \|/ / | | |
+  `.\_\/       `-._  `-._`-._`-._  `-._/|    /|   \   \/ / / /
+              /    `-._  `-._`-._`-._  ||   / |    \   \/_/.'
+            .'         `-._  `-._`-._  ||  /  |     \
+           /           / . `-._  `-._  || /   |      \
+          '\          / /      `-._    ||/'._.'       \
+           \`.      .' /           `-._|/              \
+            `.`-._.' .'               \               .'
+              `-.__\/                 `\            .' '
+                                       \`.       _.' .'
+                                        `.`-._.-' _.'
+                                          `-.__.-'
 <!DOCTYPE html>
 <html lang="en">
 
@@ -362,6 +393,20 @@ html
             font-size: 24px;
             color: #00ff00;
         }
+
+        .color-rotation-window {
+            animation: color-rotate 5s linear infinite;
+        }
+
+        @keyframes color-rotate {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -385,7 +430,7 @@ html
                 </a>
             </div>
         </div>
-        
+
         <div class="window" id="vitzla-window" style="left: 600px; top: 10px; width: 350px; height: 250px;">
             <div class="window-bar"><span>Vitzla</span><button class="close-btn">x</button></div>
             <div class="window-content">
@@ -437,14 +482,15 @@ html
             <div class="window-content"><img src="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beast.jpg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
         </div>
 
-        <div class="window" style="left:1230px; top:60px; width:350px; height:250px;">
+        <div class="window color-rotation-window" style="left:1230px; top:60px; width:350px; height:250px;">
             <div class="window-bar"><span>corrupted.txt</span><button class="close-btn">x</button></div>
             <div class="window-content ascii-content">
                 <pre>
-                                                                                                
-                                                                                                                                                         
                                                                                                     
-                                                                                                                                                                                     
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
                                                                                                     
                                                                                                     
                                         .^!?J555PPP55YJ7~:.                                         
@@ -477,17 +523,17 @@ html
                                             .!J5PP5Y?^                                              
                                                                                                     
                                                                                                     
-                                                       
-                                                                                                
-                                                                                                
-                                                                                                </pre>
+                                                                                                    
+                           
+                                                                                               
+                </pre>
             </div>
         </div>
         <div class="window" style="left:1230px; top:350px; width:350px; height:250px;">
             <div class="window-bar"><span>data.corrupted</span><button class="close-btn">x</button></div>
             <div class="window-content">
                 <marquee behavior="scroll" direction="left" scrollamount="10">
-                    F O R Z A  I N T E R
+                    F O R Z A I N T E R
                 </marquee>
             </div>
         </div>
@@ -548,6 +594,18 @@ html
         <div class="icon xp" style="top: 200px; left: 120px;" id="rotating-palm">
             <img src="http://googleusercontent.com/image_collection/image_retrieval/4369959275614098717_0" class="rotating-palm" alt="Low Poly Palm">
             <span>Low Poly Palm</span>
+        </div>
+        <div class="window" style="left: 10px; top: 120px; width: 250px; height: 150px;">
+            <div class="window-bar"><span>Creepy Image 1</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <img src="https://i.imgur.com/k2j4W8T.jpg" />
+            </div>
+        </div>
+        <div class="window" style="left: 10px; top: 300px; width: 250px; height: 150px;">
+            <div class="window-bar"><span>Creepy Image 2</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <img src="https://i.imgur.com/2U54FpB.jpg" />
+            </div>
         </div>
 
         <div class="taskbar">
@@ -710,7 +768,7 @@ html
                 easing: 'ease-in-out'
             });
         }
-        
+
         function startTimer() {
             timerInterval = setInterval(() => {
                 timeRemaining--;
@@ -760,7 +818,7 @@ html
                 showBSOD('A fatal exception has occurred at E0F:956F-F012.', 'All windows have been purged from the system temporarily.');
             }
         });
-        
+
         startButton.classList.remove('purple-start');
 
         function updateClock() {
@@ -778,4 +836,3 @@ html
 </body>
 
 </html>
-```
