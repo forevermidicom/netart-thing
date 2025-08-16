@@ -507,28 +507,7 @@ updateClock()
 const observer=new MutationObserver((mutations)=>{for(const m of mutations){for(const node of m.addedNodes){if(node.nodeType===1){if(node.classList&&node.classList.contains('window')){attachWindowInteractions(node)} if(node.classList&&node.classList.contains('icon')){moveIcon(node)}}}}})
 observer.observe(desktop,{childList:true,subtree:true})
 </script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
@@ -657,26 +636,116 @@ window.addEventListener('resize', () => {
 </script>
 
 
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+
+// container
+const container = document.createElement('div');
+container.style.position = 'fixed';
+container.style.left = '0';
+container.style.top = '0';
+container.style.width = '100%';
+container.style.height = '100%';
+container.style.pointerEvents = 'none';
+container.style.zIndex = '20';
+document.body.appendChild(container);
+
+// scene setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 1.5, 6);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.domElement.style.pointerEvents = 'none';
+container.appendChild(renderer.domElement);
+
+// lights
+scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 0.9));
+const dir = new THREE.DirectionalLight(0xffffff, 0.8);
+dir.position.set(3, 5, 2);
+scene.add(dir);
+
+// materials
+const bladeMat = new THREE.MeshPhongMaterial({ color: 0xc0c0c0, flatShading: true, shininess: 120 });
+const bloodMat = new THREE.MeshPhongMaterial({ color: 0x8b0000, flatShading: true, shininess: 10, transparent: true, opacity: 0.8 });
+const handleMat = new THREE.MeshPhongMaterial({ color: 0x222222, flatShading: true, shininess: 20 });
+
+// knife group
+const knife = new THREE.Group();
+scene.add(knife);
+
+// blade
+const blade = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.1, 3.5), bladeMat);
+blade.position.z = 1.5;
+knife.add(blade);
+
+// tip
+const tip = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.6, 4), bladeMat);
+tip.rotation.x = Math.PI / 2;
+tip.position.z = 3.3;
+knife.add(tip);
+
+// blood overlay on blade (flat low-poly box)
+const bloodStreak = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.11, 2), bloodMat);
+bloodStreak.position.z = 1.4;
+knife.add(bloodStreak);
+
+// dripping drop near tip
+const drop = new THREE.Mesh(new THREE.SphereGeometry(0.15, 6, 6), bloodMat);
+drop.position.set(0, -0.15, 3.5);
+knife.add(drop);
+
+// handle
+const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 1.2, 6), handleMat);
+handle.rotation.x = Math.PI / 2;
+handle.position.z = -0.6;
+knife.add(handle);
+
+// guard
+const guard = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.15, 0.2), handleMat);
+guard.position.z = 0;
+knife.add(guard);
+
+// scale knife (half size compared to last version)
+knife.scale.set(0.325, 0.325, 0.325);
+
+// movement vars
+let posX = window.innerWidth / 2;
+let posY = window.innerHeight / 2;
+let velX = (Math.random() - 0.5) * 5;
+let velY = (Math.random() - 0.5) * 5;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // rotate
+  knife.rotation.y += 0.03;
+  knife.rotation.x += 0.01;
+
+  // move across screen
+  posX += velX;
+  posY += velY;
+  if (posX < 100 || posX > window.innerWidth - 100) velX *= -1;
+  if (posY < 100 || posY > window.innerHeight - 100) velY *= -1;
+
+  knife.position.x = (posX - window.innerWidth / 2) / 100;
+  knife.position.y = (posY - window.innerHeight / 2) / 100;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+// resize handler
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
 </body>
 </html>
 
