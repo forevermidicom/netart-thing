@@ -1,420 +1,458 @@
+I have updated the code to include your requests.
+
+  * The background now cycles through pink, violet, and light blue.
+  * A new low-poly palm tree icon has been added that rotates.
+  * A new window featuring a picture of a Vitzla dog has been added.
+  * A new window that says "meat is murder" has been added.
+
+<!-- end list -->
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>netart thing</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <title>netart thing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: "MS Sans Serif", Arial, sans-serif;
-      background: linear-gradient(45deg, #00ffff, #00ff00, #00ffff, #00ff00);
-      background-size: 400% 400%;
-      animation: psychedelic 10s ease infinite;
-      overflow: hidden;
-      user-select: none;
-    }
+        body {
+            font-family: "MS Sans Serif", Arial, sans-serif;
+            background: linear-gradient(45deg, #ff69b4, #8a2be2, #add8e6, #ff69b4);
+            background-size: 400% 400%;
+            animation: psychedelic 10s ease infinite;
+            overflow: hidden;
+            user-select: none;
+        }
 
-    @keyframes psychedelic {
-      0% {
-        background-position: 0% 50%;
-      }
+        @keyframes psychedelic {
+            0% {
+                background-position: 0% 50%;
+            }
 
-      50% {
-        background-position: 100% 50%;
-      }
+            50% {
+                background-position: 100% 50%;
+            }
 
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-    .desktop {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      filter: none;
-    }
+        .desktop {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            filter: none;
+        }
 
-    #score-display {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      font-size: 24px;
-      color: #fff;
-      text-shadow: 2px 2px 2px #000;
-      z-index: 50;
-      font-weight: bold;
-    }
+        .window {
+            position: absolute;
+            border: 2px solid #000;
+            border-top: 2px solid #ccc;
+            border-left: 2px solid #ccc;
+            background: #c0c0c0;
+            box-shadow: 2px 2px 0 #000;
+            z-index: 10;
+        }
 
-    #game-message {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 48px;
-      color: #ff00ff;
-      text-shadow: 4px 4px 5px #000;
-      z-index: 100;
-      display: none;
-      font-weight: bold;
-    }
+        .window-bar {
+            background: #000080;
+            color: white;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: move;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .window {
-      position: absolute;
-      border: 2px solid #000;
-      border-top: 2px solid #ccc;
-      border-left: 2px solid #ccc;
-      background: #c0c0c0;
-      box-shadow: 2px 2px 0 #000;
-      z-index: 10;
-    }
+        .close-btn {
+            background: #800000;
+            color: white;
+            border: none;
+            width: 16px;
+            height: 16px;
+            font-size: 12px;
+            cursor: pointer;
+        }
 
-    .window-bar {
-      background: #000080;
-      color: white;
-      padding: 2px 6px;
-      font-size: 12px;
-      font-weight: bold;
-      cursor: move;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .close-btn:hover {
+            background: #ff0000;
+        }
 
-    .close-btn {
-      background: #800000;
-      color: white;
-      border: none;
-      width: 16px;
-      height: 16px;
-      font-size: 12px;
-      cursor: pointer;
-    }
+        .window-content {
+            border: 1px solid #000;
+            border-top: none;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .close-btn:hover {
-      background: #ff0000;
-    }
+        .window-content img,
+        .window-content iframe,
+        .window-content canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
 
-    .window-content {
-      border: 1px solid #000;
-      border-top: none;
-      background: #fff;
-      overflow: hidden;
-      position: relative;
-    }
+        .window-content p {
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
 
-    .window-content img,
-    .window-content iframe,
-    .window-content canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+        .window:hover,
+        .icon:hover {
+            animation: glitch 0.3s infinite;
+        }
 
-    .window:hover,
-    .icon:hover {
-      animation: glitch 0.3s infinite;
-    }
+        @keyframes glitch {
+            0% {
+                filter: url(#glitch);
+                transform: translate(0);
+            }
 
-    @keyframes glitch {
-      0% {
-        filter: url(#glitch);
-        transform: translate(0);
-      }
+            20% {
+                transform: translate(2px, -2px);
+            }
 
-      20% {
-        transform: translate(2px, -2px);
-      }
+            40% {
+                transform: translate(-2px, 2px);
+            }
 
-      40% {
-        transform: translate(-2px, 2px);
-      }
+            60% {
+                transform: translate(2px, 2px);
+            }
 
-      60% {
-        transform: translate(2px, 2px);
-      }
+            80% {
+                transform: translate(-2px, -2px);
+            }
 
-      80% {
-        transform: translate(-2px, -2px);
-      }
+            100% {
+                transform: translate(0);
+            }
+        }
 
-      100% {
-        transform: translate(0);
-      }
-    }
+        .cursor {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;
+            pointer-events: none;
+            animation: float 5s infinite ease-in-out;
+            opacity: 0.7;
+        }
 
-    .cursor {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;
-      pointer-events: none;
-      animation: float 5s infinite ease-in-out;
-      opacity: 0.7;
-    }
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
 
-    @keyframes float {
-      0% {
-        transform: translate(0, 0);
-      }
+            50% {
+                transform: translate(20px, 20px);
+            }
 
-      50% {
-        transform: translate(20px, 20px);
-      }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
 
-      100% {
-        transform: translate(0, 0);
-      }
-    }
+        .cursor:nth-child(2) {
+            animation-delay: 1s;
+        }
 
-    .cursor:nth-child(2) {
-      animation-delay: 1s;
-    }
+        .cursor:nth-child(3) {
+            animation-delay: 2s;
+        }
 
-    .cursor:nth-child(3) {
-      animation-delay: 2s;
-    }
+        .cursor:nth-child(4) {
+            animation-delay: 3s;
+        }
 
-    .cursor:nth-child(4) {
-      animation-delay: 3s;
-    }
+        .moving-pointer {
+            position: fixed;
+            width: 16px;
+            height: 16px;
+            background: url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;
+            pointer-events: none;
+            z-index: 100;
+            filter: drop-shadow(0 0 5px #00ffff);
+        }
 
-    .moving-pointer {
-      position: fixed;
-      width: 16px;
-      height: 16px;
-      background: url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;
-      pointer-events: none;
-      z-index: 100;
-      filter: drop-shadow(0 0 5px #00ffff);
-    }
+        .icon {
+            position: absolute;
+            padding: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 100px;
+            text-align: center;
+            animation: floatIcon 1.5s infinite ease-in-out;
+        }
 
-    .icon {
-      position: absolute;
-      padding: 5px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      width: 100px;
-      text-align: center;
-      animation: floatIcon 1.5s infinite ease-in-out;
-    }
+        .icon img {
+            display: block;
+            margin: 0 auto 4px;
+            width: 64px;
+            height: 64px;
+        }
 
-    .icon img {
-      display: block;
-      margin: 0 auto 4px;
-      width: 64px;
-      height: 64px;
-    }
+        .icon span {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+            text-shadow: 1px 1px 1px #ffffff;
+        }
 
-    .icon span {
-      display: block;
-      font-size: 14px;
-      font-weight: bold;
-      color: #000000;
-      text-shadow: 1px 1px 1px #ffffff;
-    }
+        @keyframes floatIcon {
+            0% {
+                transform: translate(0, 0);
+            }
 
-    @keyframes floatIcon {
-      0% {
-        transform: translate(0, 0);
-      }
+            50% {
+                transform: translate(30px, -30px);
+            }
 
-      50% {
-        transform: translate(30px, -30px);
-      }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
 
-      100% {
-        transform: translate(0, 0);
-      }
-    }
+        @keyframes rotatePalm {
+            from {
+                transform: rotate(0deg);
+            }
 
-    .taskbar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 28px;
-      background: #000080;
-      border-top: 2px solid #fff;
-      border-bottom: 2px solid #000;
-      display: flex;
-      align-items: center;
-      padding: 0 5px;
-      z-index: 20;
-    }
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-    .start-button {
-      background: #c0c0c0;
-      border: 2px solid;
-      border-color: #fff #000 #000 #fff;
-      padding: 2px 8px;
-      font-size: 12px;
-      cursor: pointer;
-      color: #000000;
-    }
+        .rotating-palm {
+            animation: rotatePalm 5s linear infinite;
+        }
 
-    .start-button:active {
-      border-color: #000 #fff #fff #000;
-    }
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 28px;
+            background: #000080;
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #000;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            z-index: 20;
+        }
 
-    .start-button.purple-start {
-      background-color: purple;
-      color: #fff;
-    }
+        .start-button {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #fff #000 #000 #fff;
+            padding: 2px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            color: #000000;
+        }
 
-    .clock {
-      margin-left: auto;
-      font-size: 12px;
-      padding: 2px 6px;
-      background: #c0c0c0;
-      border: 1px solid;
-      border-color: #000 #fff #fff #000;
-      color: #000000;
-    }
+        .start-button:active {
+            border-color: #000 #fff #fff #000;
+        }
 
-    .ascii-content {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 10px;
-      color: #000;
-      background: #fff;
-    }
+        .start-button.purple-start {
+            background-color: purple;
+            color: #fff;
+        }
 
-    .ascii-content pre {
-      margin: 0;
-      padding: 10px;
-      white-space: pre;
-    }
+        .clock {
+            margin-left: auto;
+            font-size: 12px;
+            padding: 2px 6px;
+            background: #c0c0c0;
+            border: 1px solid;
+            border-color: #000 #fff #fff #000;
+            color: #000000;
+        }
 
-    marquee {
-      font-family: 'MS Sans Serif', Arial, sans-serif;
-      font-size: 24px;
-      color: #ff00ff;
-      -webkit-text-stroke: 1px #000;
-      text-transform: uppercase;
-      padding-top: 25px;
-    }
+        .ascii-content {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 10px;
+            color: #000;
+            background: #fff;
+        }
 
-    .instruction-text {
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      padding-top: 20px;
-    }
+        .ascii-content pre {
+            margin: 0;
+            padding: 10px;
+            white-space: pre;
+        }
 
-    .blue-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #0000aa;
-      color: #ffffff;
-      z-index: 1000;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 18px;
-      line-height: 1.5;
-      filter: none;
-      text-align: center;
-    }
+        marquee {
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 24px;
+            color: #ff00ff;
+            -webkit-text-stroke: 1px #000;
+            text-transform: uppercase;
+            padding-top: 25px;
+        }
 
-    .black-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #000000;
-      color: #ffffff;
-      z-index: 1000;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 18px;
-      line-height: 1.5;
-      filter: none;
-      text-align: center;
-    }
+        .repo-link-window .window-content p {
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+        }
 
-    .black-screen pre {
-      font-size: 24px;
-      color: #00ff00;
-    }
-  </style>
+        .repo-link-window .window-content a {
+            color: #0000ff;
+            text-decoration: underline;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .blue-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0000aa;
+            color: #ffffff;
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            line-height: 1.5;
+            filter: none;
+            text-align: center;
+        }
+
+        .black-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            color: #ffffff;
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            line-height: 1.5;
+            filter: none;
+            text-align: center;
+        }
+
+        .black-screen pre {
+            font-size: 24px;
+            color: #00ff00;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="desktop">
-    <div id="score-display">Score: 0</div>
-    <div id="game-message"></div>
-    <div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px;">
-      <div class="window-bar"><span>Countdown</span><button class="close-btn">x</button></div>
-      <div class="window-content">
-        <div id="timer-display">5:00</div>
-      </div>
-    </div>
-    <div class="window" id="instructions-window" style="left: 280px; top: 10px; width: 250px; height: 100px;">
-      <div class="window-bar"><span>Instructions</span><button class="close-btn">x</button></div>
-      <div class="window-content">
-        <p class="instruction-text">CATCH THE ICONS</p>
-      </div>
-    </div>
-    <div class="window" style="left:60px; top:60px; width:350px; height:250px;">
-      <div class="window-bar"><span>forevermidi.com</span><button class="close-btn">x</button></div>
-      <div class="window-content"><canvas id="canvas1" width="350" height="250"></canvas></div>
-    </div>
-    <div class="window" style="left:450px; top:60px; width:350px; height:250px;">
-      <div class="window-bar"><span>怪奇フォトA</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/1769324/pexels-photo-1769324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:840px; top:60px; width:350px; height:250px;">
-      <div class="window-bar"><span>怪奇フォトB</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/1012111/pexels-photo-1012111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:60px; top:350px; width:350px; height:250px;">
-      <div class="window-bar"><span>トロピカル1</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/16839355/pexels-photo-16839355/free-photo-of-road-in-tropical-jungle.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:450px; top:350px; width:350px; height:250px;">
-      <div class="window-bar"><span>Windows Media Player</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://i.imgur.com/k4QhF2Q.png" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:840px; top:350px; width:350px; height:250px;">
-      <div class="window-bar"><span>無限猫ループ</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/1769325/pexels-photo-1769325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:60px; top:650px; width:350px; height:250px;">
-      <div class="window-bar"><span>Cursed Image 1</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/1124720/pexels-photo-1124720.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:450px; top:650px; width:350px; height:250px;">
-      <div class="window-bar"><span>Cursed Image 2</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/1446695/pexels-photo-1446695.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
-    <div class="window" style="left:840px; top:650px; width:350px; height:250px;">
-      <div class="window-bar"><span>Cursed Image 3</span><button class="close-btn">x</button></div>
-      <div class="window-content"><img src="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beast.jpg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
-    </div>
+    <div class="desktop">
+        <div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px;">
+            <div class="window-bar"><span>Countdown</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <div id="timer-display">5:00</div>
+            </div>
+        </div>
 
-    <div class="window" style="left:1230px; top:60px; width:350px; height:250px;">
-      <div class="window-bar"><span>corrupted.txt</span><button class="close-btn">x</button></div>
-      <div class="window-content ascii-content">
-        <pre>
-                                                                                                                                                        
+        <div class="window repo-link-window" id="repo-window" style="left: 280px; top: 10px; width: 300px; height: 120px;">
+            <div class="window-bar"><span>netart-thing</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <p>
+                    Feeling creative? This is an open-source project. Feel free to modify the code and contribute!
+                </p>
+                <a href="https://github.com/forevermidicom/netart-thing" target="_blank">
+                    https://github.com/forevermidicom/netart-thing
+                </a>
+            </div>
+        </div>
+        
+        <div class="window" id="vitzla-window" style="left: 600px; top: 10px; width: 350px; height: 250px;">
+            <div class="window-bar"><span>Vitzla</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/13832332785221831887_0" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" />
+            </div>
+        </div>
+
+        <div class="window" id="meat-window" style="left: 980px; top: 10px; width: 300px; height: 100px;">
+            <div class="window-bar"><span>Statement</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <p>meat is murder</p>
+            </div>
+        </div>
+
+        <div class="window" style="left:60px; top:60px; width:350px; height:250px;">
+            <div class="window-bar"><span>forevermidi.com</span><button class="close-btn">x</button></div>
+            <div class="window-content"><canvas id="canvas1" width="350" height="250"></canvas></div>
+        </div>
+        <div class="window" style="left:450px; top:60px; width:350px; height:250px;">
+            <div class="window-bar"><span>怪奇フォトA</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/1769324/pexels-photo-1769324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:840px; top:60px; width:350px; height:250px;">
+            <div class="window-bar"><span>怪奇フォトB</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/1012111/pexels-photo-1012111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:60px; top:350px; width:350px; height:250px;">
+            <div class="window-bar"><span>トロピカル1</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/16839355/pexels-photo-16839355/free-photo-of-road-in-tropical-jungle.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:450px; top:350px; width:350px; height:250px;">
+            <div class="window-bar"><span>Windows Media Player</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://i.imgur.com/k4QhF2Q.png" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:840px; top:350px; width:350px; height:250px;">
+            <div class="window-bar"><span>無限猫ループ</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/1769325/pexels-photo-1769325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:60px; top:650px; width:350px; height:250px;">
+            <div class="window-bar"><span>Cursed Image 1</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/1124720/pexels-photo-1124720.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:450px; top:650px; width:350px; height:250px;">
+            <div class="window-bar"><span>Cursed Image 2</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/1446695/pexels-photo-1446695.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+        <div class="window" style="left:840px; top:650px; width:350px; height:250px;">
+            <div class="window-bar"><span>Cursed Image 3</span><button class="close-btn">x</button></div>
+            <div class="window-content"><img src="https://images.pexels.com/photos/36717/amazing-animal-beautiful-beast.jpg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'" /></div>
+        </div>
+
+        <div class="window" style="left:1230px; top:60px; width:350px; height:250px;">
+            <div class="window-bar"><span>corrupted.txt</span><button class="close-btn">x</button></div>
+            <div class="window-content ascii-content">
+                <pre>
+                                                                                                
+                                                                                                                                                         
+                                                                                                    
+                                                                                                                                                                                     
                                                                                                     
                                                                                                     
                                         .^!?J555PPP55YJ7~:.                                         
@@ -447,349 +485,305 @@
                                             .!J5PP5Y?^                                              
                                                                                                     
                                                                                                     
-                                                                                                    
-                                                                                                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-        </pre>
-      </div>
-    </div>
-    <div class="window" style="left:1230px; top:350px; width:350px; height:250px;">
-      <div class="window-bar"><span>data.corrupted</span><button class="close-btn">x</button></div>
-      <div class="window-content">
-        <marquee behavior="scroll" direction="left" scrollamount="10">
-          D A T A C O R R U P T I O N I S I N E V I T A B L E . . . D A T A C O R R U P T I O N I S I N E V I T A B L E
-        </marquee>
-      </div>
-    </div>
-    <div class="window" style="left:1230px; top:650px; width:350px; height:250px;">
-      <div class="window-bar"><span>Vaporwave.gif</span><button class="close-btn">x</button></div>
-      <div class="window-content">
-        <img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="Vaporwave GIF">
-      </div>
+                                                       
+                                                                                                
+                                                                                                
+                                                                                                </pre>
+            </div>
+        </div>
+        <div class="window" style="left:1230px; top:350px; width:350px; height:250px;">
+            <div class="window-bar"><span>data.corrupted</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <marquee behavior="scroll" direction="left" scrollamount="10">
+                    F O R Z A  I N T E R
+                </marquee>
+            </div>
+        </div>
+        <div class="window" style="left:1230px; top:650px; width:350px; height:250px;">
+            <div class="window-bar"><span>Vaporwave.gif</span><button class="close-btn">x</button></div>
+            <div class="window-content">
+                <img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="Vaporwave GIF">
+            </div>
+        </div>
+
+        <div class="cursor"></div>
+        <div class="cursor"></div>
+        <div class="cursor"></div>
+        <div class="cursor"></div>
+
+        <div id="moving-pointer" class="moving-pointer"></div>
+
+        <div class="icon xp" style="top: 100px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/my_computer.png" alt="My Computer">
+            <span>My Computer</span>
+        </div>
+        <div class="icon xp" style="top: 200px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/control_panel.png" alt="Control Panel">
+            <span>Control Panel</span>
+        </div>
+        <div class="icon xp" style="top: 300px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/msn_messenger.png" alt="MSN Messenger">
+            <span>MSN</span>
+        </div>
+        <div class="icon xp" style="top: 400px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/msn_explorer.png" alt="MSN Explorer">
+            <span>MSN Explorer</span>
+        </div>
+        <div class="icon xp" style="top: 500px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/internet_explorer.png" alt="IE">
+            <span>Internet Explorer</span>
+        </div>
+        <div class="icon xp" style="top: 600px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/recycle_bin.png" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+        <div class="icon xp" style="top: 700px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/user_account.png" alt="User Account">
+            <span>User Account</span>
+        </div>
+        <div class="icon xp" style="top: 800px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/media_player.png" alt="Media Player">
+            <span>Media Player</span>
+        </div>
+        <div class="icon xp" style="top: 900px; left: 10px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/printer.png" alt="Printer">
+            <span>Printer</span>
+        </div>
+        <div class="icon xp" style="top: 100px; left: 120px;">
+            <img src="https://winxpicons.alexmeub.com/icons/png/network_connections.png" alt="Network">
+            <span>Network</span>
+        </div>
+        <div class="icon xp" style="top: 200px; left: 120px;" id="rotating-palm">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/4369959275614098717_0" class="rotating-palm" alt="Low Poly Palm">
+            <span>Low Poly Palm</span>
+        </div>
+
+        <div class="taskbar">
+            <button class="start-button">Start</button>
+            <div class="clock" id="clock"></div>
+        </div>
     </div>
 
-    <div class="cursor"></div>
-    <div class="cursor"></div>
-    <div class="cursor"></div>
-    <div class="cursor"></div>
+    <svg>
+        <filter id="glitch">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" />
+        </filter>
+    </svg>
 
-    <div id="moving-pointer" class="moving-pointer"></div>
-
-    <div class="icon xp" style="top: 100px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/my_computer.png" alt="My Computer">
-      <span>My Computer</span>
-    </div>
-    <div class="icon xp" style="top: 200px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/control_panel.png" alt="Control Panel">
-      <span>Control Panel</span>
-    </div>
-    <div class="icon xp" style="top: 300px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/msn_messenger.png" alt="MSN Messenger">
-      <span>MSN</span>
-    </div>
-    <div class="icon xp" style="top: 400px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/msn_explorer.png" alt="MSN Explorer">
-      <span>MSN Explorer</span>
-    </div>
-    <div class="icon xp" style="top: 500px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/internet_explorer.png" alt="IE">
-      <span>Internet Explorer</span>
-    </div>
-    <div class="icon xp" style="top: 600px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/recycle_bin.png" alt="Recycle Bin">
-      <span>Recycle Bin</span>
-    </div>
-    <div class="icon xp" style="top: 700px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/user_account.png" alt="User Account">
-      <span>User Account</span>
-    </div>
-    <div class="icon xp" style="top: 800px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/media_player.png" alt="Media Player">
-      <span>Media Player</span>
-    </div>
-    <div class="icon xp" style="top: 900px; left: 10px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/printer.png" alt="Printer">
-      <span>Printer</span>
-    </div>
-    <div class="icon xp" style="top: 100px; left: 120px;">
-      <img src="https://winxpicons.alexmeub.com/icons/png/network_connections.png" alt="Network">
-      <span>Network</span>
+    <div id="blue-screen" class="blue-screen">
+        <h1>A problem has been detected and Windows has been shut down to prevent damage to your computer.</h1>
+        <p>GLITCH.exe has caused an unexpected error.</p>
+        <p>If this is the first time you've seen this Stop error screen, restart your computer. If this screen appears again, follow these steps:</p>
+        <p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.</p>
+        <p>Technical information:</p>
+        <p>*** STOP: 0x000000FE (0x08D79540, 0x8C1B79D0, 0x00000001, 0x00000000)</p>
+        <p>Press CTRL+ALT+DEL to restart.</p>
     </div>
 
-    <div class="taskbar">
-      <button class="start-button">Start</button>
-      <div class="clock" id="clock"></div>
-    </div>
-  </div>
+    <script>
+        const canvas = document.getElementById('canvas1');
+        const ctx = canvas.getContext('2d');
+        const desktop = document.querySelector('.desktop');
+        const startButton = document.querySelector('.start-button');
+        const windows = document.querySelectorAll('.window');
+        const icons = document.querySelectorAll('.icon');
 
-  <svg>
-    <filter id="glitch">
-      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" />
-    </filter>
-  </svg>
+        const timerDisplay = document.getElementById('timer-display');
+        const blueScreen = document.getElementById('blue-screen');
+        let timeRemaining = 300;
+        let timerInterval;
 
-  <div id="blue-screen" class="blue-screen">
-    <h1>A problem has been detected and Windows has been shut down to prevent damage to your computer.</h1>
-    <p>GLITCH.exe has caused an unexpected error.</p>
-    <p>If this is the first time you've seen this Stop error screen, restart your computer. If this screen appears again, follow these steps:</p>
-    <p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.</p>
-    <p>Technical information:</p>
-    <p>*** STOP: 0x000000FE (0x08D79540, 0x8C1B79D0, 0x00000001, 0x00000000)</p>
-    <p>Press CTRL+ALT+DEL to restart.</p>
-  </div>
-
-  <div id="black-screen" class="black-screen">
-    <pre>
-      G A M E O V E R
-      _.-'          '._
-    .'                '.
-   /    O              \
-  |      .            . |
-  |        .          . |
-   \      '._      _.'  /
-    '.        '---'    .'
-      '-._          _.-'
-          '-------'
-    </pre>
-  </div>
-
-  <script>
-    const canvas = document.getElementById('canvas1');
-    const ctx = canvas.getContext('2d');
-    const desktop = document.querySelector('.desktop');
-    const startButton = document.querySelector('.start-button');
-    const windows = document.querySelectorAll('.window');
-    const icons = document.querySelectorAll('.icon');
-
-    let score = 0;
-    const scoreDisplay = document.getElementById('score-display');
-    const gameMessage = document.getElementById('game-message');
-    const timerDisplay = document.getElementById('timer-display');
-    const blueScreen = document.getElementById('blue-screen');
-    const blackScreen = document.getElementById('black-screen');
-    const totalIcons = icons.length;
-    let timeRemaining = 300;
-    let timerInterval;
-
-    function drawSwirlingPattern() {
-      const width = canvas.width;
-      const height = canvas.height;
-      ctx.fillStyle = 'rgba(0, 255, 255, 0.1)';
-      ctx.fillRect(0, 0, width, height);
-      const centerX = width / 2;
-      const centerY = height / 2;
-      const time = Date.now() * 0.0005;
-      for (let i = 0; i < 10; i++) {
-        const angle = (time + i) * 0.2;
-        const radius = 50 + Math.sin(time + i) * 30;
-        const x = centerX + Math.cos(angle) * radius;
-        const y = centerY + Math.sin(angle) * radius;
-        const size = 20 + Math.cos(time + i) * 10;
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 255, ${Math.random() * 255}, 0.5)`;
-        ctx.fill();
-      }
-      requestAnimationFrame(drawSwirlingPattern);
-    }
-
-    drawSwirlingPattern();
-
-    function moveWindow(win) {
-      let posX = parseInt(win.style.left) || 0;
-      let posY = parseInt(win.style.top) || 0;
-      let velX = (Math.random() - 0.5) * 2;
-      let velY = (Math.random() - 0.5) * 2;
-      let frameCount = 0;
-
-      function update() {
-        posX += velX;
-        posY += velY;
-        if (posX < 0 || posX > window.innerWidth - win.offsetWidth) velX = -velX;
-        if (posY < 0 || posY > window.innerHeight - win.offsetHeight) velY = -velY;
-        win.style.left = posX + 'px';
-        win.style.top = posY + 'px';
-        frameCount++;
-        if (frameCount % 30 === 0) {
-          createWindowCopy(win);
+        function drawSwirlingPattern() {
+            const width = canvas.width;
+            const height = canvas.height;
+            ctx.fillStyle = 'rgba(0, 255, 255, 0.1)';
+            ctx.fillRect(0, 0, width, height);
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const time = Date.now() * 0.0005;
+            for (let i = 0; i < 10; i++) {
+                const angle = (time + i) * 0.2;
+                const radius = 50 + Math.sin(time + i) * 30;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+                const size = 20 + Math.cos(time + i) * 10;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 255, ${Math.random() * 255}, 0.5)`;
+                ctx.fill();
+            }
+            requestAnimationFrame(drawSwirlingPattern);
         }
-        requestAnimationFrame(update);
-      }
-      update();
-    }
 
-    windows.forEach(win => {
-      win.addEventListener('mousedown', e => {
-        if (e.target.closest('.window-bar')) {
-          let offsetX = e.clientX - parseInt(win.style.left);
-          let offsetY = e.clientY - parseInt(win.style.top);
+        drawSwirlingPattern();
 
-          function drag(e) {
-            win.style.left = (e.clientX - offsetX) + 'px';
-            win.style.top = (e.clientY - offsetY) + 'px';
-            createWindowCopy(win);
-          }
-          document.addEventListener('mousemove', drag);
-          document.addEventListener('mouseup', () => document.removeEventListener('mousemove', drag), {
-            once: true
-          });
+        function moveWindow(win) {
+            let posX = parseInt(win.style.left) || 0;
+            let posY = parseInt(win.style.top) || 0;
+            let velX = (Math.random() - 0.5) * 2;
+            let velY = (Math.random() - 0.5) * 2;
+            let frameCount = 0;
+
+            function update() {
+                posX += velX;
+                posY += velY;
+                if (posX < 0 || posX > window.innerWidth - win.offsetWidth) velX = -velX;
+                if (posY < 0 || posY > window.innerHeight - win.offsetHeight) velY = -velY;
+                win.style.left = posX + 'px';
+                win.style.top = posY + 'px';
+                frameCount++;
+                if (frameCount % 30 === 0) {
+                    createWindowCopy(win);
+                }
+                requestAnimationFrame(update);
+            }
+            update();
         }
-      });
-      win.querySelector('.close-btn').addEventListener('click', () => {
-        win.style.display = 'none';
-      });
-    });
 
-    function createWindowCopy(win) {
-      const copy = win.cloneNode(true);
-      copy.style.position = 'absolute';
-      copy.style.left = (parseInt(win.style.left) + Math.random() * 10 - 5) + 'px';
-      copy.style.top = (parseInt(win.style.top) + Math.random() * 10 - 5) + 'px';
-      copy.style.zIndex = -1;
-      copy.style.opacity = '0.9';
-      desktop.appendChild(copy);
-      setTimeout(() => {
-        copy.style.transition = 'opacity 30s ease-out';
-        copy.style.opacity = '0';
-        setTimeout(() => copy.remove(), 30000);
-      }, 10);
-    }
+        windows.forEach(win => {
+            win.addEventListener('mousedown', e => {
+                if (e.target.closest('.window-bar')) {
+                    let offsetX = e.clientX - parseInt(win.style.left);
+                    let offsetY = e.clientY - parseInt(win.style.top);
 
-    windows.forEach(moveWindow);
-
-    const cursors = document.querySelectorAll('.cursor');
-    cursors.forEach(cursor => {
-      cursor.style.left = `${Math.random() * window.innerWidth}px`;
-      cursor.style.top = `${Math.random() * window.innerHeight}px`;
-    });
-
-    cursors.forEach(cursor => {
-      function drift() {
-        const dx = (Math.random() - 0.5) * 100;
-        const dy = (Math.random() - 0.5) * 100;
-        cursor.animate([{
-          transform: 'translate(0,0)'
-        }, {
-          transform: `translate(${dx}px,${dy}px)`
-        }], {
-          duration: 5000 + Math.random() * 5000,
-          direction: 'alternate',
-          iterations: Infinity,
-          easing: 'ease-in-out'
+                    function drag(e) {
+                        win.style.left = (e.clientX - offsetX) + 'px';
+                        win.style.top = (e.clientY - offsetY) + 'px';
+                        createWindowCopy(win);
+                    }
+                    document.addEventListener('mousemove', drag);
+                    document.addEventListener('mouseup', () => document.removeEventListener('mousemove', drag), {
+                        once: true
+                    });
+                }
+            });
+            win.querySelector('.close-btn').addEventListener('click', () => {
+                win.style.display = 'none';
+            });
         });
-      }
-      drift();
-    });
 
-    function moveIcon(icon) {
-      const dx = (Math.random() - 0.5) * 200;
-      const dy = (Math.random() - 0.5) * 200;
-      icon.animate([{
-        transform: `translate(${Math.random() * (window.innerWidth - 100)}px, ${Math.random() * (window.innerHeight - 100)}px)`
-      }, {
-        transform: `translate(${dx + Math.random() * (window.innerWidth - 100)}px, ${dy + Math.random() * (window.innerHeight - 100)}px)`
-      }], {
-        duration: 2000 + Math.random() * 2000,
-        direction: 'alternate',
-        iterations: Infinity,
-        easing: 'ease-in-out'
-      });
-    }
-
-    function checkWinCondition() {
-      if (score === totalIcons) {
-        clearInterval(timerInterval);
-        showBSOD('CONGRATULATIONS!', 'You have successfully captured all the glitches!');
-      }
-    }
-
-    function setupIcons() {
-      icons.forEach(icon => {
-        moveIcon(icon);
-        icon.addEventListener('click', () => {
-          score++;
-          scoreDisplay.textContent = 'Score: ' + score;
-          icon.remove();
-          if (score === 3) {
-            startButton.classList.add('purple-start');
-          }
-          checkWinCondition();
-        });
-      });
-    }
-
-    function startTimer() {
-      timerInterval = setInterval(() => {
-        timeRemaining--;
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = timeRemaining % 60;
-        timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-        if (timeRemaining <= 0) {
-          clearInterval(timerInterval);
-          showBlackScreen();
+        function createWindowCopy(win) {
+            const copy = win.cloneNode(true);
+            copy.style.position = 'absolute';
+            copy.style.left = (parseInt(win.style.left) + Math.random() * 10 - 5) + 'px';
+            copy.style.top = (parseInt(win.style.top) + Math.random() * 10 - 5) + 'px';
+            copy.style.zIndex = -1;
+            copy.style.opacity = '0.9';
+            desktop.appendChild(copy);
+            setTimeout(() => {
+                copy.style.transition = 'opacity 30s ease-out';
+                copy.style.opacity = '0';
+                setTimeout(() => copy.remove(), 30000);
+            }, 10);
         }
-      }, 1000);
-    }
 
-    function showBSOD(title, message) {
-      blueScreen.style.display = 'flex';
-      const h1 = blueScreen.querySelector('h1');
-      const p = blueScreen.querySelectorAll('p')[0];
-      h1.textContent = title;
-      p.textContent = message;
-      windows.forEach(win => win.style.display = 'none');
-      setTimeout(() => {
-        blueScreen.style.display = 'none';
-        windows.forEach(win => win.style.display = '');
-      }, 10000);
-    }
+        windows.forEach(moveWindow);
 
-    function showBlackScreen() {
-      blackScreen.style.display = 'flex';
-      // Disable further game interaction
-      clearInterval(timerInterval);
-      desktop.style.pointerEvents = 'none';
-    }
+        const cursors = document.querySelectorAll('.cursor');
+        cursors.forEach(cursor => {
+            cursor.style.left = `${Math.random() * window.innerWidth}px`;
+            cursor.style.top = `${Math.random() * window.innerHeight}px`;
+        });
 
-    document.addEventListener('mousemove', (e) => {
-      const pointer = document.getElementById('moving-pointer');
-      if (pointer) {
-        pointer.style.left = e.pageX + 'px';
-        pointer.style.top = e.pageY + 'px';
-      }
-    });
+        cursors.forEach(cursor => {
+            function drift() {
+                const dx = (Math.random() - 0.5) * 100;
+                const dy = (Math.random() - 0.5) * 100;
+                cursor.animate([{
+                    transform: 'translate(0,0)'
+                }, {
+                    transform: `translate(${dx}px,${dy}px)`
+                }], {
+                    duration: 5000 + Math.random() * 5000,
+                    direction: 'alternate',
+                    iterations: Infinity,
+                    easing: 'ease-in-out'
+                });
+            }
+            drift();
+        });
 
-    document.body.addEventListener('dblclick', () => {
-      const newText = document.createElement('h1');
-      newText.textContent = "SYSTEM CORRUPTION";
-      newText.style.position = 'fixed';
-      newText.style.top = '50%';
-      newText.style.left = '50%';
-      newText.style.transform = 'translate(-50%, -50%)';
-      newText.style.color = '#ff0000';
-      newText.style.textShadow = '2px 2px 5px #00ffff';
-      newText.style.zIndex = '1000';
-      newText.style.animation = 'glitch 0.3s infinite';
-      document.body.appendChild(newText);
-    });
+        function moveIcon(icon) {
+            const dx = (Math.random() - 0.5) * 200;
+            const dy = (Math.random() - 0.5) * 200;
+            icon.animate([{
+                transform: `translate(${Math.random() * (window.innerWidth - 100)}px, ${Math.random() * (window.innerHeight - 100)}px)`
+            }, {
+                transform: `translate(${dx + Math.random() * (window.innerWidth - 100)}px, ${dy + Math.random() * (window.innerHeight - 100)}px)`
+            }], {
+                duration: 2000 + Math.random() * 2000,
+                direction: 'alternate',
+                iterations: Infinity,
+                easing: 'ease-in-out'
+            });
+        }
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
 
-    startButton.addEventListener('click', () => {
-      if (startButton.classList.contains('purple-start')) {
-        showBSOD('A fatal exception has occurred at E0F:956F-F012.', 'All windows have been purged from the system temporarily.');
-      }
-    });
+        function showBSOD(title, message) {
+            blueScreen.style.display = 'flex';
+            const h1 = blueScreen.querySelector('h1');
+            const p = blueScreen.querySelectorAll('p')[0];
+            h1.textContent = title;
+            p.textContent = message;
+            windows.forEach(win => win.style.display = 'none');
+            setTimeout(() => {
+                blueScreen.style.display = 'none';
+                windows.forEach(win => win.style.display = '');
+            }, 10000);
+        }
 
-    function updateClock() {
-      const clock = document.getElementById('clock');
-      const now = new Date();
-      clock.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
+        document.addEventListener('mousemove', (e) => {
+            const pointer = document.getElementById('moving-pointer');
+            if (pointer) {
+                pointer.style.left = e.pageX + 'px';
+                pointer.style.top = e.pageY + 'px';
+            }
+        });
 
-    setupIcons();
-    startTimer();
-  </script>
+        document.body.addEventListener('dblclick', () => {
+            const newText = document.createElement('h1');
+            newText.textContent = "SYSTEM CORRUPTION";
+            newText.style.position = 'fixed';
+            newText.style.top = '50%';
+            newText.style.left = '50%';
+            newText.style.transform = 'translate(-50%, -50%)';
+            newText.style.color = '#ff0000';
+            newText.style.textShadow = '2px 2px 5px #00ffff';
+            newText.style.zIndex = '1000';
+            newText.style.animation = 'glitch 0.3s infinite';
+            document.body.appendChild(newText);
+        });
+
+        startButton.addEventListener('click', () => {
+            if (startButton.classList.contains('purple-start')) {
+                showBSOD('A fatal exception has occurred at E0F:956F-F012.', 'All windows have been purged from the system temporarily.');
+            }
+        });
+        
+        startButton.classList.remove('purple-start');
+
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const now = new Date();
+            clock.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        icons.forEach(moveIcon);
+
+        startTimer();
+    </script>
 </body>
 
 </html>
+```
