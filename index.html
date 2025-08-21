@@ -14,8 +14,6 @@
       \\      |   '.------------------------.'`-._-'    //     `-._.'
       _\\_    \    |          4 0 4 * * `.`.|    '     //
      (_  _)    '-._|________________________|_.-'|   _//_
-     /  /      /`-._      |`-._     / /      /   |  (_  _)
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +21,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>netart thing</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);background-size:400% 400%;animation:psychedelic 10s ease infinite;overflow:hidden;user-select:none}
 @keyframes psychedelic{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
@@ -66,13 +65,52 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .forevermidi-link{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.85);padding:6px 10px;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.2)}
 .forevermidi-link a{font-family:'MS Sans Serif',Arial,sans-serif;font-weight:bold;color:#0000ff;text-decoration:underline}
 .surprise-style{background:linear-gradient(135deg,#fff0f5,#e6f7ff);color:#000;text-align:center;padding:10px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.joke-window .window-content {
+    background-color: #000;
+    color: #ff00ff;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 24px;
+    padding: 20px;
+}
+.joke-window .window-bar {
+    background-color: #ff00ff;
+    color: #fff;
+}
+@keyframes blink-animation {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.blinking {
+  animation: blink-animation 0.5s step-start 6;
+}
+.lambrusco-effect {
+  animation: drunk 0.5s infinite;
+}
+@keyframes drunk {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-5px, 5px) rotate(2deg); }
+  50% { transform: translate(5px, -5px) rotate(-2deg); }
+  75% { transform: translate(-5px, -5px) rotate(2deg); }
+  100% { transform: translate(5px, 5px) rotate(-2deg); }
+}
+.lambrusco-background {
+    background-color: #8b0000;
+    animation: none;
+}
+#taskbar-message {
+    margin-left: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 1px 1px 1px #000;
+}
 </style>
 </head>
 <body>
 <div class="desktop">
 <div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px;">
 <div class="window-bar"><span>Countdown</span><button class="close-btn">x</button></div>
-<div class="window-content"><div id="timer-display">5:00</div></div>
+<div class="window-content"><div id="timer-display">2:00</div></div>
 </div>
 <div class="window repo-link-window" id="repo-window" style="left: 280px; top: 10px; width: 300px; height: 120px;">
 <div class="window-bar"><span>netart-thing</span><button class="close-btn">x</button></div>
@@ -82,8 +120,12 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>tipe che se la tirano e non sono un granché</span>
+</div>
+<div class="icon xp" id="lambrusco-icon" style="top: 600px; left: 120px;">
+<img src="https://icons.iconarchive.com/icons/franksouza183/fs/256/Apps-wine-icon.png" alt="Lambrusco Mantovano" style="width:64px; height:64px;">
+<span>Lambrusco Mantovano.exe</span>
 </div>
 <div class="window" id="vitzla-window" style="left: 600px; top: 10px; width: 350px; height: 250px;">
 <div class="window-bar"><span>IDK</span><button class="close-btn">x</button></div>
@@ -187,67 +229,67 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="cursor"></div>
 <div id="moving-pointer" class="moving-pointer"></div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>tipe che se la tirano e non sono un granché</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Communism</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>rubentus</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>animal abuse</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>ac milan</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Marx</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Putin</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>full monty</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Justin Bieber</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>maximalism</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>marxism</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>U2</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Bob Dylan</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="64px; height:64px;">
 <span>musicals</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>uk accent</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Panariello</span>
 </div>
 <div class="window" style="left: 10px; top: 300px; width: 250px; height: 150px;">
@@ -256,6 +298,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 <div class="taskbar">
 <button class="start-button">Start</button>
+<div id="taskbar-message"></div>
 <div class="clock" id="clock"></div>
 </div>
 </div>
@@ -282,10 +325,12 @@ const desktop=document.querySelector('.desktop')
 const startButton=document.querySelector('.start-button')
 const windowsNodeList=document.querySelectorAll('.window')
 const icons=document.querySelectorAll('.icon')
-const timerDisplay=document.getElementById('timer-display')
+const timerDisplay=document.getElementById('timer-window')
 const blueScreen=document.getElementById('blue-screen')
 const cursedImage3=document.getElementById('cursed-3')
-let timeRemaining=300
+const lambruscoIcon = document.getElementById('lambrusco-icon');
+const taskbarMessage = document.getElementById('taskbar-message');
+let timeRemaining=120
 let timerInterval
 
 function drawSwirlingPattern(){
@@ -330,6 +375,10 @@ let velX=(Math.random()-0.5)*2
 let velY=(Math.random()-0.5)*2
 let frameCount=0
 function update(){
+if (win.classList.contains('blinking')) {
+    requestAnimationFrame(update);
+    return;
+}
 posX+=velX
 posY+=velY
 if(posX<0||posX>window.innerWidth-win.offsetWidth) velX=-velX
@@ -369,27 +418,32 @@ const insideJokes = [
 
 function createJokeWindow(){
     const jokeWin = document.createElement('div');
-    jokeWin.className = 'window';
+    jokeWin.className = 'window joke-window blinking';
     const message = insideJokes[Math.floor(Math.random() * insideJokes.length)];
-    const w = 250;
+    const w = 350;
     const h = 100;
     jokeWin.style.width = w + 'px';
     jokeWin.style.height = h + 'px';
-    jokeWin.style.left = (Math.random() * (window.innerWidth - w)) + 'px';
-    jokeWin.style.top = (Math.random() * (window.innerHeight - h)) + 'px';
+    jokeWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
+    jokeWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     jokeWin.style.zIndex = 2000;
     jokeWin.innerHTML = `<div class="window-bar"><span>(secret message)</span><button class="close-btn">x</button></div><div class="window-content"><p>${message}</p></div>`;
     desktop.appendChild(jokeWin);
     attachWindowInteractions(jokeWin);
-    moveWindow(jokeWin);
+    setTimeout(() => {
+        jokeWin.classList.remove('blinking');
+        moveWindow(jokeWin);
+    }, 3000);
 }
 
 function attachWindowInteractions(win) {
     let isDragging = false;
     let offsetX, offsetY;
+    let isClick = true;
 
     const startDrag = (e) => {
         isDragging = true;
+        isClick = true;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         offsetX = clientX - (parseInt(win.style.left) || win.offsetLeft);
@@ -399,6 +453,7 @@ function attachWindowInteractions(win) {
 
     const drag = (e) => {
         if (!isDragging) return;
+        isClick = false;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         win.style.left = (clientX - offsetX) + 'px';
@@ -417,10 +472,33 @@ function attachWindowInteractions(win) {
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('touchend', endDrag);
 
+    // Use a click/tap check to create a new joke window
     win.addEventListener('click', (e) => {
-        if (!isDragging) {
-            createJokeWindow();
+      // Check if the click originated from the close button
+      if (e.target.classList.contains('close-btn')) {
+        return;
+      }
+      // Delay to ensure it's not a drag
+      setTimeout(() => {
+        if (isClick) {
+          createJokeWindow();
         }
+        isClick = true; // reset for next interaction
+      }, 50);
+    });
+    
+    // For mobile, handle the touchend event to check for a tap
+    win.addEventListener('touchend', (e) => {
+      // Check if the touch ended on the close button
+      if (e.target.classList.contains('close-btn')) {
+        return;
+      }
+      setTimeout(() => {
+        if (isClick) {
+          createJokeWindow();
+        }
+        isClick = true; // reset
+      }, 50);
     });
 
     const closeBtn = win.querySelector('.close-btn');
@@ -446,8 +524,32 @@ icon.animate([{transform:`translate(${Math.random()*(window.innerWidth-100)}px, 
 }
 icons.forEach(moveIcon)
 
-function startTimer(){timerInterval=setInterval(()=>{timeRemaining--;const minutes=Math.floor(timeRemaining/60);const seconds=timeRemaining%60; if(timerDisplay) timerDisplay.textContent=`${minutes}:${seconds.toString().padStart(2,'0')}`},1000)}
+function startTimer(){
+    timerInterval=setInterval(()=>{
+        timeRemaining--;
+        const minutes=Math.floor(timeRemaining/60);
+        const seconds=timeRemaining%60;
+        if(timerDisplay) timerDisplay.querySelector('#timer-display').textContent=`${minutes}:${seconds.toString().padStart(2,'0')}`;
+        if(timeRemaining<=0){
+            clearInterval(timerInterval);
+            triggerEndSequence();
+        }
+    },1000)
+}
 startTimer()
+
+function triggerEndSequence() {
+    // All windows and icons fall off screen
+    const allItems = document.querySelectorAll('.window, .icon');
+    allItems.forEach(item => {
+        item.style.transition = 'transform 1s ease-in';
+        item.style.transform = 'translateY(200vh)';
+    });
+    // Then show the blue screen
+    setTimeout(() => {
+        showBSOD('FATAL_ERROR_0xDEADBEEF', 'The system has run out of time. Your session has been terminated.');
+    }, 1500);
+}
 
 function showBSOD(title,message){
 blueScreen.style.display='flex'
@@ -456,7 +558,10 @@ const p=blueScreen.querySelectorAll('p')[0]
 if(h1) h1.textContent=title
 if(p) p.textContent=message
 windows.forEach(win=>win.style.display='none')
-setTimeout(()=>{blueScreen.style.display='none';windows.forEach(win=>win.style.display='')},2000)
+setTimeout(()=>{
+    blueScreen.style.display='none';
+    location.reload();
+},3000)
 }
 
 document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
@@ -485,6 +590,22 @@ if(cursedImage3){
         showBSOD('FATAL_ERROR_0xDEADBEEF', 'The image has become self-aware. Your session has been terminated.');
     });
 }
+lambruscoIcon.addEventListener('click', () => {
+    document.body.classList.add('lambrusco-background');
+    const drunkItems = document.querySelectorAll('.window, .icon');
+    drunkItems.forEach(item => {
+        item.classList.add('lambrusco-effect');
+    });
+    taskbarMessage.textContent = "WELCOME TO LAMBRUSCO MANTOVANO";
+
+    setTimeout(() => {
+        document.body.classList.remove('lambrusco-background');
+        drunkItems.forEach(item => {
+            item.classList.remove('lambrusco-effect');
+        });
+        taskbarMessage.textContent = "";
+    }, 5000);
+});
 
 function updateClock(){const clock=document.getElementById('clock');const now=new Date(); if(clock) clock.textContent=`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`}
 setInterval(updateClock,1000)
@@ -594,7 +715,6 @@ camera.aspect = window.innerWidth / window.innerHeight;
 camera.updateProjectionMatrix();
 renderer.setSize(window.innerWidth, window.innerHeight);
 });
-});
 </script>
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
@@ -661,6 +781,11 @@ knife.rotation.y = Math.sin(Date.now() * 0.003) * 1.5;
 knife.rotation.x = Math.cos(Date.now() * 0.003) * 1.5;
 renderer.render(scene, camera);
 }
+animateKnife();
+</script>
+</body>
+</html>
+```
 animateKnife();
 </script>
 </body>
