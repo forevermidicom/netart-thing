@@ -216,7 +216,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <span>rubentus</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>animal abuse</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
@@ -559,7 +559,7 @@ const spine = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, 1.2), green);
 spine.position.z = 0.6;
 leaf.add(spine);
 const tri = new THREE.BufferGeometry();
-const verts = new Float32Array([0, 0, 0, -0.55, 0, 1.25, 0.55, 0, 1.25]);
+const verts = new Float32Array([0, 0, 0.8, -0.05, 0, 1.1, 0.05, 0, 1.1]);
 tri.setAttribute('position', new THREE.BufferAttribute(verts, 3));
 tri.computeVertexNormals();
 const blade = new THREE.Mesh(tri, green);
