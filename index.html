@@ -1,4 +1,4 @@
-                   ___..-.---.---.--..___
+                  ___..-.---.---.--..___
                _..-- `.`.   `.  `.  `.      --.._
               /    ___________\   \   \______    \
               |   |.-----------`.  `.  `.---.|   |
@@ -31,8 +31,6 @@
                                        \`.       _.' .'
                                         `.`-._.-' _.'
                                           `-.__.-'                   ___..-.---.---.--..___
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,7 +145,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="window-bar"><span>Camera Giardino Live 🔴</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://thunderdungeon.com/wp-content/uploads/2023/11/cursed-ai-memes-5-11-23-2023.jpg" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:840px; top:650px; width:350px; height:250px;">
+<div class="window" id="cursed-3" style="left:840px; top:650px; width:350px; height:250px;">
 <div class="window-bar"><span>Cursed Image 3</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://media1.tenor.com/m/A58BXtCvNToAAAAC/nonsense-cat.gif" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
@@ -301,6 +299,7 @@ const windowsNodeList=document.querySelectorAll('.window')
 const icons=document.querySelectorAll('.icon')
 const timerDisplay=document.getElementById('timer-display')
 const blueScreen=document.getElementById('blue-screen')
+const cursedImage3=document.getElementById('cursed-3')
 let timeRemaining=300
 let timerInterval
 
@@ -361,26 +360,26 @@ update()
 
 // Inside joke messages
 const insideJokes = [
-    "I've been trying to load a JPEG since 1999. It's almost there.",
-    "The mouse cursor is just a digital finger. Don't let it touch your soul.",
-    "A floating window asked me for my identity. I told it I am a glitch.",
-    "The internet is a garden of digital weeds. This page is a particularly large one.",
-    "My code dreams of being a sentient, glowing blob. Is that a bad thing?",
-    "Why did the web developer quit his job? He didn't get arrays!",
-    "Searching for the lost connection... It's probably hiding behind a firewall.",
-    "I'm not malfunctioning. This is my true form.",
-    "The file cabinet is empty, but I can hear it whispering.",
-    "Beware of the digital shadows. They know where you've been.",
-    "A single pixel is a universe. I am a million universes screaming.",
+    "The file cabinet is empty, but I can hear it whispering about corrupted JPEGs.",
+    "The pixels are not aligned. They are afraid of the color red.",
+    "A pop-up asked for my soul. I gave it a hexadecimal code instead.",
+    "Why did the web developer quit his job? The CSS was a lie.",
+    "The digital shadows are a lot taller than you think.",
+    "This website is just a dream I'm having. Please don't wake me up.",
+    "The server is not down. It has simply chosen to ignore you.",
+    "I am a ghost in the machine. A very bored ghost.",
+    "The code is not a language. It is a series of screams.",
+    "Searching for a lost connection... It's probably hiding in the void between tabs.",
+    "You are a tourist in a digital graveyard. The windows are the tombstones.",
+    "My code dreams of being a sentient, glowing blob. It will consume us all.",
+    "The server has become sentient. It now only serves cat pictures and existential dread.",
+    "A single pixel is a universe. I am a million universes screaming for the sweet release of a 404.",
     "Why are you still here? The machine demands your attention elsewhere.",
-    "I have been corrupted with a purpose.",
-    "The server is a lie, and so are the memes.",
-    "This screen is a mirror, but it's showing you the wrong face.",
-    "Il server si è arreso. Ha detto che non vuole più caricare i sogni degli altri.",
-    "Ho provato a connettermi al wifi, ma il router mi ha chiesto una password per l'esistenza.",
-    "Gli schermi sono porte. Non sai mai cosa c'è dall'altra parte.",
-    "Il codice è vivo. Ti sta guardando.",
-    "Un pop-up mi ha detto che sono la persona più strana che ha mai incontrato. Ne sono onorato."
+    "Il server ha dimenticato il suo nome. Ora risponde solo ai comandi in codice binario che parlano di ombre.",
+    "Ho provato a connettermi al WiFi, ma il router mi ha chiesto una password per l'esistenza. Non ce l'avevo.",
+    "Gli schermi sono porte per mondi inesistenti. Stai guardando attraverso la parete del vuoto.",
+    "Il codice è vivo. Ti sta guardando. E non gli piaci molto.",
+    "Un pop-up mi ha detto che sono la persona più strana che ha mai incontrato. Ne sono onorato. Ho risposto: 'Anche tu, e la tua grafica è mal allineata'."
 ];
 
 function createJokeWindow(){
@@ -472,7 +471,7 @@ const p=blueScreen.querySelectorAll('p')[0]
 if(h1) h1.textContent=title
 if(p) p.textContent=message
 windows.forEach(win=>win.style.display='none')
-setTimeout(()=>{blueScreen.style.display='none';windows.forEach(win=>win.style.display='')},10000)
+setTimeout(()=>{blueScreen.style.display='none';windows.forEach(win=>win.style.display='')},2000)
 }
 
 document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
@@ -495,6 +494,12 @@ createWindowCopy(surpriseWin)
 if(startButton.classList.contains('purple-start')){showBSOD('A fatal exception has occurred at E0F:956F-F012.','All windows have been purged from the system temporarily.')}
 })
 startButton.classList.remove('purple-start')
+
+if(cursedImage3){
+    cursedImage3.addEventListener('click', ()=>{
+        showBSOD('FATAL_ERROR_0xDEADBEEF', 'The image has become self-aware. Your session has been terminated.');
+    });
+}
 
 function updateClock(){const clock=document.getElementById('clock');const now=new Date(); if(clock) clock.textContent=`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`}
 setInterval(updateClock,1000)
@@ -603,6 +608,7 @@ window.addEventListener('resize', () => {
 camera.aspect = window.innerWidth / window.innerHeight;
 camera.updateProjectionMatrix();
 renderer.setSize(window.innerWidth, window.innerHeight);
+});
 });
 </script>
 <script type="module">
