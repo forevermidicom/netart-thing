@@ -82,7 +82,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @keyframes color-rotate{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
 .forevermidi-link{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.85);padding:6px 10px;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.2)}
 .forevermidi-link a{font-family:'MS Sans Serif',Arial,sans-serif;font-weight:bold;color:#0000ff;text-decoration:underline}
-.easter-style{background:linear-gradient(135deg,#fff0f5,#e6f7ff);color:#000;text-align:center;padding:10px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.surprise-style{background:linear-gradient(135deg,#fff0f5,#e6f7ff);color:#000;text-align:center;padding:10px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
 </style>
 </head>
 <body>
@@ -159,7 +159,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@&BPYJ777!!!77?J5G#&@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@#5?~^^^^^^^^^^^^^^^^^^    &@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@   alienarsi  e'  preservarsi   @@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@   alienarsi  e'  preservarsi   @@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@&5!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  @@@@@@@@@@@@@@
 @@@@@@@@@@@#!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^J@@@@@@@@@@@
 @@@@@@@@@@G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^!&@@@@@@@@@
@@ -168,7 +168,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@@?^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^G@@@@@@@
 @@@@@@@&^^^^^~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~^^^^7@@@@@@@
 @@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@&5^^^!@@@@@@@
-@@@@@@@B^^^?@@B~..:Y@@@@@@&P~^^^^^^^^^7B@@B^..:5@@@@@@&^^^!@@@@@@@
+@@@@@@@B^^^?@@B~..:Y@@@@@@&P~^^^^^^^^^7B@@B~..:5@@@@@@&^^^!@@@@@@@
 @@@@@@@&^^^?@@      G@@@@@@@@J^^^^^^~B@@@&      B@@@@@&^^^7@@@@@@@
 @@@@@@@@?^^7@@G:  .?@@@@@@@@@@Y^^^^~#@@@@@P:  .J@@@@@@&^^^G@@@@@@@
 @@@@@@@@#^^!@@@@@@@@@@@@@@@@@@@~^^^Y@@@@@@@@@@@@@@@@@@G^^7@@@@@@@@
@@ -216,7 +216,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <span>rubentus</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
+<img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="64px; height:64px;">
 <span>animal abuse</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
@@ -266,10 +266,6 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="icon xp" style="top: 600px; left: 10px;">
 <img src="https://icons.iconarchive.com/icons/tpdkdesign.net/refresh-cl/256/System-Recycle-Bin-Empty-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>Panariello</span>
-</div>
-<div class="window" style="left: 10px; top: 120px; width: 250px; height: 150px;">
-<div class="window-bar"><span>Creepy Image 1</span><button class="close-btn">x</button></div>
-<div class="window-content"><img src="https://i.imgur.com/k2j4W8T.jpg"/></div>
 </div>
 <div class="window" style="left: 10px; top: 300px; width: 250px; height: 150px;">
 <div class="window-bar"><span>Che ne so</span><button class="close-btn">x</button></div>
@@ -365,23 +361,26 @@ update()
 
 // Inside joke messages
 const insideJokes = [
-    "Error 404: Sanity not found.",
-    "Did you remember to water your houseplants today?",
-    "Your destiny is to become a sentient potato.",
-    "Bored? Go outside. Just kidding, the outside is scary.",
-    "I've got a bad feeling about this...",
-    "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    "Searching for meaning... please wait.",
-    "Have you tried turning it off and on again?",
-    "Did you ever notice how weird the word 'moist' is?",
-    "The ghosts in the machine are hungry. Feed them.",
-    "This is not the answer you are looking for.",
-    "The cake is a lie. Also, this is a pop-up.",
-    "40% of all statistics are made up on the spot.",
-    "You have been blessed by a digital cat.",
-    "beep boop beep... this is your computer talking.",
-    "I'm not a real window. Just a window of opportunity.",
-    "Just think, a thousand years from now, people will look at this and say 'wow, this is what the internet was like in the good old days.'",
+    "I've been trying to load a JPEG since 1999. It's almost there.",
+    "The mouse cursor is just a digital finger. Don't let it touch your soul.",
+    "A floating window asked me for my identity. I told it I am a glitch.",
+    "The internet is a garden of digital weeds. This page is a particularly large one.",
+    "My code dreams of being a sentient, glowing blob. Is that a bad thing?",
+    "Why did the web developer quit his job? He didn't get arrays!",
+    "Searching for the lost connection... It's probably hiding behind a firewall.",
+    "I'm not malfunctioning. This is my true form.",
+    "The file cabinet is empty, but I can hear it whispering.",
+    "Beware of the digital shadows. They know where you've been.",
+    "A single pixel is a universe. I am a million universes screaming.",
+    "Why are you still here? The machine demands your attention elsewhere.",
+    "I have been corrupted with a purpose.",
+    "The server is a lie, and so are the memes.",
+    "This screen is a mirror, but it's showing you the wrong face.",
+    "Il server si è arreso. Ha detto che non vuole più caricare i sogni degli altri.",
+    "Ho provato a connettermi al wifi, ma il router mi ha chiesto una password per l'esistenza.",
+    "Gli schermi sono porte. Non sai mai cosa c'è dall'altra parte.",
+    "Il codice è vivo. Ti sta guardando.",
+    "Un pop-up mi ha detto che sono la persona più strana che ha mai incontrato. Ne sono onorato."
 ];
 
 function createJokeWindow(){
@@ -401,24 +400,52 @@ function createJokeWindow(){
     moveWindow(jokeWin);
 }
 
-function attachWindowInteractions(win){
-const bar=win.querySelector('.window-bar')
-if(bar){
-bar.addEventListener('mousedown',e=>{
-let offsetX=e.clientX-(parseInt(win.style.left)||win.offsetLeft||0)
-let offsetY=e.clientY-(parseInt(win.style.top)||win.offsetTop||0)
-function drag(ev){
-win.style.left=(ev.clientX-offsetX)+'px'
-win.style.top=(ev.clientY-offsetY)+'px'
-createWindowCopy(win)
-}
-document.addEventListener('mousemove',drag)
-document.addEventListener('mouseup',()=>document.removeEventListener('mousemove',drag),{once:true})
-})
-bar.addEventListener('click', createJokeWindow);
-}
-const closeBtn=win.querySelector('.close-btn')
-if(closeBtn) closeBtn.addEventListener('click',()=>{win.style.display='none'})
+function attachWindowInteractions(win) {
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    const startDrag = (e) => {
+        isDragging = true;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        offsetX = clientX - (parseInt(win.style.left) || win.offsetLeft);
+        offsetY = clientY - (parseInt(win.style.top) || win.offsetTop);
+        e.preventDefault();
+    };
+
+    const drag = (e) => {
+        if (!isDragging) return;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        win.style.left = (clientX - offsetX) + 'px';
+        win.style.top = (clientY - offsetY) + 'px';
+        createWindowCopy(win);
+    };
+
+    const endDrag = () => {
+        isDragging = false;
+    };
+
+    win.addEventListener('mousedown', startDrag);
+    win.addEventListener('touchstart', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
+
+    win.addEventListener('click', (e) => {
+        if (!isDragging) {
+            createJokeWindow();
+        }
+    });
+
+    const closeBtn = win.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            win.style.display = 'none';
+        });
+    }
 }
 
 const windows=Array.from(windowsNodeList)
@@ -461,7 +488,7 @@ surpriseWin.style.height=h+'px'
 surpriseWin.style.left=(window.innerWidth/2-w/2)+'px'
 surpriseWin.style.top=(window.innerHeight/2-h/2)+'px'
 surpriseWin.style.zIndex=2000
-surpriseWin.innerHTML='<div class="window-bar"><span>SURPRISE</span><button class="close-btn">x</button></div><div class="window-content easter-style"><p style="margin:0 0 8px 0;font-weight:bold;">you found a surprise</p><img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="vaporwave" style="max-width:90%;max-height:110px;border-radius:6px"/><p style="margin-top:8px;font-size:12px;color:#333;">(press the X to close)</p></div>'
+surpriseWin.innerHTML='<div class="window-bar"><span>SURPRISE</span><button class="close-btn">x</button></div><div class="window-content surprise-style"><p style="margin:0 0 8px 0;font-weight:bold;">you found a surprise</p><img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="vaporwave" style="max-width:90%;max-height:110px;border-radius:6px"/><p style="margin-top:8px;font-size:12px;color:#333;">(press the X to close)</p></div>'
 desktop.appendChild(surpriseWin)
 attachWindowInteractions(surpriseWin)
 createWindowCopy(surpriseWin)
