@@ -5,7 +5,7 @@
               |`. |'  \`.        \   \   \  '|   |
               |`. |'   \ `-._     `.  `.  `.'|   |
              /|   |'    `-._o)\  /(o\   \   \|   |\
-           .' |   |'  `.     .' 404  '.  `.  `.  `.  | `.
+           .' |   |'  `.     .' 404  '.  `.  `.  ``.
 
 
 <!DOCTYPE html>
@@ -39,6 +39,10 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 .icon{position:absolute;padding:5px;background:transparent;border:none;cursor:pointer;width:80px;text-align:center;animation:floatIcon 1.5s infinite ease-in-out}
 .icon svg{display:block;margin:0 auto 4px;width:56px;height:56px}
 .icon span{display:block;font-size:12px;font-weight:bold;color:#000;text-shadow:1px 1px 1px #fff}
+.icon img {
+    max-width: 40px;
+    max-height: 40px;
+}
 @keyframes floatIcon{0%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}100%{transform:translate(0,0)}}
 @keyframes rotatePalm{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .rotating-palm{animation:rotatePalm 5s linear infinite}
@@ -55,8 +59,11 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .blue-screen h1, .blue-screen p, .blue-screen pre {
     z-index: 10001;
 }
+.blue-screen pre {
+    font-size: 14px;
+}
 .black-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
-.black-screen pre{font-size:24px;color:#0f0}
+.black-screen pre{font-size:14px;color:#0f0}
 .color-rotation-window{animation:color-rotate 5s linear infinite}
 @keyframes color-rotate{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
 .forevermidi-link{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.85);padding:6px 10px;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.2)}
@@ -157,6 +164,8 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .fixed-icon img, .fixed-icon-2 img, .fixed-icon-3 img, .fixed-icon-4 img {
     border: none;
     box-shadow: none;
+    width: 40px;
+    height: 40px;
 }
 .glitch-filter {
     filter: url(#glitch);
@@ -195,10 +204,6 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </head>
 <body>
 <div class="desktop">
-<div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px; z-index: 200;">
-<div class="window-bar"><span>Countdown</span><button class="close-btn">x</button></div>
-<div class="window-content"><div id="timer-display">5:00</div></div>
-</div>
 <div class="window repo-link-window" id="repo-window" style="left: 280px; top: 10px; width: 300px; height: 120px;">
 <div class="window-bar"><span>netart-thing</span><button class="close-btn">x</button></div>
 <div class="window-content">
@@ -207,23 +212,23 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>tipe che se la tirano e non sono un granché</span>
 </div>
 <div class="icon xp fixed-icon" id="lambrusco-icon">
-<img src="https://icons.iconarchive.com/icons/franksouza183/fs/256/Apps-wine-icon.png" alt="Lambrusco Mantovano" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/franksouza183/fs/256/Apps-wine-icon.png" alt="Lambrusco Mantovano">
 <span>Lambrusco Mantovano.exe</span>
 </div>
 <a class="icon xp fixed-icon-2" id="forevermidi-icon" href="https://forevermidi.com" target="_blank">
-    <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/Link-icon.png" alt="Forevermidi" style="width:56px; height:56px;">
+    <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/Link-icon.png" alt="Forevermidi">
     <span>forevermidi.com</span>
 </a>
 <div class="icon xp fixed-icon-3" id="shred-icon">
-    <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-edit-delete-shred-icon.png" alt="Shredder" style="width:56px; height:56px;">
+    <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-edit-delete-shred-icon.png" alt="Shredder">
     <span>shred.exe</span>
 </div>
 <div class="icon xp fixed-icon-4" id="joke-icon">
-    <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/256/Messager-icon.png" alt="Joke Messages" style="width:56px; height:56px;">
+    <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/256/Messager-icon.png" alt="Joke Messages">
     <span>secrets.msg</span>
 </div>
 <div class="window" id="vitzla-window" style="left: 600px; top: 10px; width: 350px; height: 250px;">
@@ -274,9 +279,9 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <pre>
 
 @@@@@@@@@@@@@@@@@@@@@@@@&BPYJ777!!!77?J5G#&@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@#5?~^^^^^^^^^^^^^^^^^^    &@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@   alienarsi  e'  preservarsi   @@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@&5!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  @@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@#5?~^^^^^^^^^^^^^^^^^^    &@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@   alienarsi  e'  preservarsi   @@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@&5!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  @@@@@@@@@@@@@@
 @@@@@@@@@@@#!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^J@@@@@@@@@@@
 @@@@@@@@@@G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^!&@@@@@@@@@
 @@@@@@@@@G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^RP@@@@@@@@
@@ -285,8 +290,8 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@&^^^^^~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~^^^^7@@@@@@@
 @@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@@&5^^^!@@@@@@
 @@@@@@@B^^^?@@B~..:Y@@@@@@&P~^^^^^^^^^7B@@B~..:5@@@@@@&^^^!@@@@@@@
-@@@@@@@&^^^?@@      G@@@@@@@@J^^^^^^~B@@@&      B@@@@@&^^^7@@@@@@@
-@@@@@@@@?^^7@@G:  .?@@@@@@@@@@Y^^^^~#@@@@@P:  .J@@@@@@&^^^G@@@@@@@
+@@@@@@@&^^^?@@      G@@@@@@@@J^^^^^^~B@@@&      B@@@@@&^^^7@@@@@@@
+@@@@@@@@?^^7@@G:  .?@@@@@@@@@@Y^^^^~#@@@@@P:  .J@@@@@@&^^^G@@@@@@@
 @@@@@@@@#^^!@@@@@@@@@@@@@@@@@@@~^^^Y@@@@@@@@@@@@@@@@@@G^^7@@@@@@@@
 @@@@@@@@@5^^5@@@@@@@@@@@@@@@@@@7^^^G@@@@@@@@@@@@@@@@@&!^~&@@@@@@@@
 @@@@@@@@@@P^^Y@@@@@@@@@@@@@@@@@7^^^G@@@@@@@@@@@@@@@@#!^!&@@@@@@@@@
@@ -301,6 +306,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@@@@@@@@@@@@@@@@@@@@&J^^^^^^^^^^~P@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@&PJ7!!7?YB@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 </pre>
 </div>
 </div>
@@ -320,67 +326,67 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="cursor"></div>
 <div id="moving-pointer" class="moving-pointer"></div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>tipe che se la tirano e non sono un granché</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Communism</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>rubentus</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>animal abuse</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>ac milan</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Marx</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Putin</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>full monty</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Justin Bieber</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>maximalism</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>marxism</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>U2</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Bob Dylan</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>musicals</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>uk accent</span>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:56px; height:56px;">
+<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Panariello</span>
 </div>
 <div class="window" style="left: 10px; top: 300px; width: 250px; height: 150px;">
@@ -399,6 +405,58 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"></feDisplacementMap>
 </filter>
 </svg>
+<div id="blue-screen" class="blue-screen">
+<pre>
+                       uuuuuuuuuuuuuuuuuuuuu.
+                   .u$$$$$$$$$$$$$$$$$$$$$$$$$$W.
+                 u$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Wu.
+               $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+              $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+         `    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+           .i$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+           $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W
+          .$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W
+         .$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+         #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.
+         W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$u       #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$~
+$#      `"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$i        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$        #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$.        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
+ $$      $iW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$!
+ $$i      $$$$$$$#"" `"""#$$$$$$$$$$$$$$$$$#""""""#$$$$$$$$$$$$$$$W
+ #$$W    `$$$#"            "       !$$$$$`           `"#$$$$$$$$$$#
+  $$$     ``                 ! !iuW$$$$$                 #$$$$$$$#
+  #$$    $u                  $   $$$$$$$                  $$$$$$$~
+   "#    #$$i.               #   $$$$$$$.                 `$$$$$$
+          $$$$$i.                """#$$$$i.               .$$$$#
+          $$$$$$$$!         .   `    $$$$$$$$$i           $$$$$
+          `$$$$$  $iWW   .uW`        #$$$$$$$$$W.       .$$$$$$#
+            "#$$$$$$$$$$$$#`          $$$$$$$$$$$iWiuuuW$$$$$$$$W
+               !#""    ""             `$$$$$$$##$$$$$$$$$$$$$$$$
+          i$$$$    .                   !$$$$$$ .$$$$$$$$$$$$$$$#
+         $$$$$$$$$$`                    $$$$$$$$$Wi$$$$$$#"#$$`
+         #$$$$$$$$$W.                   $$$$$$$$$$$#   ``
+          `$$$$##$$$$!       i$u.  $. .i$$$$$$$$$#""
+             "     `#W       $$$$$$$$$$$$$$$$$$$`      u$#
+                            W$$$$$$$$$$$$$$$$$$      $$$$W
+                            $$`!$$$##$$$$``$$$$      $$$$!
+                           i$" $$$$  $$#"`  """     W$$$$
+                                                   W$$$$!
+                      uW$$  uu  uu.  $$$  $$$Wu#   $$$$$$
+                     ~$$$$iu$$iu$$$uW$$! $$$$$$i .W$$$$$$
+             ..  !   "#$$$$$$$$$$##$$$$$$$$$$$$$$$$$$$$#"
+             $$W  $     "#$$$$$$$iW$$$$$$$$$$$$$$$$$$$$$W
+             $#`   `       ""#$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                              !$$$$$$$$$$$$$$$$$$$$$#`
+                              $$$$$$$$$$$$$$$$$$$$$$!
+                            $$$$$$$$$$$$$$$$$$$$$$$`
+                             $$$$$$$$$$$$$$$$$$$$"
+</pre>
+<button class="restart-button">RESTART</button>
+</div>
 <div id="black-screen" class="black-screen">
 <pre>
                        uuuuuuuuuuuuuuuuuuuuu.
@@ -457,7 +515,7 @@ const desktop=document.querySelector('.desktop')
 const startButton=document.querySelector('.start-button')
 const windowsNodeList=document.querySelectorAll('.window')
 const icons=document.querySelectorAll('.icon')
-const timerDisplay=document.getElementById('timer-window')
+const blueScreen = document.getElementById('blue-screen')
 const blackScreen=document.getElementById('black-screen')
 const cursedImage3=document.getElementById('cursed-3')
 const lambruscoIcon = document.getElementById('lambrusco-icon');
@@ -467,7 +525,7 @@ const jokeIcon = document.getElementById('joke-icon');
 const taskbarMessage = document.getElementById('taskbar-message');
 const lambruscoText = document.getElementById('lambrusco-text');
 const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4');
-const restartButton = document.querySelector('.restart-button');
+const restartButtons = document.querySelectorAll('.restart-button');
 let timeRemaining=300
 let timerInterval
 
@@ -643,39 +701,6 @@ icons.forEach(icon => {
     }
 });
 
-function startTimer(){
-    timerInterval=setInterval(()=>{
-        timeRemaining--;
-        const minutes=Math.floor(timeRemaining/60);
-        const seconds=timeRemaining%60;
-        if(timerDisplay) timerDisplay.querySelector('#timer-display').textContent=`${minutes}:${seconds.toString().padStart(2,'0')}`;
-        if(timeRemaining<=0){
-            clearInterval(timerInterval);
-            triggerExplosion();
-        }
-    },1000)
-}
-startTimer()
-
-function triggerExplosion() {
-    const allItems = document.querySelectorAll('.window, .icon');
-    allItems.forEach(item => {
-        const itemRect = item.getBoundingClientRect();
-        const startX = itemRect.left;
-        const startY = itemRect.top;
-        const endX = startX + (Math.random() - 0.5) * 1000;
-        const endY = startY + (Math.random() - 0.5) * 1000;
-        const endRotate = (Math.random() - 0.5) * 1080;
-
-        item.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
-        item.style.transform = `translate(${endX - startX}px, ${endY - startY}px) rotate(${endRotate}deg)`;
-        item.style.opacity = '0';
-    });
-    setTimeout(() => {
-        showBlackScreen();
-    }, 1500);
-}
-
 function triggerFall() {
     const allItems = document.querySelectorAll('.window, .icon');
     allItems.forEach(item => {
@@ -687,6 +712,13 @@ function triggerFall() {
     }, 1500);
 }
 
+function showBlueScreen() {
+    blueScreen.style.display = 'flex';
+    setTimeout(() => {
+        window.location.reload();
+    }, 10000); // 10 seconds before auto-reloading
+}
+
 function showBlackScreen(){
 blackScreen.style.display='flex';
 setTimeout(() => {
@@ -694,8 +726,10 @@ setTimeout(() => {
 }, 10000); // 10 seconds before auto-reloading
 }
 
-restartButton.addEventListener('click', () => {
-    window.location.reload();
+restartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        window.location.reload();
+    });
 });
 
 document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
