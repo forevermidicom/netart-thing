@@ -5,15 +5,8 @@
               |`. |'  \`.        \   \   \  '|   |
               |`. |'   \ `-._     `.  `.  `.'|   |
              /|   |'    `-._o)\  /(o\   \   \|   |\
-           .' |   |'  `.     .'  '.  `.  `.  `.  | `.
-          /  .|   |'    `.  (_.==._)   \   \   \ |.  \         _.--.
-        .' .' |   |'      _.-======-._  `.  `.  `. `. `.    _.-_.-'\\
-       /  /   |   |'    .'   |_||_|   `.  \   \   \  \  \ .'_.'     ||
-      / .'    |`. |'   /_.-'========`-._\  `.  `-._`._`. \(.__      :|
-     ( '      |`. |'.______________________.'\      _.) ` )`-._`-._/ /
-      \\      |   '.------------------------.'`-._-'    //     `-._.'
-      _\\_    \    |          4 0 4 * * `.`.|    '     //
-     (_  _)    '-._|________________________|_.-'|   _//_
+           .' |   |'  `.     .' 404  '.  `.  `.  `.  | `.
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +55,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .blue-screen h1, .blue-screen p, .blue-screen pre {
     z-index: 10001;
 }
-.black-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;color:#fff;z-index:1000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
+.black-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
 .black-screen pre{font-size:24px;color:#0f0}
 .color-rotation-window{animation:color-rotate 5s linear infinite}
 @keyframes color-rotate{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
@@ -178,6 +171,26 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .shake-effect {
     animation: shake 0.2s infinite;
 }
+.glitch-trail {
+    position: absolute;
+    opacity: 0.8;
+    z-index: 9;
+    filter: url(#glitch);
+}
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #c0c0c0;
+    border: 2px solid #fff;
+    color: #000;
+    text-shadow: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+.restart-button:hover {
+    background-color: #d0d0d0;
+}
 </style>
 </head>
 <body>
@@ -260,7 +273,6 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="window-content ascii-content">
 <pre>
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@&BPYJ777!!!77?J5G#&@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@#5?~^^^^^^^^^^^^^^^^^^    &@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@   alienarsi  e'  preservarsi   @@@@@@@@@@@@@@@@@
@@ -387,7 +399,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"></feDisplacementMap>
 </filter>
 </svg>
-<div id="blue-screen" class="blue-screen">
+<div id="black-screen" class="black-screen">
 <pre>
                        uuuuuuuuuuuuuuuuuuuuu.
                    .u$$$$$$$$$$$$$$$$$$$$$$$$$$W.
@@ -437,6 +449,7 @@ $$         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                             $$$$$$$$$$$$$$$$$$$$$$$`
                              $$$$$$$$$$$$$$$$$$$$"
 </pre>
+<button class="restart-button">RESTART</button>
 </div>
 <div id="lambrusco-text" class="lambrusco-text">IT'S LAMBRUSCO TIME</div>
 <script>
@@ -445,7 +458,7 @@ const startButton=document.querySelector('.start-button')
 const windowsNodeList=document.querySelectorAll('.window')
 const icons=document.querySelectorAll('.icon')
 const timerDisplay=document.getElementById('timer-window')
-const blueScreen=document.getElementById('blue-screen')
+const blackScreen=document.getElementById('black-screen')
 const cursedImage3=document.getElementById('cursed-3')
 const lambruscoIcon = document.getElementById('lambrusco-icon');
 const forevermidiIcon = document.getElementById('forevermidi-icon');
@@ -454,20 +467,38 @@ const jokeIcon = document.getElementById('joke-icon');
 const taskbarMessage = document.getElementById('taskbar-message');
 const lambruscoText = document.getElementById('lambrusco-text');
 const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4');
+const restartButton = document.querySelector('.restart-button');
 let timeRemaining=300
 let timerInterval
 
 function createWindowCopy(win){
 const copy=win.cloneNode(true)
 copy.style.position='absolute'
-copy.style.left=(parseInt(win.style.left||win.offsetLeft)+Math.random()*10-5)+'px'
-copy.style.top=(parseInt(win.style.top||win.offsetTop)+Math.random()*10-5)+'px'
+copy.style.left=(parseInt(win.style.left)||win.offsetLeft)+'px'
+copy.style.top=(parseInt(win.style.top)||win.offsetTop)+'px'
+copy.style.width=win.offsetWidth+'px'
+copy.style.height=win.offsetHeight+'px'
 copy.style.zIndex='-1'
 copy.style.opacity='0.9'
+copy.classList.remove('glitch-trail');
 desktop.appendChild(copy)
 setTimeout(()=>{copy.style.transition='opacity 30s ease-out';copy.style.opacity='0';setTimeout(()=>copy.remove(),30000)},10)
 }
-
+function createGlitchTrail(win) {
+    const trail = win.cloneNode(true);
+    trail.classList.add('glitch-trail');
+    trail.style.left = win.style.left;
+    trail.style.top = win.style.top;
+    trail.style.width = win.offsetWidth+'px';
+    trail.style.height = win.offsetHeight+'px';
+    trail.style.zIndex = '9';
+    desktop.appendChild(trail);
+    setTimeout(() => {
+        trail.style.transition = 'opacity 5s ease-out';
+        trail.style.opacity = '0';
+        setTimeout(() => trail.remove(), 5000);
+    }, 100);
+}
 function moveWindow(win){
 let posX=parseInt(win.style.left)||win.offsetLeft||0
 let posY=parseInt(win.style.top)||win.offsetTop||0
@@ -537,13 +568,16 @@ function createJokeWindow(){
 function attachWindowInteractions(win) {
     let isDragging = false;
     let offsetX, offsetY;
-    const bar = win.querySelector('.window-bar');
-
-    bar.addEventListener('mousedown', startDrag);
-    bar.addEventListener('touchstart', startDrag);
+    
+    win.addEventListener('mousedown', startDrag);
+    win.addEventListener('touchstart', startDrag);
     
     function startDrag(e) {
+        // Only start drag if the target is the window or its children, but not the close button
+        if (e.target.closest('.close-btn')) return;
+
         isDragging = true;
+        win.style.zIndex = 1000;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         offsetX = clientX - (parseInt(win.style.left) || win.offsetLeft);
@@ -563,32 +597,14 @@ function attachWindowInteractions(win) {
         let newLeft = clientX - offsetX;
         let newTop = clientY - offsetY;
 
-        // Check for collisions with fixed icons
-        let collided = false;
-        fixedIcons.forEach(icon => {
-            const iconRect = icon.getBoundingClientRect();
-            if (newLeft < iconRect.right && newLeft + win.offsetWidth > iconRect.left &&
-                newTop < iconRect.bottom && newTop + win.offsetHeight > iconRect.top) {
-                collided = true;
-            }
-        });
+        win.style.left = newLeft + 'px';
+        win.style.top = newTop + 'px';
 
-        if (!collided) {
-            win.style.left = newLeft + 'px';
-            win.style.top = newTop + 'px';
+        if (win.classList.contains('glitch-trail')) {
+            createGlitchTrail(win);
         } else {
-            // Bounce effect
-            let dx = newLeft - (parseInt(win.style.left) || win.offsetLeft);
-            let dy = newTop - (parseInt(win.style.top) || win.offsetTop);
-            if (Math.abs(dx) > Math.abs(dy)) {
-                newLeft = (parseInt(win.style.left) || win.offsetLeft) - dx;
-            } else {
-                newTop = (parseInt(win.style.top) || win.offsetTop) - dy;
-            }
-            win.style.left = newLeft + 'px';
-            win.style.top = newTop + 'px';
+            createWindowCopy(win);
         }
-        createWindowCopy(win);
     }
     
     function endDrag() {
@@ -635,26 +651,52 @@ function startTimer(){
         if(timerDisplay) timerDisplay.querySelector('#timer-display').textContent=`${minutes}:${seconds.toString().padStart(2,'0')}`;
         if(timeRemaining<=0){
             clearInterval(timerInterval);
-            triggerEndSequence();
+            triggerExplosion();
         }
     },1000)
 }
 startTimer()
 
-function triggerEndSequence() {
+function triggerExplosion() {
+    const allItems = document.querySelectorAll('.window, .icon');
+    allItems.forEach(item => {
+        const itemRect = item.getBoundingClientRect();
+        const startX = itemRect.left;
+        const startY = itemRect.top;
+        const endX = startX + (Math.random() - 0.5) * 1000;
+        const endY = startY + (Math.random() - 0.5) * 1000;
+        const endRotate = (Math.random() - 0.5) * 1080;
+
+        item.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
+        item.style.transform = `translate(${endX - startX}px, ${endY - startY}px) rotate(${endRotate}deg)`;
+        item.style.opacity = '0';
+    });
+    setTimeout(() => {
+        showBlackScreen();
+    }, 1500);
+}
+
+function triggerFall() {
     const allItems = document.querySelectorAll('.window, .icon');
     allItems.forEach(item => {
         item.style.transition = 'transform 1s ease-in';
         item.style.transform = 'translateY(200vh)';
     });
     setTimeout(() => {
-        showBSOD();
+        showBlackScreen();
     }, 1500);
 }
 
-function showBSOD(){
-blueScreen.style.display='flex';
+function showBlackScreen(){
+blackScreen.style.display='flex';
+setTimeout(() => {
+    window.location.reload();
+}, 10000); // 10 seconds before auto-reloading
 }
+
+restartButton.addEventListener('click', () => {
+    window.location.reload();
+});
 
 document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
 
@@ -673,13 +715,13 @@ surpriseWin.innerHTML='<div class="window-bar"><span>SURPRISE</span><button clas
 desktop.appendChild(surpriseWin)
 attachWindowInteractions(surpriseWin)
 createWindowCopy(surpriseWin)
-if(startButton.classList.contains('purple-start')){showBSOD('A fatal exception has occurred at E0F:956F-F012.','All windows have been purged from the system temporarily.')}
+if(startButton.classList.contains('purple-start')){showBlackScreen()}
 })
 startButton.classList.remove('purple-start')
 
 if(cursedImage3){
     cursedImage3.addEventListener('click', ()=>{
-        showBSOD();
+        triggerFall();
     });
 }
 lambruscoIcon.addEventListener('click', () => {
@@ -709,6 +751,10 @@ shredIcon.addEventListener('click', () => {
         item.classList.add('glitch-filter');
     });
 
+    windowsNodeList.forEach(win => {
+        win.classList.add('glitch-trail');
+    });
+    
     body.style.animation = 'none';
     body.style.backgroundColor = '#000';
 
@@ -720,7 +766,16 @@ shredIcon.addEventListener('click', () => {
 
     setTimeout(() => {
         clearInterval(interval);
-        location.reload();
+        desktop.style.filter = 'none';
+        desktop.style.animation = '';
+        body.style.animation = 'psychedelic 10s ease infinite';
+        body.style.backgroundColor = '';
+        allItems.forEach(item => {
+            item.classList.remove('glitch-filter');
+        });
+        windowsNodeList.forEach(win => {
+            win.classList.remove('glitch-trail');
+        });
     }, 6000);
 });
 
