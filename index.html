@@ -14,6 +14,7 @@
       \\      |   '.------------------------.'`-._-'    //     `-._.'
       _\\_    \    |          4 0 4 * * `.`.|    '     //
      (_  _)    '-._|________________________|_.-'|   _//_
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,19 +23,21 @@
 <title>netart thing</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);background-size:400% 400%;animation:psychedelic 10s ease infinite;overflow:hidden;user-select:none}
 @keyframes psychedelic{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .desktop{position:relative;width:100vw;height:100vh;overflow:hidden;filter:none}
-.window{position:absolute;border:2px solid #000;border-top:2px solid #ccc;border-left:2px solid #ccc;background:#c0c0c0;box-shadow:2px 2px 0 #000;z-index:10;transform:scale(.9);transform-origin:top left}
-.window-bar{background:#000080;color:white;padding:2px 6px;font-size:12px;font-weight:bold;cursor:move;display:flex;justify-content:space-between;align-items:center}
-.close-btn{background:#800000;color:white;border:none;width:16px;height:16px;font-size:12px;cursor:pointer}
-.close-btn:hover{background:#ff0000}
-.window-content{border:1px solid #000;border-top:none;background:#fff;overflow:hidden;position:relative}
+/* Updated Windows XP Style */
+.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#ece9d8;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10;transform:scale(.9);transform-origin:top left}
+.window-bar{background-image:linear-gradient(to right,#0054e3,#27a9e3);color:white;padding:2px 6px;font-size:12px;font-weight:bold;cursor:move;display:flex;justify-content:space-between;align-items:center;border-top-left-radius:8px;border-top-right-radius:8px;text-shadow:1px 1px #000}
+.close-btn{background:#c0c0c0;border:1px solid #7f7f7f;width:18px;height:18px;font-size:12px;cursor:pointer;color:#000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080;border-radius:2px;font-weight:bold;display:flex;align-items:center;justify-content:center}
+.close-btn:hover{background:#ff6f6f;border:1px solid #ff0000;color:#fff}
+.window-content{border-right:1px solid #7f7f7f;border-left:1px solid #7f7f7f;border-bottom:1px solid #7f7f7f;background:#fff;overflow:hidden;position:relative}
 .window-content img,.window-content iframe,.window-content canvas{display:block;width:100%;height:100%}
 .window-content p{font-family:'MS Sans Serif',Arial,sans-serif;font-size:16px;padding:10px;text-align:center;font-weight:bold}
-.window:hover,.icon:hover{animation:glitch .3s infinite}
-@keyframes glitch{0%{filter:url(#glitch);transform:translate(0)}20%{transform:translate(2px,-2px)}40%{transform:translate(-2px,2px)}60%{transform:translate(2px,2px)}80%{transform:translate(-2px,-2px)}100%{transform:translate(0)}}
 .cursor{position:absolute;width:16px;height:16px;background:url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;pointer-events:none;animation:float 5s infinite ease-in-out;opacity:.7}
 @keyframes float{0%{transform:translate(0,0)}50%{transform:translate(20px,20px)}100%{transform:translate(0,0)}}
 .cursor:nth-child(2){animation-delay:1s}
@@ -47,11 +50,10 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 @keyframes floatIcon{0%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}100%{transform:translate(0,0)}}
 @keyframes rotatePalm{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .rotating-palm{animation:rotatePalm 5s linear infinite}
-.taskbar{position:fixed;bottom:0;width:100%;height:28px;background:#000080;border-top:2px solid #fff;border-bottom:2px solid #000;display:flex;align-items:center;padding:0 5px;z-index:20}
-.start-button{background:#c0c0c0;border:2px solid;border-color:#fff #000 #000 #fff;padding:2px 8px;font-size:12px;cursor:pointer;color:#000}
-.start-button:active{border-color:#000 #fff #fff #000}
-.start-button.purple-start{background-color:purple;color:#fff}
-.clock{margin-left:auto;font-size:12px;padding:2px 6px;background:#c0c0c0;border:1px solid;border-color:#000 #fff #fff #000;color:#000}
+.taskbar{position:fixed;bottom:0;width:100%;height:28px;background:#245edb;border-top:1px solid #e7f5ff;display:flex;align-items:center;padding:0 5px;z-index:20;box-shadow:0 -2px 5px rgba(0,0,0,.3)}
+.start-button{background:#a3b29c;border:1px solid #a3b29c;border-right:1px solid #7a8276;border-bottom:1px solid #7a8276;padding:2px 8px;font-size:12px;cursor:pointer;color:#fff;font-weight:bold;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1);text-shadow:1px 1px 1px rgba(0,0,0,.3);transition:background-color .2s}
+.start-button:active{background:#7a8276;box-shadow:inset 0 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(255,255,255,.5)}
+.clock{margin-left:auto;font-size:12px;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px}
 .ascii-content{font-family:'Courier New',Courier,monospace;font-size:10px;color:#000;background:#fff}
 .ascii-content pre{margin:0;padding:10px;white-space:pre}
 marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00ff;-webkit-text-stroke:1px #000;text-transform:uppercase;padding-top:25px}
@@ -81,7 +83,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
   50% { opacity: 0; }
 }
 .blinking {
-  animation: blink-animation 0.5s step-start 6;
+  animation: blink-animation 0.5s step-start 2;
 }
 .lambrusco-effect {
   animation: drunk 0.5s infinite;
@@ -104,11 +106,24 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     font-size: 14px;
     text-shadow: 1px 1px 1px #000;
 }
+.lambrusco-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Old Standard TT', serif;
+  font-size: 10vw;
+  color: #ff0000;
+  text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  animation: blink-animation 1s step-start infinite;
+  display: none;
+}
 </style>
 </head>
 <body>
 <div class="desktop">
-<div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px;">
+<div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px; z-index: 200;">
 <div class="window-bar"><span>Countdown</span><button class="close-btn">x</button></div>
 <div class="window-content"><div id="timer-display">2:00</div></div>
 </div>
@@ -123,7 +138,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin" style="width:64px; height:64px;">
 <span>tipe che se la tirano e non sono un granché</span>
 </div>
-<div class="icon xp" id="lambrusco-icon" style="top: 600px; left: 120px;">
+<div class="icon xp" id="lambrusco-icon" style="top: 600px; left: 120px; z-index: 200;">
 <img src="https://icons.iconarchive.com/icons/franksouza183/fs/256/Apps-wine-icon.png" alt="Lambrusco Mantovano" style="width:64px; height:64px;">
 <span>Lambrusco Mantovano.exe</span>
 </div>
@@ -192,7 +207,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@#~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^7@@@@@@@@@
 @@@@@@@@?^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^G@@@@@@@
 @@@@@@@&^^^^^~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~^^^^7@@@@@@@
-@@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@&5^^^!@@@@@@@
+@@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@@&5^^^!@@@@@@@
 @@@@@@@B^^^?@@B~..:Y@@@@@@&P~^^^^^^^^^7B@@B~..:5@@@@@@&^^^!@@@@@@@
 @@@@@@@&^^^?@@      G@@@@@@@@J^^^^^^~B@@@&      B@@@@@&^^^7@@@@@@@
 @@@@@@@@?^^7@@G:  .?@@@@@@@@@@Y^^^^~#@@@@@P:  .J@@@@@@&^^^G@@@@@@@
@@ -317,6 +332,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <p>*** STOP: 0x000000FE (0x08D79540, 0x8C1B79D0, 0x00000001, 0x00000000)</p>
 <p>Press CTRL+ALT+DEL to restart.</p>
 </div>
+<div id="lambrusco-text" class="lambrusco-text">IT'S LAMBRUSCO TIME</div>
 <script>
 const canvas=document.getElementById('canvas1')
 let ctx=null
@@ -330,6 +346,7 @@ const blueScreen=document.getElementById('blue-screen')
 const cursedImage3=document.getElementById('cursed-3')
 const lambruscoIcon = document.getElementById('lambrusco-icon');
 const taskbarMessage = document.getElementById('taskbar-message');
+const lambruscoText = document.getElementById('lambrusco-text');
 let timeRemaining=120
 let timerInterval
 
@@ -433,7 +450,7 @@ function createJokeWindow(){
     setTimeout(() => {
         jokeWin.classList.remove('blinking');
         moveWindow(jokeWin);
-    }, 3000);
+    }, 1000);
 }
 
 function attachWindowInteractions(win) {
@@ -517,12 +534,20 @@ const cursors=document.querySelectorAll('.cursor')
 cursors.forEach(cursor=>{cursor.style.left=`${Math.random()*window.innerWidth}px`;cursor.style.top=`${Math.random()*window.innerHeight}px`})
 cursors.forEach(cursor=>{function drift(){const dx=(Math.random()-0.5)*100;const dy=(Math.random()-0.5)*100;cursor.animate([{transform:'translate(0,0)'},{transform:`translate(${dx}px,${dy}px)`}],{duration:5000+Math.random()*5000,direction:'alternate',iterations:Infinity,easing:'ease-in-out'})}drift()})
 
-function moveIcon(icon){
-const dx=(Math.random()-0.5)*200
-const dy=(Math.random()-0.5)*200
-icon.animate([{transform:`translate(${Math.random()*(window.innerWidth-100)}px, ${Math.random()*(window.innerHeight-100)}px)`},{transform:`translate(${dx+Math.random()*(window.innerWidth-100)}px, ${dy+Math.random()*(window.innerHeight-100)}px)`}],{duration:2000+Math.random()*2000,direction:'alternate',iterations:Infinity,easing:'ease-in-out'})
+function moveIcon(icon, speed=1){
+const dx=(Math.random()-0.5)*100*speed
+const dy=(Math.random()-0.5)*100*speed
+icon.animate([{transform:`translate(${Math.random()*(window.innerWidth-100)}px, ${Math.random()*(window.innerHeight-100)}px)`},{transform:`translate(${dx+Math.random()*(window.innerWidth-100)}px, ${dy+Math.random()*(window.innerHeight-100)}px)`}],{duration:6000+Math.random()*2000,direction:'alternate',iterations:Infinity,easing:'ease-in-out'})
 }
-icons.forEach(moveIcon)
+
+icons.forEach(icon => {
+    if(icon.id !== 'lambrusco-icon') {
+        moveIcon(icon);
+    }
+});
+// Slow down Lambrusco icon animation
+moveIcon(lambruscoIcon, 0.5);
+
 
 function startTimer(){
     timerInterval=setInterval(()=>{
@@ -539,13 +564,11 @@ function startTimer(){
 startTimer()
 
 function triggerEndSequence() {
-    // All windows and icons fall off screen
     const allItems = document.querySelectorAll('.window, .icon');
     allItems.forEach(item => {
         item.style.transition = 'transform 1s ease-in';
         item.style.transform = 'translateY(200vh)';
     });
-    // Then show the blue screen
     setTimeout(() => {
         showBSOD('FATAL_ERROR_0xDEADBEEF', 'The system has run out of time. Your session has been terminated.');
     }, 1500);
@@ -566,7 +589,7 @@ setTimeout(()=>{
 
 document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
 
-document.body.addEventListener('dblclick',()=>{const newText=document.createElement('h1');newText.textContent='SYSTEM CORRUPTION';newText.style.position='fixed';newText.style.top='50%';newText.style.left='50%';newText.style.transform='translate(-50%,-50%)';newText.style.color='#ff0000';newText.style.textShadow='2px 2px 5px #00ffff';newText.style.zIndex='1000';newText.style.animation='glitch .3s infinite';document.body.appendChild(newText);setTimeout(()=>newText.remove(),5000)})
+document.body.addEventListener('dblclick',()=>{const newText=document.createElement('h1');newText.textContent='SYSTEM CORRUPTION';newText.style.position='fixed';newText.style.top='50%';newText.style.left='50%';newText.style.transform='translate(-50%,-50%)';newText.style.color='#ff0000';newText.style.textShadow='2px 2px 5px #00ffff';newText.style.zIndex='1000';document.body.appendChild(newText);setTimeout(()=>newText.remove(),5000)})
 
 startButton.addEventListener('click',()=>{
 const surpriseWin=document.createElement('div')
@@ -596,15 +619,15 @@ lambruscoIcon.addEventListener('click', () => {
     drunkItems.forEach(item => {
         item.classList.add('lambrusco-effect');
     });
-    taskbarMessage.textContent = "WELCOME TO LAMBRUSCO MANTOVANO";
-
+    lambruscoText.style.display = 'block';
     setTimeout(() => {
         document.body.classList.remove('lambrusco-background');
         drunkItems.forEach(item => {
             item.classList.remove('lambrusco-effect');
         });
-        taskbarMessage.textContent = "";
-    }, 5000);
+        lambruscoText.style.display = 'none';
+        location.reload();
+    }, 6000);
 });
 
 function updateClock(){const clock=document.getElementById('clock');const now=new Date(); if(clock) clock.textContent=`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`}
@@ -781,11 +804,6 @@ knife.rotation.y = Math.sin(Date.now() * 0.003) * 1.5;
 knife.rotation.x = Math.cos(Date.now() * 0.003) * 1.5;
 renderer.render(scene, camera);
 }
-animateKnife();
-</script>
-</body>
-</html>
-```
 animateKnife();
 </script>
 </body>
