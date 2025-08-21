@@ -1,3 +1,5 @@
-netart thing is an interactive digital artwork that explores the unpredictable nature of collaboration between human and artificial intelligence. Conceived through a process of "vibe coding," the project is a fluid conversation with non-human intelligences, where intentionality is expressed through an intuitive connection to the work.
+netart thing is an interactive digital artwork that explores the unpredictable nature of collaboration between human and artificial intelligence. Conceived through a process of “vibe coding,” the project is a fluid conversation with non-human intelligences, where intentionality is expressed through an intuitive connection to the work.
 The artwork is self-contained within a single HTML file which embeds all of its necessary styles and scripts. All external assets are hotlinked, allowing the piece to be a decentralized composition of (potentially instable) elements pulled directly from the web.
 netart thing is released under a Creative Commons 1.0 Universal License, inviting others to build upon this experiment.
+
+
