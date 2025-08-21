@@ -229,7 +229,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 <div class="icon xp fixed-icon-4" id="joke-icon">
     <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/256/Messager-icon.png" alt="Joke Messages">
-    <span>secrets.msg</span>
+    <span>randoms.msg</span>
 </div>
 <div class="window" id="vitzla-window" style="left: 600px; top: 10px; width: 350px; height: 250px;">
 <div class="window-bar"><span>IDK</span><button class="close-btn">x</button></div>
@@ -615,7 +615,7 @@ function createJokeWindow(){
     jokeWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
     jokeWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     jokeWin.style.zIndex = 2000;
-    jokeWin.innerHTML = `<div class="window-bar"><span>(secret message)</span><button class="close-btn">x</button></div><div class="window-content"><p>${message}</p></div>`;
+    jokeWin.innerHTML = `<div class="window-bar"><span>(random message)</span><button class="close-btn">x</button></div><div class="window-content"><p>${message}</p></div>`;
     desktop.appendChild(jokeWin);
     attachWindowInteractions(jokeWin);
     setTimeout(() => {
