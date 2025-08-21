@@ -14,6 +14,7 @@
       \\      |   '.------------------------.'`-._-'    //     `-._.'
       _\\_    \    |          4 0 4 * * `.`.|    '     //
      (_  _)    '-._|________________________|_.-'|   _//_
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +58,10 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00ff;-webkit-text-stroke:1px #000;text-transform:uppercase;padding-top:25px}
 .repo-link-window .window-content p{font-size:14px;text-align:center;padding:10px}
 .repo-link-window .window-content a{color:#0000ff;text-decoration:underline;font-weight:bold;display:block;text-align:center;padding-bottom:10px}
-.blue-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#0000aa;color:#fff;z-index:1000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
+.blue-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#0000aa;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
+.blue-screen h1, .blue-screen p, .blue-screen pre {
+    z-index: 10001;
+}
 .black-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;color:#fff;z-index:1000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
 .black-screen pre{font-size:24px;color:#0f0}
 .color-rotation-window{animation:color-rotate 5s linear infinite}
@@ -123,6 +127,9 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     left: 10px;
     z-index: 2000;
     animation: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 .fixed-icon-2 {
     position: fixed !important;
@@ -130,6 +137,46 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     left: 10px;
     z-index: 2000;
     animation: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+.fixed-icon-3 {
+    position: fixed !important;
+    top: 210px;
+    left: 10px;
+    z-index: 2000;
+    animation: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+.fixed-icon-4 {
+    position: fixed !important;
+    top: 310px;
+    left: 10px;
+    z-index: 2000;
+    animation: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+.fixed-icon img, .fixed-icon-2 img, .fixed-icon-3 img, .fixed-icon-4 img {
+    border: none;
+    box-shadow: none;
+}
+.glitch-filter {
+    filter: url(#glitch);
+}
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, 5px); }
+    50% { transform: translate(-5px, -5px); }
+    75% { transform: translate(5px, -5px); }
+    100% { transform: translate(-5px, 5px); }
+}
+.shake-effect {
+    animation: shake 0.2s infinite;
 }
 </style>
 </head>
@@ -137,7 +184,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="desktop">
 <div class="window" id="timer-window" style="left: 10px; top: 10px; width: 250px; height: 100px; z-index: 200;">
 <div class="window-bar"><span>Countdown</span><button class="close-btn">x</button></div>
-<div class="window-content"><div id="timer-display">2:00</div></div>
+<div class="window-content"><div id="timer-display">5:00</div></div>
 </div>
 <div class="window repo-link-window" id="repo-window" style="left: 280px; top: 10px; width: 300px; height: 120px;">
 <div class="window-bar"><span>netart-thing</span><button class="close-btn">x</button></div>
@@ -158,6 +205,14 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/Link-icon.png" alt="Forevermidi" style="width:56px; height:56px;">
     <span>forevermidi.com</span>
 </a>
+<div class="icon xp fixed-icon-3" id="shred-icon">
+    <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-edit-delete-shred-icon.png" alt="Shredder" style="width:56px; height:56px;">
+    <span>shred.exe</span>
+</div>
+<div class="icon xp fixed-icon-4" id="joke-icon">
+    <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/256/Messager-icon.png" alt="Joke Messages" style="width:56px; height:56px;">
+    <span>secrets.msg</span>
+</div>
 <div class="window" id="vitzla-window" style="left: 600px; top: 10px; width: 350px; height: 250px;">
 <div class="window-bar"><span>IDK</span><button class="close-btn">x</button></div>
 <div class="window-content">
@@ -198,7 +253,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 <div class="window" id="cursed-3" style="left:840px; top:650px; width:350px; height:250px;">
 <div class="window-bar"><span>Cursed Image 3</span><button class="close-btn">x</button></div>
-<div class="window-content"><img src="https://media1.tenor.com/m/A58BXtCvNToAAAAC/nonsense-cat.gif" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
+<div class="window-content"><img src="https://as1.ftcdn.net/jpg/00/30/92/34/1000_F_30923474_D4zRrl6J2Hm7kq8efgvn4ADX13FXTILW.jpg" alt="Cursed image" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
 <div class="window color-rotation-window" style="left:1230px; top:60px; width:350px; height:250px;">
 <div class="window-bar"><span>4real.txt</span><button class="close-btn">x</button></div>
@@ -216,7 +271,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@#~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^7@@@@@@@@@
 @@@@@@@@?^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^G@@@@@@@
 @@@@@@@&^^^^^~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~^^^^7@@@@@@@
-@@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@@&5^^^!@@@@@@@
+@@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@@&5^^^!@@@@@@
 @@@@@@@B^^^?@@B~..:Y@@@@@@&P~^^^^^^^^^7B@@B~..:5@@@@@@&^^^!@@@@@@@
 @@@@@@@&^^^?@@      G@@@@@@@@J^^^^^^~B@@@&      B@@@@@&^^^7@@@@@@@
 @@@@@@@@?^^7@@G:  .?@@@@@@@@@@Y^^^^~#@@@@@P:  .J@@@@@@&^^^G@@@@@@@
@@ -333,13 +388,55 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </filter>
 </svg>
 <div id="blue-screen" class="blue-screen">
-<h1>A problem has been detected and Windows has been shut down to prevent damage to your computer.</h1>
-<p>GLITCH.exe has caused an unexpected error.</p>
-<p>If this is the first time you've seen this Stop error screen, restart your computer. If this screen appears again, follow these steps:</p>
-<p>Check to make sure any new hardware or software is properly installed. If this is a new installation, ask your hardware or software manufacturer for any Windows updates you might need.</p>
-<p>Technical information:</p>
-<p>*** STOP: 0x000000FE (0x08D79540, 0x8C1B79D0, 0x00000001, 0x00000000)</p>
-<p>Press CTRL+ALT+DEL to restart.</p>
+<pre>
+                       uuuuuuuuuuuuuuuuuuuuu.
+                   .u$$$$$$$$$$$$$$$$$$$$$$$$$$W.
+                 u$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Wu.
+               $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+              $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+         `    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+           .i$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+           $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W
+          .$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W
+         .$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+         #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.
+         W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$u       #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$~
+$#      `"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$i        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$        #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$.        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
+ $$      $iW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$!
+ $$i      $$$$$$$#"" `"""#$$$$$$$$$$$$$$$$$#""""""#$$$$$$$$$$$$$$$W
+ #$$W    `$$$#"            "       !$$$$$`           `"#$$$$$$$$$$#
+  $$$     ``                 ! !iuW$$$$$                 #$$$$$$$#
+  #$$    $u                  $   $$$$$$$                  $$$$$$$~
+   "#    #$$i.               #   $$$$$$$.                 `$$$$$$
+          $$$$$i.                """#$$$$i.               .$$$$#
+          $$$$$$$$!         .   `    $$$$$$$$$i           $$$$$
+          `$$$$$  $iWW   .uW`        #$$$$$$$$$W.       .$$$$$$#
+            "#$$$$$$$$$$$$#`          $$$$$$$$$$$iWiuuuW$$$$$$$$W
+               !#""    ""             `$$$$$$$##$$$$$$$$$$$$$$$$
+          i$$$$    .                   !$$$$$$ .$$$$$$$$$$$$$$$#
+         $$$$$$$$$$`                    $$$$$$$$$Wi$$$$$$#"#$$`
+         #$$$$$$$$$W.                   $$$$$$$$$$$#   ``
+          `$$$$##$$$$!       i$u.  $. .i$$$$$$$$$#""
+             "     `#W       $$$$$$$$$$$$$$$$$$$`      u$#
+                            W$$$$$$$$$$$$$$$$$$      $$$$W
+                            $$`!$$$##$$$$``$$$$      $$$$!
+                           i$" $$$$  $$#"`  """     W$$$$
+                                                   W$$$$!
+                      uW$$  uu  uu.  $$$  $$$Wu#   $$$$$$
+                     ~$$$$iu$$iu$$$uW$$! $$$$$$i .W$$$$$$
+             ..  !   "#$$$$$$$$$$##$$$$$$$$$$$$$$$$$$$$#"
+             $$W  $     "#$$$$$$$iW$$$$$$$$$$$$$$$$$$$$$W
+             $#`   `       ""#$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                              !$$$$$$$$$$$$$$$$$$$$$#`
+                              $$$$$$$$$$$$$$$$$$$$$$!
+                            $$$$$$$$$$$$$$$$$$$$$$$`
+                             $$$$$$$$$$$$$$$$$$$$"
+</pre>
 </div>
 <div id="lambrusco-text" class="lambrusco-text">IT'S LAMBRUSCO TIME</div>
 <script>
@@ -352,9 +449,12 @@ const blueScreen=document.getElementById('blue-screen')
 const cursedImage3=document.getElementById('cursed-3')
 const lambruscoIcon = document.getElementById('lambrusco-icon');
 const forevermidiIcon = document.getElementById('forevermidi-icon');
+const shredIcon = document.getElementById('shred-icon');
+const jokeIcon = document.getElementById('joke-icon');
 const taskbarMessage = document.getElementById('taskbar-message');
 const lambruscoText = document.getElementById('lambrusco-text');
-let timeRemaining=120
+const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4');
+let timeRemaining=300
 let timerInterval
 
 function createWindowCopy(win){
@@ -386,7 +486,6 @@ if(posY<0||posY>window.innerHeight-win.offsetHeight) velY=-velY
 win.style.left=posX+'px'
 win.style.top=posY+'px'
 frameCount++
-if(frameCount%30===0) createWindowCopy(win)
 requestAnimationFrame(update)
 }
 update()
@@ -438,62 +537,67 @@ function createJokeWindow(){
 function attachWindowInteractions(win) {
     let isDragging = false;
     let offsetX, offsetY;
-    let isClick = true;
+    const bar = win.querySelector('.window-bar');
 
-    const startDrag = (e) => {
+    bar.addEventListener('mousedown', startDrag);
+    bar.addEventListener('touchstart', startDrag);
+    
+    function startDrag(e) {
         isDragging = true;
-        isClick = true;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         offsetX = clientX - (parseInt(win.style.left) || win.offsetLeft);
         offsetY = clientY - (parseInt(win.style.top) || win.offsetTop);
         e.preventDefault();
-    };
-
-    const drag = (e) => {
+        desktop.addEventListener('mousemove', drag);
+        desktop.addEventListener('touchmove', drag);
+        desktop.addEventListener('mouseup', endDrag);
+        desktop.addEventListener('touchend', endDrag);
+    }
+    
+    function drag(e) {
         if (!isDragging) return;
-        isClick = false;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        win.style.left = (clientX - offsetX) + 'px';
-        win.style.top = (clientY - offsetY) + 'px';
+        
+        let newLeft = clientX - offsetX;
+        let newTop = clientY - offsetY;
+
+        // Check for collisions with fixed icons
+        let collided = false;
+        fixedIcons.forEach(icon => {
+            const iconRect = icon.getBoundingClientRect();
+            if (newLeft < iconRect.right && newLeft + win.offsetWidth > iconRect.left &&
+                newTop < iconRect.bottom && newTop + win.offsetHeight > iconRect.top) {
+                collided = true;
+            }
+        });
+
+        if (!collided) {
+            win.style.left = newLeft + 'px';
+            win.style.top = newTop + 'px';
+        } else {
+            // Bounce effect
+            let dx = newLeft - (parseInt(win.style.left) || win.offsetLeft);
+            let dy = newTop - (parseInt(win.style.top) || win.offsetTop);
+            if (Math.abs(dx) > Math.abs(dy)) {
+                newLeft = (parseInt(win.style.left) || win.offsetLeft) - dx;
+            } else {
+                newTop = (parseInt(win.style.top) || win.offsetTop) - dy;
+            }
+            win.style.left = newLeft + 'px';
+            win.style.top = newTop + 'px';
+        }
         createWindowCopy(win);
-    };
-
-    const endDrag = () => {
-        isDragging = false;
-    };
-
-    win.addEventListener('mousedown', startDrag);
-    win.addEventListener('touchstart', startDrag);
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('touchmove', drag);
-    document.addEventListener('mouseup', endDrag);
-    document.addEventListener('touchend', endDrag);
-
-    win.addEventListener('click', (e) => {
-      if (e.target.classList.contains('close-btn')) {
-        return;
-      }
-      setTimeout(() => {
-        if (isClick) {
-          createJokeWindow();
-        }
-        isClick = true;
-      }, 50);
-    });
+    }
     
-    win.addEventListener('touchend', (e) => {
-      if (e.target.classList.contains('close-btn')) {
-        return;
-      }
-      setTimeout(() => {
-        if (isClick) {
-          createJokeWindow();
-        }
-        isClick = true;
-      }, 50);
-    });
+    function endDrag() {
+        isDragging = false;
+        desktop.removeEventListener('mousemove', drag);
+        desktop.removeEventListener('touchmove', drag);
+        desktop.removeEventListener('mouseup', endDrag);
+        desktop.removeEventListener('touchend', endDrag);
+    }
 
     const closeBtn = win.querySelector('.close-btn');
     if (closeBtn) {
@@ -518,7 +622,7 @@ icon.animate([{transform:`translate(${Math.random()*(window.innerWidth-100)}px, 
 }
 
 icons.forEach(icon => {
-    if(icon.id !== 'lambrusco-icon' && icon.id !== 'forevermidi-icon') {
+    if(!icon.classList.contains('fixed-icon') && !icon.classList.contains('fixed-icon-2') && !icon.classList.contains('fixed-icon-3') && !icon.classList.contains('fixed-icon-4')) {
         moveIcon(icon);
     }
 });
@@ -544,21 +648,12 @@ function triggerEndSequence() {
         item.style.transform = 'translateY(200vh)';
     });
     setTimeout(() => {
-        showBSOD('FATAL_ERROR_0xDEADBEEF', 'The system has run out of time. Your session has been terminated.');
+        showBSOD();
     }, 1500);
 }
 
-function showBSOD(title,message){
-blueScreen.style.display='flex'
-const h1=blueScreen.querySelector('h1')
-const p=blueScreen.querySelectorAll('p')[0]
-if(h1) h1.textContent=title
-if(p) p.textContent=message
-windows.forEach(win=>win.style.display='none')
-setTimeout(()=>{
-    blueScreen.style.display='none';
-    location.reload();
-},3000)
+function showBSOD(){
+blueScreen.style.display='flex';
 }
 
 document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
@@ -584,17 +679,17 @@ startButton.classList.remove('purple-start')
 
 if(cursedImage3){
     cursedImage3.addEventListener('click', ()=>{
-        showBSOD('FATAL_ERROR_0xDEADBEEF', 'The image has become self-aware. Your session has been terminated.');
+        showBSOD();
     });
 }
 lambruscoIcon.addEventListener('click', () => {
     document.body.classList.add('lambrusco-background');
-    const drunkItems = document.querySelectorAll('.window, .icon:not(#lambrusco-icon):not(#forevermidi-icon)');
+    const drunkItems = document.querySelectorAll('.window, .icon:not(.fixed-icon):not(.fixed-icon-2):not(.fixed-icon-3):not(.fixed-icon-4)');
     drunkItems.forEach(item => {
         item.classList.add('lambrusco-effect');
     });
     lambruscoText.style.display = 'block';
-    taskbarMessage.textContent = "IT'S LAMBRUSCO TIME";
+    taskbarMessage.textContent = "MUST BE LAMBRUSCO TIME SOMEWHERE";
     setTimeout(() => {
         document.body.classList.remove('lambrusco-background');
         drunkItems.forEach(item => {
@@ -602,9 +697,34 @@ lambruscoIcon.addEventListener('click', () => {
         });
         lambruscoText.style.display = 'none';
         taskbarMessage.textContent = "";
+    }, 6000);
+});
+
+shredIcon.addEventListener('click', () => {
+    const allItems = document.querySelectorAll('.window, .icon, #moving-pointer, #palm3d, #knife3d');
+    const desktop = document.querySelector('.desktop');
+    const body = document.body;
+
+    allItems.forEach(item => {
+        item.classList.add('glitch-filter');
+    });
+
+    body.style.animation = 'none';
+    body.style.backgroundColor = '#000';
+
+    desktop.style.animation = 'shake 0.1s infinite';
+
+    const interval = setInterval(() => {
+        desktop.style.filter = `hue-rotate(${Math.random() * 360}deg) saturate(${100 + Math.random() * 200}%) brightness(${100 + Math.random() * 100}%)`;
+    }, 50);
+
+    setTimeout(() => {
+        clearInterval(interval);
         location.reload();
     }, 6000);
 });
+
+jokeIcon.addEventListener('click', createJokeWindow);
 
 function updateClock(){const clock=document.getElementById('clock');const now=new Date(); if(clock) clock.textContent=`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`}
 setInterval(updateClock,1000)
@@ -710,6 +830,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
 const container = document.createElement('div');
+container.id = 'knife3d';
 container.style.position = 'fixed';
 container.style.left = '0';
 container.style.top = '0';
@@ -734,17 +855,15 @@ const bladeMat = new THREE.MeshPhongMaterial({ color: 0xc0c0c0, flatShading: tru
 const bloodMat = new THREE.MeshPhongMaterial({ color: 0x8b0000, flatShading: true, shininess: 10, transparent: true, opacity: 0.8 });
 const handleMat = new THREE.MeshPhongMaterial({ color: 0x222222, flatShading: true, shininess: 20 });
 const knife = new THREE.Group();
-const blade = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.8), bladeMat);
+const blade = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.02, 0.8), bladeMat);
 blade.position.z = 0.4;
 knife.add(blade);
-const tri = new THREE.BufferGeometry();
-const verts = new Float32Array([0, 0, 0.8, -0.05, 0, 1.1, 0.05, 0, 1.1]);
-tri.setAttribute('position', new THREE.BufferAttribute(verts, 3));
-tri.computeVertexNormals();
-const tip = new THREE.Mesh(tri, bladeMat);
-knife.add(tip);
-const handle = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 0.2), handleMat);
+const hilt = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.05, 0.15), handleMat);
+hilt.position.z = 0.8;
+knife.add(hilt);
+const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.2, 10), handleMat);
 handle.position.z = -0.1;
+handle.rotation.x = Math.PI / 2;
 knife.add(handle);
 const blood = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), bloodMat);
 blood.position.set(0, 0, 1.05);
@@ -770,4 +889,3 @@ animateKnife();
 </script>
 </body>
 </html>
-```
