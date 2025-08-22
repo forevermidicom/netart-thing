@@ -228,7 +228,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 <div class="icon xp fixed-icon-4" id="joke-icon">
     <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-view-conversation-balloon-icon.png" alt="Joke Messages">
-    <span>randoms.msg</span>
+    <span>The M3ss3ng3r</span>
 </div>
 <div class="window" id="IDK" style="left: 600px; top: 10px; width: 200px; height: 100px;">
 <div class="window-bar"><span>IDK</span><button class="close-btn">x</button></div>
@@ -624,11 +624,12 @@ const insideJokes = [
 "このファイルは、私の名前を囁いている。",
 "Il mio monitor ha iniziato a pulsare come un cuore malato。",
 "The cloud is laughing at my attempts to disconnect.",
+"here we go"  
 ];
 
 function createJokeWindow(){
     const jokeWin = document.createElement('div');
-    jokeWin.className = 'window joke-window'; // Removed blinking class
+    jokeWin.className = 'window joke-window';
     const message = insideJokes[Math.floor(Math.random() * insideJokes.length)];
     const w = 300;
     const h = 100;
@@ -637,7 +638,7 @@ function createJokeWindow(){
     jokeWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
     jokeWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     jokeWin.style.zIndex = 2000;
-    jokeWin.innerHTML = `<div class="window-bar"><span>(random message)</span><button class="close-btn">x</button></div><div class="window-content"><p>${message}</p></div>`;
+    jokeWin.innerHTML = `<div class="window-bar"><span>(The M3ss3ng3r)</span><button class="close-btn">x</button></div><div class="window-content"><p>${message}</p></div>`;
     desktop.appendChild(jokeWin);
     attachWindowInteractions(jokeWin);
     moveWindow(jokeWin);
