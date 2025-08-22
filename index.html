@@ -1,12 +1,3 @@
-                  ___..-.---.---.--..___
-               _..-- `.`.   `.  `.  `.      --.._
-              /    ___________\   \   \______    \
-              |   |.-----------`.  `.  `.---.|   |
-              |`. |'  \`.        \   \   \  '|   |
-              |`. |'   \ `-._     `.  `.  `.'|   |
-             /|   |'    `-._o)\  /(o\   \   \|   |\
-           .' |   |'  `.     .'netart thing 2.1  '.  `.  `.  ``.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +38,7 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 .rotating-palm{animation:rotatePalm 5s linear infinite}
 .taskbar{position:fixed;bottom:0;width:100%;height:28px;background:#245edb;border-top:1px solid #e7f5ff;display:flex;align-items:center;padding:0 5px;z-index:20;box-shadow:0 -2px 5px rgba(0,0,0,.3)}
 .start-button{background:#a3b29c;border:1px solid #a3b29c;border-right:1px solid #7a8276;border-bottom:1px solid #7a8276;padding:2px 8px;font-size:12px;cursor:pointer;color:#fff;font-weight:bold;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1);text-shadow:1px 1px 1px rgba(0,0,0,.3);transition:background-color .2s}
-.start-button:active{background:#7a8276;box-shadow:inset 0 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(255,255,255,.5)}
+.start-button:active{background:#7a8276;box-shadow:inset 0 1px 0 rgba(0,0,0,.1),inset -1px -1px 0 rgba(255,255,255,.5)}
 .clock{margin-left:auto;font-size:12px;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px}
 .ascii-content{font-family:'Courier New',Courier,monospace;font-size:10px;color:#000;background:#fff}
 .ascii-content pre{margin:0;padding:10px;white-space:pre}
@@ -68,23 +59,28 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .forevermidi-link{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.85);padding:6px 10px;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.2)}
 .forevermidi-link a{font-family:'MS Sans Serif',Arial,sans-serif;font-weight:bold;color:#0000ff;text-decoration:underline}
 .surprise-style{background:linear-gradient(135deg,#fff0f5,#e6f7ff);color:#000;text-align:center;padding:10px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.joke-window .window-content {
-    background-color: #000;
-    color: #ff00ff;
-    font-family: 'Brush Script MT', cursive;
-    font-size: 24px;
-    padding: 20px;
+.joke-window {
+    background: none;
+    border: none;
+    box-shadow: none;
 }
-.joke-window .window-bar {
-    background-color: #ff00ff;
-    color: #fff;
+.joke-window .window-content {
+    background: #000;
+    color: #0f0;
 }
 @keyframes blink-animation {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    from, to { color: transparent }
+    50% { color: #0f0; }
 }
-.blinking {
-    animation: blink-animation 0.5s step-start 2;
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 1em;
+    color: #0f0;
+    -webkit-animation: 1s blink-animation step-end infinite;
+    -moz-animation: 1s blink-animation step-end infinite;
+    -ms-animation: 1s blink-animation step-end infinite;
+    -o-animation: 1s blink-animation step-end infinite;
+    animation: 1s blink-animation step-end infinite;
 }
 .lambrusco-effect {
     animation: drunk 0.5s infinite;
@@ -207,7 +203,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="window-bar"><span>netart-thing</span><button class="close-btn">x</button></div>
 <div class="window-content">
 <p>Feeling creative? This is an open-source project. Feel free to modify the code and contribute!</p>
-<a href="https://github.com/forevermidicom/netart-thing" target="_blank">https://github.com/forevermidicom/netart-thing</a>
+<a href="https://github.com/forevermidi/netart-thing" target="_blank">https://github.com/forevermidi/netart-thing</a>
 </div>
 </div>
 <div class="icon xp" style="top: 600px; left: 10px;">
@@ -315,7 +311,6 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="window-content">
 <marquee behavior="scroll" direction="left" scrollamount="10">F O R Z A_____I N T E R</marquee>
 </div>
-  
 </div>
 <div class="window" style="left:1230px; top:650px; width:350px; height:250px;">
 <div class="window-bar"><span>dfhdtyhert.gif</span><button class="close-btn">x</button></div>
@@ -406,7 +401,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"></feDisplacementMap>
 </filter>
 </svg>
-  <div id="blue-screen" class="blue-screen">
+<div id="blue-screen" class="blue-screen">
 <pre>
 *** STOP: 0x0000005C (0x00000001, 0x00000001, 0x00000000, 0x00000000)
 A fatal exception has occurred at 0028:C001E36 in VDD(01) + 0000000. The current application will be terminated.
@@ -481,6 +476,8 @@ const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed
 const restartButtons = document.querySelectorAll('.restart-button');
 let timeRemaining=300
 let timerInterval
+let isTyping = false
+const cursor = '<span class="blinking-cursor">|</span>'
 
 function createWindowCopy(win){
 const copy=win.cloneNode(true)
@@ -580,7 +577,7 @@ const insideJokes = [
 "Ho trovato una cartella chiamata 'sacrificio'. Dentro c'era il mio volto.",
 "My operating system dreams in static and screams.",
 "このコードは、誰かの苦しみをエンコードしている。",
-"Il firewall ha chiesto il mio sangue per aprire una porta.",
+"Il firewall ha chiesto il mio sangue per aprire una porta。",
 "The cursor traced a sigil I don’t remember learning.",
 "このログイン画面は、私の記憶を試している。",
 "Ho installato un aggiornamento e ora il mio computer mi chiama per nome.",
@@ -595,34 +592,34 @@ const insideJokes = [
 "Il mio sistema operativo ha iniziato a scrivere lettere d’odio.",
 "The cloud offered me immortality in exchange for identity.",
 "このコードは、私のDNAを模倣している。",
-"Ho cercato 'salvezza' e ho trovato solo un file criptato.",
+"Ho cercato 'salvezza' e ho trovato solo un file criptato。",
 "My webcam blinked in Morse code: 'run'.",
 "このログは、私の過去の叫びを保存している。",
-"Il mio monitor ha mostrato un paesaggio che non appartiene a questo mondo.",
+"Il mio monitor ha mostrato un paesaggio que non appartiene a questo mondo。",
 "The update installed a new protocol: despair.",
 "このファイルは、私の未来を予言している。",
 "Ho trovato un'immagine corrotta che mi guarda。",
 "My system clock ticks in reverse when I lie.",
 "このエラーは、私の魂を分割している。",
-"Il mio mouse si muove come se fosse posseduto.",
+"Il mio mouse si muove come se fosse posseduto。",
 "The recycle bin is full of digital corpses.",
 "このUSBは、私の記憶を再構築している。",
-"Ho aperto una finestra e ho visto il volto di un dio dimenticato.",
+"Ho aperto una finestra e ho visto il volto di un dio dimenticato。",
 "My browser history is a confession I never wrote.",
 "このコードは、私の恐怖を記録している。",
-"Il mio antivirus ha chiesto un sacrificio umano.",
+"Il mio antivirus ha chiesto un sacrificio umano。",
 "The screen turned black and whispered 'soon'.",
 "このログイン試行は、私の存在を否定している。",
-"Ho trovato una cartella chiamata 'verità'. Era vuota.",
+"Ho trovato una cartella chiamata 'verità'. Era vuota。",
 "My desktop background changed to a photo of my funeral.",
 "このアプリは、私の夢を監視している。",
-"Il mio sistema ha iniziato a scrivere poesie in lingue morte.",
+"Il mio sistema ha iniziato a scrivere poesie in lingue morte。",
 "The cursor drew a map of a place I’ve only seen in nightmares.",
 "このスクリーンセーバーは、私の死を祝っている。",
-"Ho cercato 'libertà' e ho trovato solo codice rotto.",
+"Ho cercato 'libertà' e ho trovato solo codice rotto。",
 "My RAM is filled with screams I never heard.",
 "このファイルは、私の名前を囁いている。",
-"Il mio monitor ha iniziato a pulsare come un cuore malato.",
+"Il mio monitor ha iniziato a pulsare come un cuore malato。",
 "The cloud is laughing at my attempts to disconnect.",
 "here we go",
 "サーバーの奥から、誰かが「助けて」と囁いている。",
@@ -632,14 +629,15 @@ const insideJokes = [
 "I downloaded the file and now my dreams are full of static screams.",
 "Il mio profilo ha pubblicato una foto di me che non ho mai scattato.",
 "私の声で、知らないメッセージが送られていた。",
-"I unplugged the router, but the voices kept coming."  
-  
+"I unplugged the router, but the voices kept coming."
 ];
 
 function createJokeWindow(){
+    if (isTyping) return;
+    isTyping = true;
+    
     const jokeWin = document.createElement('div');
     jokeWin.className = 'window joke-window';
-    const message = insideJokes[Math.floor(Math.random() * insideJokes.length)];
     const w = 300;
     const h = 100;
     jokeWin.style.width = w + 'px';
@@ -647,10 +645,24 @@ function createJokeWindow(){
     jokeWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
     jokeWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     jokeWin.style.zIndex = 2000;
-    jokeWin.innerHTML = `<div class="window-bar"><span>(The M3ss3ng3r)</span><button class="close-btn">x</button></div><div class="window-content"><p>${message}</p></div>`;
+    jokeWin.innerHTML = `<div class="window-bar"><span>(The M3ss3ng3r)</span><button class="close-btn">x</button></div><div class="window-content"><p id="jokes-output"></p></div>`;
     desktop.appendChild(jokeWin);
     attachWindowInteractions(jokeWin);
     moveWindow(jokeWin);
+
+    const jokeOutput = jokeWin.querySelector('#jokes-output');
+    const message = insideJokes[Math.floor(Math.random() * insideJokes.length)];
+    
+    let charIndex = 0;
+    const typeWriter = setInterval(() => {
+        jokeOutput.textContent = message.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === message.length) {
+            clearInterval(typeWriter);
+            jokeOutput.innerHTML += cursor;
+            isTyping = false;
+        }
+    }, 50);
 }
 
 function attachWindowInteractions(win) {
@@ -661,7 +673,6 @@ function attachWindowInteractions(win) {
     win.addEventListener('touchstart', startDrag);
     
     function startDrag(e) {
-        // Only start drag if the target is the window or its children, but not the close button
         if (e.target.closest('.close-btn')) return;
 
         isDragging = true;
@@ -707,7 +718,7 @@ function attachWindowInteractions(win) {
     if (closeBtn) {
         closeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            win.style.display = 'none';
+            win.remove();
         });
     }
 }
