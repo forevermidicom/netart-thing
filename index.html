@@ -886,68 +886,10 @@ camera.updateProjectionMatrix();
 renderer.setSize(window.innerWidth, window.innerHeight);
 });
 </script>
-<script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
-const container = document.createElement('div');
-container.id = 'knife3d';
-container.style.position = 'fixed';
-container.style.left = '0';
-container.style.top = '0';
-container.style.width = '100%';
-container.style.height = '100%';
-container.style.pointerEvents = 'none';
-container.style.zIndex = '20';
-document.body.appendChild(container);
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(0, 1.5, 6);
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.domElement.style.pointerEvents = 'none';
-container.appendChild(renderer.domElement);
-scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 0.9));
-const dir = new THREE.DirectionalLight(0xffffff, 0.8);
-dir.position.set(3, 5, 2);
-scene.add(dir);
-const bladeMat = new THREE.MeshPhongMaterial({ color: 0xc0c0c0, flatShading: true, shininess: 120 });
-const bloodMat = new THREE.MeshPhongMaterial({ color: 0x8b0000, flatShading: true, shininess: 10, transparent: true, opacity: 0.8 });
-const handleMat = new THREE.MeshPhongMaterial({ color: 0x222222, flatShading: true, shininess: 20 });
-const knife = new THREE.Group();
-const blade = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.02, 0.8), bladeMat);
-blade.position.z = 0.4;
-knife.add(blade);
-const hilt = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.05, 0.15), handleMat);
-hilt.position.z = 0.8;
-knife.add(hilt);
-const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.2, 10), handleMat);
-handle.position.z = -0.1;
-handle.rotation.x = Math.PI / 2;
-knife.add(handle);
-const blood = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), bloodMat);
-blood.position.set(0, 0, 1.05);
-knife.add(blood);
-scene.add(knife);
-let kPosX = window.innerWidth / 2 + 50;
-let kPosY = window.innerHeight / 2 - 50;
-let kVelX = (Math.random() - 0.5) * 4;
-let kVelY = (Math.random() - 0.5) * 4;
-function animateKnife() {
-requestAnimationFrame(animateKnife);
-kPosX += kVelX;
-kPosY += kVelY;
-if (kPosX < 50 || kPosX > window.innerWidth - 50) kVelX *= -1;
-if (kPosY < 50 || kPosY > window.innerHeight - 50) kVelY *= -1;
-knife.position.x = (kPosX - window.innerWidth / 2) / 100;
-knife.position.y = (kPosY - window.innerHeight / 2) / 100;
-knife.rotation.y = Math.sin(Date.now() * 0.003) * 1.5;
-knife.rotation.x = Math.cos(Date.now() * 0.003) * 1.5;
-renderer.render(scene, camera);
-}
-animateKnife();
-</script>
+
 </body>
 </html>
+
 
 
 
