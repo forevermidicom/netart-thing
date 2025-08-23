@@ -657,7 +657,26 @@ const insideJokes = [
 "Mon assistant vocal a répondu à une question que je n’ai pas posée.",
 "A stranger’s voice said “I miss you” through my earbuds.",
 "Mon alarme a sonné à 3h33 sans avoir été programmée.",
-   
+"Mon haut-parleur intelligent a répété mes derniers mots après mon départ.",
+"My webcam light blinked in a pattern like it was signaling something",
+"أظهر نظام تحديد المواقع في هاتفي أنني في مكانين في نفس الوقت.", 
+"A stranger edited my online journal in real time.",  
+"Mes onglets supprimés se sont rouverts avec du contenu déformé.",
+"My phone’s voice recorder activated while I was asleep.",
+"I bought on the dark web a mirror that only reflects my corpse. WTF.",
+"The AI therapist keeps asking what I did before birth.",
+"My blockchain wallet balance shows negative infinity, WHAAAAAT??.",
+"我的暗网联系人只用带着灰烬气味的损坏哈希说话。",
+"I asked the AI for a weather report. It told me what time I’ll stop breathing.",
+"Someone mined a block using my childhood photos as proof of work.",
+"I refreshed the darknet forum. All usernames changed to mine.",
+"The darknet vendor asked for my blood type before shipping the file.",
+"AI聊天机器人记得一段我们从未发生过的对话，一字不差。",
+"On a darknet video stream, I saw my apartment door. Five minutes before someone knocked.",
+"Le vendeur du darknet m’a envoyé un dossier zippé. À l’intérieur, la CCTV en direct de ma rue.",
+"Mon chatbot IA m’a corrigé avec des détails d’un crime que je ne lui avais jamais dit.",
+"thats crazy.... the blockchain wallet I abandoned years ago just moved funds on its own.",
+"Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet."  
 ];
 
 function createJokeWindow(){
@@ -673,7 +692,8 @@ function createJokeWindow(){
     jokeWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
     jokeWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     jokeWin.style.zIndex = 2000;
-    jokeWin.innerHTML = `<div class="window-bar"><span>(The M3ss3ng3r)</span><button class="close-btn">x</button></div><div class="window-content"><p id="jokes-output"></p></div>`;
+    jokeWin.innerHTML = `<div class="window-bar"><span>The M3ss3ng3r</span><button class="close-btn">x</button></div><div class="window-content"><p id="jokes-output"></p></div>`;
+ 
     desktop.appendChild(jokeWin);
     attachWindowInteractions(jokeWin);
     moveWindow(jokeWin);
