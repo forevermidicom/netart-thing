@@ -1725,6 +1725,165 @@ p#status-message {
   
   
   
+  <script>
+;(function(){
+  // 1) Inject our CSS overrides
+  const css = document.createElement('style');
+  css.innerHTML = `
+    .window { background: #c0c0c0 !important; }
+    .drag-trail {
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+      border: 2px solid #0f0;
+      transition: opacity 1.2s ease-out;
+    }
+  `;
+  document.head.appendChild(css);
+
+  const desktop   = document.querySelector('.desktop');
+  const allWindows= [...document.querySelectorAll('.window')];
+  const allIcons  = [...document.querySelectorAll('.icon')];
+  const txtIcon   = document.getElementById('txt2img-icon');
+
+  // 2) FALL: only when clicking the TXT2IMG icon
+  function triggerFall() {
+    allWindows.concat(allIcons).forEach(el => {
+      el.style.transition = 'transform 1s ease-in';
+      el.style.transform  = 'translateY(200vh)';
+    });
+    setTimeout(() => location.reload(), 1400);
+  }
+  if (txtIcon) {
+    txtIcon.addEventListener('click', triggerFall);
+  }
+
+  // 3) DRIFT + DRAG-TRAIL (unchanged)
+  function startDrift(win) {
+    let x = parseFloat(win.style.left)||win.offsetLeft,
+        y = parseFloat(win.style.top )||win.offsetTop;
+    let vx = (Math.random()-0.5)*2,
+        vy = (Math.random()-0.5)*2;
+    (function frame(){
+      if (!win.classList.contains('dragging')) {
+        x += vx; y += vy;
+        if (x < 0 || x > innerWidth - win.offsetWidth)   vx = -vx;
+        if (y < 0 || y > innerHeight - win.offsetHeight) vy = -vy;
+        win.style.left = x + 'px';
+        win.style.top  = y + 'px';
+      }
+      requestAnimationFrame(frame);
+    })();
+  }
+
+  function attachDrag(win) {
+    let dragging = false, ox, oy;
+    function makeTrail(){
+      const t = win.cloneNode(true);
+      t.className = 'drag-trail';
+      t.style.cssText += `;left:${win.style.left};top:${win.style.top};
+                         width:${win.offsetWidth}px;
+                         height:${win.offsetHeight}px;`;
+      desktop.appendChild(t);
+      requestAnimationFrame(()=> t.style.opacity = '0');
+      setTimeout(() => t.remove(), 1200);
+    }
+    function start(e){
+      if (e.target.closest('.close-btn')) return;
+      dragging = true;
+      win.classList.add('dragging');
+      const cx = (e.touches ? e.touches[0] : e).clientX;
+      const cy = (e.touches ? e.touches[0] : e).clientY;
+      ox = cx - win.offsetLeft;
+      oy = cy - win.offsetTop;
+      e.preventDefault();
+      window.addEventListener('mousemove', drag);
+      window.addEventListener('touchmove', drag);
+      window.addEventListener('mouseup',   end);
+      window.addEventListener('touchend',  end);
+    }
+    function drag(e){
+      if (!dragging) return;
+      const cx = (e.touches ? e.touches[0] : e).clientX;
+      const cy = (e.touches ? e.touches[0] : e).clientY;
+      let nx = cx - ox, ny = cy - oy;
+      nx = Math.max(0, Math.min(nx, innerWidth - win.offsetWidth));
+      ny = Math.max(0, Math.min(ny, innerHeight- win.offsetHeight));
+      win.style.left = nx + 'px';
+      win.style.top  = ny + 'px';
+      makeTrail();
+    }
+    function end(){
+      dragging = false;
+      win.classList.remove('dragging');
+      window.removeEventListener('mousemove', drag);
+      window.removeEventListener('touchmove', drag);
+      window.removeEventListener('mouseup',   end);
+      window.removeEventListener('touchend',  end);
+    }
+    win.addEventListener('mousedown', start);
+    win.addEventListener('touchstart', start);
+    win.querySelectorAll('.close-btn').forEach(btn =>
+      btn.addEventListener('click', e=>{
+        e.stopPropagation();
+        win.remove();
+      })a
+    );
+  }
+
+  // initialize existing windows
+  allWindows.forEach(win=>{
+    attachDrag(win);
+    startDrift(win);
+  });
+
+  // 4) TXT2IMG opener stays the same as before…
+  if (txtIcon) {
+    txtIcon.addEventListener('click', ()=>{
+      if (document.getElementById('txt2img-window')) return;
+      const win = document.createElement('div');
+      win.id = 'txt2img-window';
+      win.className = 'window';
+      win.style.transform       = 'scale(.5)';
+      win.style.transformOrigin = 'top left';
+      const W = innerWidth/2, H = innerHeight/2;
+      win.style.cssText += `
+        width:${W}px;height:${H}px;
+        left:${(innerWidth-W)/2}px;
+        top:${(innerHeight-H)/2}px;
+      `;
+      win.innerHTML = `
+        <div class="window-bar">
+          <span>TXT2IMG</span><button class="close-btn">x</button>
+        </div>
+        <div class="window-content">
+          <!-- your existing TXT2IMG form + canvas here -->
+        </div>
+      `;
+      desktop.appendChild(win);
+      attachDrag(win);
+      // …re-hook your existing generate/download logic here…
+    });
+  }
+})();
+</script>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 
 </body>
