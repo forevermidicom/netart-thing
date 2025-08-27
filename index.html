@@ -263,7 +263,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 <div class="window" style="left:60px; top:650px; width:350px; height:125px;">
 <div class="window-bar"><span>tol in dal cool</span><button class="close-btn">x</button></div>
-<div class="window-content"><img src="https://i0.wp.com/www.8bitmammoth.com/wp-content/uploads/2010/03/Windows-Media-Player-encountered-a-problem.png?w=448&ssl=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
+<div class="window-content"><img src="https://i0.wp.com/www.8bitmammoth.com/wp-content/uploads/2010/03/-Media-Player-encountered-a-problem.png?w=448&ssl=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
 <div class="window" style="left:450px; top:650px; width:350px; height:250px;">
 <div class="window-bar"><span>Camera Giardino Live 🔴</span><button class="close-btn">x</button></div>
@@ -1038,9 +1038,393 @@ camera.updateProjectionMatrix();
 renderer.setSize(window.innerWidth, window.innerHeight);
 });
 </script>
+  
+  
+  
+  
+  
+  
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>TXT2IMG.app</title>
+  <style>
+    body {
+      font-family: "MS Sans Serif", Arial, sans-serif;
+      background: linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);
+      background-size: 400% 400%;
+      animation: psychedelic 10s ease infinite;
+      overflow: hidden;
+      user-select: none;
+      margin: 0;
+      height: 100vh;
+    }
+    @keyframes psychedelic {
+      0%   { background-position: 0%   50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0%   50%; }
+    }
+    .desktop {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .icon.xp {
+      position: fixed; /* Changed to fixed to prevent it from being hidden on scroll */
+      top: 370px;
+      left: 10px;
+      width: 80px;
+      cursor: pointer;
+      text-align: center;
+      touch-action: manipulation;
+      z-index: 9999; /* Increased z-index to ensure it's always on top */
+    }
+    .icon.xp img {
+      width: 56px;
+      height: 56px;
+      display: block;
+      margin: 0 auto 4px;
+    }
+    .icon.xp span {
+      font-size: 12px;
+      font-weight: bold;
+      color: #000;
+      text-shadow: 1px 1px 1px #fff;
+      user-select: none;
+    }
+    .window {
+      position: absolute;
+      border: 1px solid #003c74;
+      border-radius: 8px;
+      background: #c0c0c0; /* Reverted to classic gray */
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      z-index: 10;
+      width: 600px;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+      color: #000; /* Text color inside window */
+    }
+    @media(max-width: 767px) {
+      .window { width: 320px; height: 400px; }
+    }
+    .window-bar {
+      background-image: linear-gradient(to right,#0054e3,#27a9e3);
+      color: white;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px 8px 0 0;
+      user-select: none;
+      touch-action: none;
+    }
+    .window-content {
+      padding: 15px;
+      background: #c0c0c0; /* Reverted to classic gray */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    textarea#prompt-input {
+      width: 100%;
+      height: 100px;
+      font-family: "MS Sans Serif", Arial, sans-serif;
+      padding: 6px;
+      resize: none;
+      margin-bottom: 10px;
+      border: 1px solid #999;
+      border-radius: 4px;
+      background: #f0f0f0; /* Light gray for input */
+      color: #000;
+    }
+    label, select, button { margin-top: 5px; }
+    button#generate-btn, button#download-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: 1px solid #0054e3;
+      background-color: #27a9e3;
+      color: white;
+    }
+    button#generate-btn:hover, button#download-btn:hover {
+      background-color: #0054e3;
+    }
+    canvas#image-output {
+      max-width: 100%;
+      max-height: 400px;
+      margin-top: 15px;
+      border: 1px solid #0f0;
+      display: none;
+      border-radius: 4px;
+      filter: contrast(1.5) grayscale(0.8) hue-rotate(90deg);
+    }
+    #spinner {
+      display: none;
+      margin-top: 15px;
+      border: 4px solid #444;
+      border-top: 4px solid #27a9e3;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    p#status-message {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #0f0;
+      min-height: 20px;
+      text-align: center;
+    }
+    .close-btn {
+      background: #c0c0c0;
+      border: 1px solid #7f7f7f;
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #000;
+      box-shadow: inset 1px 1px #fff, inset -1px -1px #808080;
+      border-radius: 3px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-btn:hover {
+      background: #ff6f6f;
+      border: 1px solid #ff0000;
+      color: #fff;
+    }
+    .trail {
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.3;
+      transition: opacity 1.6s;
+    }
+  </style>
+</head>
+<body>
+  <div class="desktop" id="desktop">
+    <div class="icon xp" id="txt2img-icon">
+      <img src="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/brush-icon.png" alt="TXT2IMG Icon"/>
+      <span>TXT2IMG.app</span>
+    </div>
+  </div>
+
+  <script>
+    const desktop = document.getElementById('desktop');
+    const icon    = document.getElementById('txt2img-icon');
+
+    function attachWindowInteractions(win) {
+      let dragging = false, offsetX, offsetY;
+      const start = (x, y) => {
+        dragging = true;
+        offsetX = x - win.offsetLeft;
+        offsetY = y - win.offsetTop;
+        win.style.zIndex = 1000;
+      };
+      const drag = (x, y) => {
+        if (!dragging) return;
+        let l = x - offsetX, t = y - offsetY;
+        l = Math.max(0, Math.min(l, window.innerWidth - win.offsetWidth));
+        t = Math.max(0, Math.min(t, window.innerHeight - win.offsetHeight));
+        const trail = document.createElement('div');
+        trail.className = 'trail';
+        trail.style.width  = win.offsetWidth + 'px';
+        trail.style.height = win.offsetHeight + 'px';
+        trail.style.left   = win.offsetLeft + 'px';
+        trail.style.top    = win.offsetTop + 'px';
+        trail.style.border = '2px solid #0f0';
+        desktop.appendChild(trail);
+        setTimeout(() => trail.style.opacity = '0', 50);
+        setTimeout(() => trail.remove(), 1600);
+        win.style.left = l + 'px';
+        win.style.top  = t + 'px';
+      };
+      const end = () => dragging = false;
+
+      const bar = win.querySelector('.window-bar');
+      bar.addEventListener('mousedown', e => {
+        if (e.target.closest('.close-btn')) return;
+        start(e.clientX, e.clientY);
+        e.preventDefault();
+      });
+      bar.addEventListener('touchstart', e => {
+        const t = e.touches[0];
+        if (t.target.closest('.close-btn')) return;
+        start(t.clientX, t.clientY);
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', e => drag(e.clientX, e.clientY));
+      window.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        drag(t.clientX, t.clientY);
+      });
+      window.addEventListener('mouseup', end);
+      window.addEventListener('touchend', end);
+
+      win.querySelector('.close-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        win.remove();
+      });
+    }
+
+    icon.addEventListener('click', () => {
+      if (document.getElementById('txt2img-window')) return;
+
+      const win = document.createElement('div');
+      win.id = 'txt2img-window';
+      win.className = 'window';
+      const wW = window.innerWidth < 768 ? 320 : 600;
+      const wH = window.innerHeight< 768 ? 400 : 600;
+      win.style.width  = wW + 'px';
+      win.style.height = wH + 'px';
+      win.style.left   = (window.innerWidth - wW)/2 + 'px';
+      win.style.top    = (window.innerHeight- wH)/2 + 'px';
+
+      win.innerHTML = `
+        <div class="window-bar">
+          <span>TXT2IMG</span>
+          <button class="close-btn">x</button>
+        </div>
+        <div class="window-content">
+          <textarea id="prompt-input" placeholder="Prompt"></textarea>
+          <label for="orientation">Orientation:</label>
+          <select id="orientation">
+            <option value="square">Square</option>
+            <option value="landscape">Landscape</option>
+            <option value="portrait">Portrait</option>
+          </select>
+          <label for="img-size">Size:</label>
+          <select id="img-size"></select>
+          <button id="generate-btn">Generate</button>
+          <div id="spinner"></div>
+          <canvas id="image-output"></canvas>
+          <button id="download-btn" style="display:none;">Download Image</button>
+          <p id="status-message"></p>
+        </div>
+      `;
+      desktop.appendChild(win);
+      attachWindowInteractions(win);
+
+      const promptInput  = win.querySelector('#prompt-input');
+      const oriSelect    = win.querySelector('#orientation');
+      const sizeSelect   = win.querySelector('#img-size');
+      const genBtn       = win.querySelector('#generate-btn');
+      const spinner      = win.querySelector('#spinner');
+      const canvas       = win.querySelector('#image-output');
+      const downloadBtn  = win.querySelector('#download-btn');
+      const statusMsg    = win.querySelector('#status-message');
+      const ctx          = canvas.getContext('2d');
+
+      function updateSizes() {
+        const o = oriSelect.value;
+        sizeSelect.innerHTML = '';
+        let opts = [];
+        if (o === 'square')      opts = ['256x256','512x512','1024x1024'];
+        if (o === 'landscape')   opts = ['320x180','640x360','1024x576'];
+        if (o === 'portrait')    opts = ['180x320','360x640','576x1024'];
+        opts.forEach(val => {
+          const opt = document.createElement('option');
+          opt.value = val;
+          opt.textContent = val.replace('x','×');
+          sizeSelect.appendChild(opt);
+        });
+      }
+      oriSelect.addEventListener('change', updateSizes);
+      updateSizes();
+
+      function showSpinner(on) {
+        spinner.style.display     = on ? 'block' : 'none';
+        genBtn.disabled           = on;
+        statusMsg.textContent     = on ? 'Generating...' : '';
+        canvas.style.display      = 'none';
+        downloadBtn.style.display = 'none';
+      }
+
+      function buildImageUrl(w, h) {
+        const seed = Date.now() + '-' + Math.random();
+        return `https://picsum.photos/seed/${seed}/${w}/${h}`;
+      }
+
+      function loadImage(url) {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          const [w,h] = sizeSelect.value.split('x').map(n=>+n);
+          canvas.width  = w;
+          canvas.height = h;
+          ctx.drawImage(img, 0, 0, w, h);
+          ctx.fillStyle    = 'white';
+          ctx.font         = `bold ${Math.round(h/20)}px Arial`;
+          ctx.textAlign    = 'center';
+          ctx.textBaseline = 'bottom';
+          ctx.fillText(promptInput.value, w/2, h-10);
+
+          statusMsg.textContent = '';
+
+          spinner.style.display     = 'none';
+          genBtn.disabled           = false;
+          canvas.style.display      = 'block';
+          downloadBtn.style.display = 'inline-block';
+        };
+        img.onerror = () => {
+          spinner.style.display = 'none';
+          genBtn.disabled       = false;
+          statusMsg.textContent = "could not generate the image";
+        };
+        img.src = url;
+      }
+
+      genBtn.addEventListener('click', () => {
+        showSpinner(true);
+        const [w,h] = sizeSelect.value.split('x').map(n=>+n);
+        const url = buildImageUrl(w, h);
+        loadImage(url);
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        canvas.toBlob(blob => {
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'generated.png';
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+        }, 'image/png');
+      });
+    });
+  </script>
+</body>
+</html>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 </body>
 </html>
-
 
 
