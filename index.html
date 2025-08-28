@@ -2,7 +2,7 @@
 netart thing is designed and programmed by forevermidi.com plus various AIs.
 Released under the Creative Commons CC0 1.0 Universal License.
 -->
-v2.6 beta
+v2.7
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +18,14 @@ v2.6 beta
 body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);background-size:400% 400%;animation:psychedelic 10s ease infinite;overflow:hidden;user-select:none}
 @keyframes psychedelic{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .desktop{position:relative;width:100vw;height:100vh;overflow:hidden;filter:none}
-.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#ece9d8;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10;transform:scale(.8);transform-origin:top left}
+.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#a0a0a0;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10;transform:scale(.8);transform-origin:top left}
 .window-bar{background-image:linear-gradient(to right,#0054e3,#27a9e3);color:white;padding:2px 6px;font-size:12px;font-weight:bold;cursor:move;display:flex;justify-content:space-between;align-items:center;border-top-left-radius:8px;border-top-right-radius:8px;text-shadow:1px 1px #000}
-.close-btn{background:#c0c0c0;border:1px solid #7f7f7f;width:18px;height:18px;font-size:12px;cursor:pointer;color:#000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080;border-radius:2px;font-weight:bold;display:flex;align-items:center;justify-content:center}
+.close-btn{background:#a0a0a0;border:1px solid #7f7f7f;width:18px;height:18px;font-size:12px;cursor:pointer;color:#000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080;border-radius:2px;font-weight:bold;display:flex;align-items:center;justify-content:center}
 .close-btn:hover{background:#ff6f6f;border:1px solid #ff0000;color:#fff}
-.window-content{border-right:1px solid #7f7f7f;border-left:1px solid #7f7f7f;border-bottom:1px solid #7f7f7f;background:#fff;overflow:hidden;position:relative}
-.window-content img,.window-content iframe,.window-content canvas{display:block;width:100%;height:100%}
+.window-content{border-right:1px solid #7f7f7f;border-left:1px solid #7f7f7f;border-bottom:1px solid #7f7f7f;background:#a0a0a0;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.window-content img,.window-content iframe,.window-content canvas{display:block;width:100%;height:auto}
 .window-content p{font-family:'MS Sans Serif',Arial,sans-serif;font-size:16px;padding:10px;text-align:center;font-weight:bold}
+.window-content textarea, .window-content select, .window-content button {user-select: auto; -webkit-user-select: text;}
 .cursor{position:absolute;width:16px;height:16px;background:url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;pointer-events:none;animation:float 5s infinite ease-in-out;opacity:.7}
 @keyframes float{0%{transform:translate(0,0)}50%{transform:translate(20px,20px)}100%{transform:translate(0,0)}}
 .cursor:nth-child(2){animation-delay:1s}
@@ -45,7 +46,7 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 .start-button{background:#a3b29c;border:1px solid #a3b29c;border-right:1px solid #7a8276;border-bottom:1px solid #7a8276;padding:2px 8px;font-size:12px;cursor:pointer;color:#fff;font-weight:bold;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1);text-shadow:1px 1px 1px rgba(0,0,0,.3);transition:background-color .2s}
 .start-button:active{background:#7a8276;box-shadow:inset 0 1px 0 rgba(0,0,0,.1),inset -1px -1px 0 rgba(255,255,255,.5)}
 .clock{margin-left:auto;font-size:12px;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px}
-.ascii-content{font-family:'Courier New',Courier,monospace;font-size:10px;color:#000;background:#fff}
+.ascii-content{font-family:'Courier New',Courier,monospace;font-size:10px;color:#000;background:#a0a0a0}
 .ascii-content pre{margin:0;padding:10px;white-space:pre}
 marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00ff;-webkit-text-stroke:1px #000;text-transform:uppercase;padding-top:25px}
 .repo-link-window .window-content p{font-size:14px;text-align:center;padding:10px}
@@ -161,7 +162,17 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     border: none;
     box-shadow: none;
 }
-.fixed-icon img, .fixed-icon-2 img, .fixed-icon-3 img, .fixed-icon-4 img {
+.fixed-icon-5 {
+    position: fixed !important;
+    top: 410px;
+    left: 10px;
+    z-index: 2000;
+    animation: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+.fixed-icon img, .fixed-icon-2 img, .fixed-icon-3 img, .fixed-icon-4 img, .fixed-icon-5 img {
     border: none;
     box-shadow: none;
     width: 40px;
@@ -191,14 +202,78 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #c0c0c0;
+    background-color: #a0a0a0;
     border: 2px solid #fff;
     color: #000;
     text-shadow: none;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 .restart-button:hover {
-    background-color: #d0d0d0;
+    background-color: #b0b0b0;
+}
+.trail {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.3;
+    transition: opacity 1.6s;
+    background: transparent;
+}
+textarea#prompt-input {
+    width: 100%;
+    height: 100px;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    padding: 10px;
+    resize: none;
+    margin-bottom: 10px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    background: #f0f0f0;
+    color: #000;
+    -webkit-appearance: none;
+}
+label, select, button { margin-top: 5px; }
+button#generate-btn, button#download-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #0054e3;
+    background-color: #27a9e3;
+    color: white;
+}
+button#generate-btn:hover, button#download-btn:hover {
+    background-color: #0054e3;
+}
+canvas#image-output {
+    max-width: 100%;
+    max-height: 400px;
+    margin-top: 15px;
+    border: 1px solid #0f0;
+    display: none;
+    border-radius: 4px;
+    filter: contrast(1.5) grayscale(0.8) hue-rotate(90deg);
+}
+#spinner {
+    display: none;
+    margin: 15px auto;
+    border: 4px solid #444;
+    border-top: 4px solid #27a9e3;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+p#status-message {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #0f0;
+    min-height: 20px;
+    text-align: center;
 }
 </style>
 </head>
@@ -230,6 +305,10 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <div class="icon xp fixed-icon-4" id="joke-icon">
     <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-view-conversation-balloon-icon.png" alt="Joke Messages">
     <span>The M3ss3ng3r.app</span>
+</div>
+<div class="icon xp fixed-icon-5" id="txt2img-icon">
+    <img src="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/brush-icon.png" alt="TXT2IMG Icon">
+    <span>TXT2IMG.app</span>
 </div>
 <div class="window" id="IDK" style="left: 600px; top: 200px; width: 200px; height: 100px;">
 <div class="window-bar"><span>IDK</span><button class="close-btn">x</button></div>
@@ -263,9 +342,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 </div>
 <div class="window" style="left:60px; top:650px; width:350px; height:125px;">
 <div class="window-bar"><span>tol in dal cool</span><button class="close-btn">x</button></div>
-<div class="window-content"><img src="https://i0.wp.com/www.8bitmammoth.com/wp-content/uploads/2010/03/
-  
-  \-Media-Player-encountered-a-problem.png?w=448&ssl=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
+<div class="window-content"><img src="https://i0.wp.com/www.8bitmammoth.com/wp-content/uploads/2010/03/-Media-Player-encountered-a-problem.png?w=448&ssl=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
 <div class="window" style="left:450px; top:650px; width:350px; height:250px;">
 <div class="window-bar"><span>Camera Giardino Live 🔴</span><button class="close-btn">x</button></div>
@@ -309,14 +386,13 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@&PJ7!!7?YB@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-
 </pre>
 </div>
 </div>
 <div class="window" style="left:1230px; top:350px; width:350px; height:85px;">
 <div class="window-bar"><span>* *</span><button class="close-btn">x</button></div>
 <div class="window-content">
-<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
+<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
 </div>
 </div>
 <div class="window" style="left:1230px; top:650px; width:350px; height:250px;">
@@ -408,8 +484,6 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"></feDisplacementMap>
 </filter>
 </svg>
-
-</div>
 <div id="black-screen" class="black-screen">
 <pre>
                        uuuuuuuuuuuuuuuuuuuuu.
@@ -453,51 +527,55 @@ $$         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                       uW$$  uu  uu.  $$$  $$$Wu#   $$$$$$
                      ~$$$$iu$$iu$$$uW$$! $$$$$$i .W$$$$$$
 </pre>
- 
 <button class="restart-button">RESTART</button>
 </div>
 <div id="lambrusco-text" class="lambrusco-text">IT'S LAMBRUSCO TIME</div>
 <script>
-const desktop=document.querySelector('.desktop')
-const startButton=document.querySelector('.start-button')
-const windowsNodeList=document.querySelectorAll('.window')
-const icons=document.querySelectorAll('.icon')
-const blueScreen = document.getElementById('blue-screen')
-const blackScreen=document.getElementById('black-screen')
-const cursedImage3=document.getElementById('cursed-3')
+const desktop = document.querySelector('.desktop');
+const startButton = document.querySelector('.start-button');
+const windowsNodeList = document.querySelectorAll('.window');
+const icons = document.querySelectorAll('.icon');
+const blueScreen = document.getElementById('blue-screen');
+const blackScreen = document.getElementById('black-screen');
+const cursedImage3 = document.getElementById('cursed-3');
 const lambruscoIcon = document.getElementById('lambrusco-icon');
 const forevermidiIcon = document.getElementById('forevermidi-icon');
 const shredIcon = document.getElementById('shred-icon');
 const jokeIcon = document.getElementById('joke-icon');
+const txt2imgIcon = document.getElementById('txt2img-icon');
 const taskbarMessage = document.getElementById('taskbar-message');
 const lambruscoText = document.getElementById('lambrusco-text');
-const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4');
+const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4, .fixed-icon-5');
 const restartButtons = document.querySelectorAll('.restart-button');
-let timeRemaining=300
-let timerInterval
-let isTyping = false
-const cursor = '<span class="blinking-cursor">|</span>'
+let timeRemaining = 300;
+let isTyping = false;
+const cursor = '<span class="blinking-cursor">|</span>';
 
-function createWindowCopy(win){
-const copy=win.cloneNode(true)
-copy.style.position='absolute'
-copy.style.left=(parseInt(win.style.left)||win.offsetLeft)+'px'
-copy.style.top=(parseInt(win.style.top)||win.offsetTop)+'px'
-copy.style.width=win.offsetWidth+'px'
-copy.style.height=win.offsetHeight+'px'
-copy.style.zIndex='-1'
-copy.style.opacity='0.9'
-copy.classList.remove('glitch-trail');
-desktop.appendChild(copy)
-setTimeout(()=>{copy.style.transition='opacity 30s ease-out';copy.style.opacity='0';setTimeout(()=>copy.remove(),30000)},10)
+function createWindowCopy(win) {
+    const copy = win.cloneNode(true);
+    copy.style.position = 'absolute';
+    copy.style.left = (parseInt(win.style.left) || win.offsetLeft) + 'px';
+    copy.style.top = (parseInt(win.style.top) || win.offsetTop) + 'px';
+    copy.style.width = win.style.width;
+    copy.style.height = win.style.height;
+    copy.style.zIndex = '-1';
+    copy.style.opacity = '0.9';
+    copy.classList.remove('glitch-trail');
+    desktop.appendChild(copy);
+    setTimeout(() => {
+        copy.style.transition = 'opacity 30s ease-out';
+        copy.style.opacity = '0';
+        setTimeout(() => copy.remove(), 30000);
+    }, 10);
 }
+
 function createGlitchTrail(win) {
     const trail = win.cloneNode(true);
     trail.classList.add('glitch-trail');
     trail.style.left = win.style.left;
     trail.style.top = win.style.top;
-    trail.style.width = win.offsetWidth+'px';
-    trail.style.height = win.offsetHeight+'px';
+    trail.style.width = win.style.width;
+    trail.style.height = win.style.height;
     trail.style.zIndex = '9';
     desktop.appendChild(trail);
     setTimeout(() => {
@@ -506,27 +584,48 @@ function createGlitchTrail(win) {
         setTimeout(() => trail.remove(), 5000);
     }, 100);
 }
-function moveWindow(win){
-let posX=parseInt(win.style.left)||win.offsetLeft||0
-let posY=parseInt(win.style.top)||win.offsetTop||0
-let velX=(Math.random()-0.5)*2
-let velY=(Math.random()-0.5)*2
-let frameCount=0
-function update(){
-if (win.classList.contains('blinking')) {
-    requestAnimationFrame(update);
-    return;
+
+function createGreenTrail(win) {
+    const trail = document.createElement('div');
+    trail.className = 'trail';
+    trail.style.width = win.style.width;
+    trail.style.height = win.style.height;
+    trail.style.left = win.style.left;
+    trail.style.top = win.style.top;
+    trail.style.border = '2px solid #0f0';
+    desktop.appendChild(trail);
+    setTimeout(() => { trail.style.opacity = '0'; }, 10);
+    setTimeout(() => { trail.remove(); }, 1600);
 }
-posX+=velX
-posY+=velY
-if(posX<0||posX>window.innerWidth-win.offsetWidth) velX=-velX
-if(posY<0||posY>window.innerHeight-win.offsetHeight) velY=-velY
-win.style.left=posX+'px'
-win.style.top=posY+'px'
-frameCount++
-requestAnimationFrame(update)
-}
-update()
+
+function moveWindow(win) {
+    let posX = parseInt(win.style.left) || win.offsetLeft || 0;
+    let posY = parseInt(win.style.top) || win.offsetTop || 0;
+    let velX = (Math.random() - 0.5) * 2;
+    let velY = (Math.random() - 0.5) * 2;
+    let isMoving = false; // Start with movement off
+
+    function update() {
+        if (!isMoving || win.classList.contains('blinking')) {
+            return;
+        }
+        posX += velX;
+        posY += velY;
+        if (posX < 0 || posX > window.innerWidth - parseInt(win.style.width)) velX = -velX;
+        if (posY < 0 || posY > window.innerHeight - parseInt(win.style.height)) velY = -velY;
+        win.style.left = posX + 'px';
+        win.style.top = posY + 'px';
+        requestAnimationFrame(update);
+    }
+
+    win.startMoving = () => {
+        isMoving = true;
+        update();
+    };
+
+    win.stopMoving = () => {
+        isMoving = false;
+    };
 }
 
 const insideJokes = [
@@ -714,10 +813,11 @@ const insideJokes = [
 "Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet."  
 ];
 
-function createJokeWindow(){
+
+function createJokeWindow() {
     if (isTyping) return;
     isTyping = false;
-    
+
     const jokeWin = document.createElement('div');
     jokeWin.className = 'window joke-window';
     const w = 300;
@@ -728,13 +828,14 @@ function createJokeWindow(){
     jokeWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     jokeWin.style.zIndex = 2000;
     jokeWin.innerHTML = `<div class="window-bar"><span>The M3ss3ng3r</span><button class="close-btn">x</button></div><div class="window-content"><p id="jokes-output"></p></div>`;
- 
+
     desktop.appendChild(jokeWin);
     attachWindowInteractions(jokeWin);
     moveWindow(jokeWin);
+    jokeWin.startMoving();
 
     const jokeOutput = jokeWin.querySelector('#jokes-output');
-    const message = insideJokes[Math.floor(Math.random() * insideJokes.length)];
+    const message = insideJokes[Math.floor(Math.random() * insideJokes.length)] || 'No jokes available!';
     
     let charIndex = 0;
     const typeWriter = setInterval(() => {
@@ -748,79 +849,249 @@ function createJokeWindow(){
     }, 50);
 }
 
+function createTxt2ImgWindow() {
+    const win = document.createElement('div');
+    win.id = 'txt2img-window';
+    win.className = 'window';
+    const isMobile = window.innerWidth < 768;
+    const w = isMobile ? 320 : 600;
+    const h = isMobile ? 400 : 600;
+    win.style.width = w + 'px';
+    win.style.height = h + 'px';
+    win.style.left = (window.innerWidth / 2 - w / 2) + 'px';
+    win.style.top = (window.innerHeight / 2 - h / 2) + 'px';
+    win.style.zIndex = 2000;
+    win.innerHTML = `
+        <div class="window-bar"><span>TXT2IMG</span><button class="close-btn">x</button></div>
+        <div class="window-content">
+            <textarea id="prompt-input" placeholder="Enter your prompt"></textarea>
+            <label for="orientation">Orientation:</label>
+            <select id="orientation">
+                <option value="square">Square</option>
+                <option value="landscape">Landscape</option>
+                <option value="portrait">Portrait</option>
+            </select>
+            <label for="img-size">Size:</label>
+            <select id="img-size"></select>
+            <button id="generate-btn">Generate</button>
+            <div id="spinner"></div>
+            <canvas id="image-output"></canvas>
+            <button id="download-btn" style="display:none;">Download Image</button>
+            <p id="status-message"></p>
+        </div>
+    `;
+    desktop.appendChild(win);
+    attachWindowInteractions(win);
+    moveWindow(win); // Initialize movement functions but don't start moving
+
+    const promptInput = win.querySelector('#prompt-input');
+    const orientationSelect = win.querySelector('#orientation');
+    const sizeSelect = win.querySelector('#img-size');
+    const generateBtn = win.querySelector('#generate-btn');
+    const spinner = win.querySelector('#spinner');
+    const imageOutput = win.querySelector('#image-output');
+    const downloadBtn = win.querySelector('#download-btn');
+    const statusMessage = win.querySelector('#status-message');
+    const ctx = imageOutput.getContext('2d');
+
+    function updateSizes() {
+        sizeSelect.innerHTML = '';
+        let options = [];
+        if (orientationSelect.value === 'square') {
+            options = ['256x256', '512x512', '1024x1024'];
+        } else if (orientationSelect.value === 'landscape') {
+            options = ['320x180', '640x360', '1024x576'];
+        } else if (orientationSelect.value === 'portrait') {
+            options = ['180x320', '360x640', '576x1024'];
+        }
+        options.forEach(opt => {
+            const option = document.createElement('option');
+            option.value = opt;
+            option.textContent = opt.replace('x', '×');
+            sizeSelect.appendChild(option);
+        });
+    }
+    orientationSelect.addEventListener('change', updateSizes);
+    updateSizes();
+
+    function showSpinner(show) {
+        spinner.style.display = show ? 'block' : 'none';
+        generateBtn.disabled = show;
+        statusMessage.textContent = show ? 'Generating...' : '';
+        imageOutput.style.display = 'none';
+        downloadBtn.style.display = 'none';
+    }
+
+    async function fetchImageUrl(prompt, width, height, retries = 3, delay = 1000) {
+        const query = encodeURIComponent(prompt || 'random');
+        const url = `https://picsum.photos/${width}/${height}?${query}`;
+        for (let i = 0; i < retries; i++) {
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    return url;
+                }
+                console.warn(`Attempt ${i + 1} failed for ${url}`);
+                if (i < retries - 1) await new Promise(resolve => setTimeout(resolve, delay));
+            } catch (error) {
+                console.error(`Error fetching image (attempt ${i + 1}):`, error);
+                if (i < retries - 1) await new Promise(resolve => setTimeout(resolve, delay));
+            }
+        }
+        console.error('All retries failed, using fallback image');
+        return `https://picsum.photos/${width}/${height}`; // Fallback to default image
+    }
+
+    generateBtn.addEventListener('click', async () => {
+        showSpinner(true);
+        const [width, height] = sizeSelect.value.split('x').map(Number);
+        const prompt = promptInput.value.trim() || 'random';
+        try {
+            const url = await fetchImageUrl(prompt, width, height);
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = url;
+            img.onload = () => {
+                imageOutput.width = width;
+                imageOutput.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                ctx.fillStyle = 'white';
+                ctx.font = `bold ${Math.round(height / 20)}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(prompt, width / 2, height - 10);
+                showSpinner(false);
+                imageOutput.style.display = 'block';
+                downloadBtn.style.display = 'inline-block';
+                statusMessage.textContent = 'Image generated successfully!';
+            };
+            img.onerror = () => {
+                showSpinner(false);
+                statusMessage.textContent = "The image couldn't be generated";
+            };
+        } catch (error) {
+            showSpinner(false);
+            statusMessage.textContent = "The image couldn't be generated";
+        }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.href = imageOutput.toDataURL('image/png');
+        link.download = 'generated.png';
+        link.click();
+    });
+}
+
 function attachWindowInteractions(win) {
     let isDragging = false;
     let offsetX, offsetY;
-    
-    win.addEventListener('mousedown', startDrag);
-    win.addEventListener('touchstart', startDrag);
-    
-    function startDrag(e) {
-        if (e.target.closest('.close-btn')) return;
 
+    function startDrag(e) {
+        if (e.target.closest('.close-btn') || e.target.closest('textarea') || e.target.closest('select') || e.target.closest('button')) {
+            return;
+        }
         isDragging = true;
         win.style.zIndex = 1000;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         offsetX = clientX - (parseInt(win.style.left) || win.offsetLeft);
         offsetY = clientY - (parseInt(win.style.top) || win.offsetTop);
+        win.stopMoving && win.stopMoving();
         e.preventDefault();
         desktop.addEventListener('mousemove', drag);
         desktop.addEventListener('touchmove', drag);
         desktop.addEventListener('mouseup', endDrag);
         desktop.addEventListener('touchend', endDrag);
     }
-    
+
     function drag(e) {
         if (!isDragging) return;
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        
+
         let newLeft = clientX - offsetX;
         let newTop = clientY - offsetY;
+
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - parseInt(win.style.width)));
+        newTop = Math.max(0, Math.min(newTop, window.innerHeight - parseInt(win.style.height)));
 
         win.style.left = newLeft + 'px';
         win.style.top = newTop + 'px';
 
-        if (win.classList.contains('glitch-trail')) {
+        if (win.id === 'txt2img-window') {
+            createGreenTrail(win);
+        } else if (win.classList.contains('glitch-trail')) {
             createGlitchTrail(win);
         } else {
             createWindowCopy(win);
         }
     }
-    
+
     function endDrag() {
         isDragging = false;
         desktop.removeEventListener('mousemove', drag);
         desktop.removeEventListener('touchmove', drag);
         desktop.removeEventListener('mouseup', endDrag);
         desktop.removeEventListener('touchend', endDrag);
+        if (win.id !== 'txt2img-window') {
+            win.startMoving && win.startMoving();
+        }
     }
+
+    win.addEventListener('mousedown', startDrag);
+    win.addEventListener('touchstart', startDrag, { passive: false });
 
     const closeBtn = win.querySelector('.close-btn');
     if (closeBtn) {
         closeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            win.stopMoving && win.stopMoving();
             win.remove();
         });
     }
 }
 
-const windows=Array.from(windowsNodeList)
-windows.forEach(win=>{attachWindowInteractions(win);moveWindow(win)})
+const windows = Array.from(windowsNodeList);
+windows.forEach(win => {
+    attachWindowInteractions(win);
+    if (win.id !== 'txt2img-window') {
+        moveWindow(win);
+        win.startMoving();
+    }
+});
 
-const cursors=document.querySelectorAll('.cursor')
-cursors.forEach(cursor=>{cursor.style.left=`${Math.random()*window.innerWidth}px`;cursor.style.top=`${Math.random()*window.innerHeight}px`})
-cursors.forEach(cursor=>{function drift(){const dx=(Math.random()-0.5)*100;const dy=(Math.random()-0.5)*100;cursor.animate([{transform:'translate(0,0)'},{transform:`translate(${dx}px,${dy}px)`}],{duration:5000+Math.random()*5000,direction:'alternate',iterations:Infinity,easing:'ease-in-out'})}drift()})
+const cursors = document.querySelectorAll('.cursor');
+cursors.forEach(cursor => {
+    cursor.style.left = `${Math.random() * window.innerWidth}px`;
+    cursor.style.top = `${Math.random() * window.innerHeight}px`;
+});
+cursors.forEach(cursor => {
+    function drift() {
+        const dx = (Math.random() - 0.5) * 100;
+        const dy = (Math.random() - 0.5) * 100;
+        cursor.animate(
+            [{ transform: 'translate(0,0)' }, { transform: `translate(${dx}px,${dy}px)` }],
+            { duration: 5000 + Math.random() * 5000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' }
+        );
+    }
+    drift();
+});
 
-function moveIcon(icon, speed=1){
-const dx=(Math.random()-0.5)*100*speed
-const dy=(Math.random()-0.5)*100*speed
-icon.animate([{transform:`translate(${Math.random()*(window.innerWidth-100)}px, ${Math.random()*(window.innerHeight-100)}px)`},{transform:`translate(${dx+Math.random()*(window.innerWidth-100)}px, ${dy+Math.random()*(window.innerHeight-100)}px)`}],{duration:6000+Math.random()*2000,direction:'alternate',iterations:Infinity,easing:'ease-in-out'})
+function moveIcon(icon, speed = 1) {
+    const dx = (Math.random() - 0.5) * 100 * speed;
+    const dy = (Math.random() - 0.5) * 100 * speed;
+    icon.animate(
+        [
+            { transform: `translate(${Math.random() * (window.innerWidth - 100)}px, ${Math.random() * (window.innerHeight - 100)}px)` },
+            { transform: `translate(${dx + Math.random() * (window.innerWidth - 100)}px, ${dy + Math.random() * (window.innerHeight - 100)}px)` }
+        ],
+        { duration: 6000 + Math.random() * 2000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' }
+    );
 }
 
 icons.forEach(icon => {
-    if(!icon.classList.contains('fixed-icon') && !icon.classList.contains('fixed-icon-2') && !icon.classList.contains('fixed-icon-3') && !icon.classList.contains('fixed-icon-4')) {
+    if (!icon.classList.contains('fixed-icon') && !icon.classList.contains('fixed-icon-2') && !icon.classList.contains('fixed-icon-3') && !icon.classList.contains('fixed-icon-4') && !icon.classList.contains('fixed-icon-5')) {
         moveIcon(icon);
     }
 });
@@ -840,14 +1111,14 @@ function showBlueScreen() {
     blueScreen.style.display = 'flex';
     setTimeout(() => {
         window.location.reload();
-    }, 10000); // 10 seconds before auto-reloading
+    }, 10000);
 }
 
-function showBlackScreen(){
-blackScreen.style.display='flex';
-setTimeout(() => {
-    window.location.reload();
-}, 10000); // 10 seconds before auto-reloading
+function showBlackScreen() {
+    blackScreen.style.display = 'flex';
+    setTimeout(() => {
+        window.location.reload();
+    }, 10000);
 }
 
 restartButtons.forEach(button => {
@@ -856,35 +1127,69 @@ restartButtons.forEach(button => {
     });
 });
 
-document.addEventListener('mousemove',e=>{const pointer=document.getElementById('moving-pointer'); if(pointer){pointer.style.left=e.pageX+'px';pointer.style.top=e.pageY+'px'}})
+document.addEventListener('mousemove', e => {
+    const pointer = document.getElementById('moving-pointer');
+    if (pointer) {
+        pointer.style.left = e.pageX + 'px';
+        pointer.style.top = e.pageY + 'px';
+    }
+});
 
-document.body.addEventListener('dblclick',()=>{const newText=document.createElement('h1');newText.textContent='SYSTEM CORRUPTION';newText.style.position='fixed';newText.style.top='50%';newText.style.left='50%';newText.style.transform='translate(-50%,-50%)';newText.style.color='#ff0000';newText.style.textShadow='2px 2px 5px #00ffff';newText.style.zIndex='1000';document.body.appendChild(newText);setTimeout(()=>newText.remove(),5000)})
+document.addEventListener('touchmove', e => {
+    const pointer = document.getElementById('moving-pointer');
+    if (pointer && e.touches.length) {
+        pointer.style.left = e.touches[0].pageX + 'px';
+        pointer.style.top = e.touches[0].pageY + 'px';
+    }
+}, { passive: true });
 
-startButton.addEventListener('click',()=>{
-const surpriseWin=document.createElement('div')
-surpriseWin.className='window'
-const w=420; const h=220
-surpriseWin.style.width=w+'px'
-surpriseWin.style.height=h+'px'
-surpriseWin.style.left=(window.innerWidth/2-w/2)+'px'
-surpriseWin.style.top=(window.innerHeight/2-h/2)+'px'
-surpriseWin.style.zIndex=2000
-surpriseWin.innerHTML='<div class="window-bar"><span>SURPRISE</span><button class="close-btn">x</button></div><div class="window-content surprise-style"><p style="margin:0 0 8px 0;font-weight:bold;">you found a surprise</p><img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="vaporwave" style="max-width:90%;max-height:110px;border-radius:6px"/><p style="margin-top:8px;font-size:12px;color:#333;">(press the X to close)</p></div>'
-desktop.appendChild(surpriseWin)
-attachWindowInteractions(surpriseWin)
-createWindowCopy(surpriseWin)
-if(startButton.classList.contains('purple-start')){showBlackScreen()}
-})
-startButton.classList.remove('purple-start')
+document.body.addEventListener('dblclick', () => {
+    const newText = document.createElement('h1');
+    newText.textContent = 'SYSTEM CORRUPTION';
+    newText.style.position = 'fixed';
+    newText.style.top = '50%';
+    newText.style.left = '50%';
+    newText.style.transform = 'translate(-50%,-50%)';
+    newText.style.color = '#ff0000';
+    newText.style.textShadow = '2px 2px 5px #00ffff';
+    newText.style.zIndex = '1000';
+    document.body.appendChild(newText);
+    setTimeout(() => newText.remove(), 5000);
+});
 
-if(cursedImage3){
-    cursedImage3.addEventListener('click', ()=>{
-        triggerFall();
-    });
+startButton.addEventListener('click', () => {
+    const surpriseWin = document.createElement('div');
+    surpriseWin.className = 'window';
+    const w = 420;
+    const h = 220;
+    surpriseWin.style.width = w + 'px';
+    surpriseWin.style.height = h + 'px';
+    surpriseWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
+    surpriseWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
+    surpriseWin.style.zIndex = 2000;
+    surpriseWin.innerHTML = '<div class="window-bar"><span>SURPRISE</span><button class="close-btn">x</button></div><div class="window-content surprise-style"><p style="margin:0 0 8px 0;font-weight:bold;">you found a surprise</p><img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="vaporwave" style="max-width:90%;max-height:110px;border-radius:6px"/><p style="margin-top:8px;font-size:12px;color:#333;">(press the X to close)</p></div>';
+    desktop.appendChild(surpriseWin);
+    attachWindowInteractions(surpriseWin);
+    createWindowCopy(surpriseWin);
+    moveWindow(surpriseWin);
+    surpriseWin.startMoving();
+});
+startButton.classList.remove('purple-start');
+
+if (cursedImage3) {
+    const cursedContent = cursedImage3.querySelector('.window-content');
+    if (cursedContent) {
+        cursedContent.addEventListener('click', (e) => {
+            if (!e.target.closest('.window-bar') && !e.target.closest('.close-btn')) {
+                triggerFall();
+            }
+        });
+    }
 }
+
 lambruscoIcon.addEventListener('click', () => {
     document.body.classList.add('lambrusco-background');
-    const drunkItems = document.querySelectorAll('.window, .icon:not(.fixed-icon):not(.fixed-icon-2):not(.fixed-icon-3):not(.fixed-icon-4)');
+    const drunkItems = document.querySelectorAll('.window, .icon:not(.fixed-icon):not(.fixed-icon-2):not(.fixed-icon-3):not(.fixed-icon-4):not(.fixed-icon-5)');
     drunkItems.forEach(item => {
         item.classList.add('lambrusco-effect');
     });
@@ -912,7 +1217,7 @@ shredIcon.addEventListener('click', () => {
     windowsNodeList.forEach(win => {
         win.classList.add('glitch-trail');
     });
-    
+
     body.style.animation = 'none';
     body.style.backgroundColor = '#000';
 
@@ -939,12 +1244,37 @@ shredIcon.addEventListener('click', () => {
 
 jokeIcon.addEventListener('click', createJokeWindow);
 
-function updateClock(){const clock=document.getElementById('clock');const now=new Date(); if(clock) clock.textContent=`${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`}
-setInterval(updateClock,1000)
-updateClock()
+txt2imgIcon.addEventListener('click', createTxt2ImgWindow);
 
-const observer=new MutationObserver((mutations)=>{for(const m of mutations){for(const node of m.addedNodes){if(node.nodeType===1){if(node.classList&&node.classList.contains('window')){attachWindowInteractions(node)} if(node.classList&&node.classList.contains('icon')){moveIcon(node)}}}}})
-observer.observe(desktop,{childList:true,subtree:true})
+function updateClock() {
+    const clock = document.getElementById('clock');
+    const now = new Date();
+    if (clock) clock.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+const observer = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+        for (const node of m.addedNodes) {
+            if (node.nodeType === 1) {
+                if (node.classList && node.classList.contains('window')) {
+                    attachWindowInteractions(node);
+                    if (node.id !== 'txt2img-window') {
+                        moveWindow(node);
+                        node.startMoving();
+                    } else {
+                        moveWindow(node); // Initialize movement functions but don't start
+                    }
+                }
+                if (node.classList && node.classList.contains('icon')) {
+                    moveIcon(node);
+                }
+            }
+        }
+    }
+});
+observer.observe(desktop, { childList: true, subtree: true });
 </script>
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
@@ -982,39 +1312,39 @@ palm.add(trunk);
 const segments = 9;
 const h = 1.9;
 for (let i = 0; i < segments; i++) {
-const t = i / (segments - 1);
-const topR = 0.12 - t * 0.06;
-const botR = 0.15 - t * 0.06;
-const seg = new THREE.Mesh(new THREE.CylinderGeometry(topR, botR, h / segments, 6, 1), brown);
-seg.position.y = (i + 0.5) * (h / segments);
-seg.rotation.z = Math.sin(i * 0.45) * 0.08;
-trunk.add(seg);
+    const t = i / (segments - 1);
+    const topR = 0.12 - t * 0.06;
+    const botR = 0.15 - t * 0.06;
+    const seg = new THREE.Mesh(new THREE.CylinderGeometry(topR, botR, h / segments, 6, 1), brown);
+    seg.position.y = (i + 0.5) * (h / segments);
+    seg.rotation.z = Math.sin(i * 0.45) * 0.08;
+    trunk.add(seg);
 }
 const crown = new THREE.Group();
 crown.position.y = h + 0.05;
 palm.add(crown);
 const leafCount = 7;
 for (let i = 0; i < leafCount; i++) {
-const leaf = new THREE.Group();
-const spine = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, 1.2), green);
-spine.position.z = 0.6;
-leaf.add(spine);
-const tri = new THREE.BufferGeometry();
-const verts = new Float32Array([0, 0, 0.8, -0.05, 0, 1.1, 0.05, 0, 1.1]);
-tri.setAttribute('position', new THREE.BufferAttribute(verts, 3));
-tri.computeVertexNormals();
-const blade = new THREE.Mesh(tri, green);
-blade.position.z = 0.05;
-leaf.add(blade);
-leaf.rotation.y = (i / leafCount) * Math.PI * 2;
-leaf.rotation.x = -0.7 + Math.random() * 0.2;
-crown.add(leaf);
+    const leaf = new THREE.Group();
+    const spine = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, 1.2), green);
+    spine.position.z = 0.6;
+    leaf.add(spine);
+    const tri = new THREE.BufferGeometry();
+    const verts = new Float32Array([0, 0, 0.8, -0.05, 0, 1.1, 0.05, 0, 1.1]);
+    tri.setAttribute('position', new THREE.BufferAttribute(verts, 3));
+    tri.computeVertexNormals();
+    const blade = new THREE.Mesh(tri, green);
+    blade.position.z = 0.05;
+    leaf.add(blade);
+    leaf.rotation.y = (i / leafCount) * Math.PI * 2;
+    leaf.rotation.x = -0.7 + Math.random() * 0.2;
+    crown.add(leaf);
 }
 for (let i = 0; i < 3; i++) {
-const nut = new THREE.Mesh(new THREE.SphereGeometry(0.09, 6, 6), nutMat);
-const a = (i / 3) * Math.PI * 2;
-nut.position.set(Math.cos(a) * 0.18, -0.08, Math.sin(a) * 0.18);
-crown.add(nut);
+    const nut = new THREE.Mesh(new THREE.SphereGeometry(0.09, 6, 6), nutMat);
+    const a = (i / 3) * Math.PI * 2;
+    nut.position.set(Math.cos(a) * 0.18, -0.08, Math.sin(a) * 0.18);
+    crown.add(nut);
 }
 palm.scale.set(0.65, 0.65, 0.65);
 let posX = window.innerWidth / 2;
@@ -1022,853 +1352,23 @@ let posY = window.innerHeight / 2;
 let velX = (Math.random() - 0.5) * 6;
 let velY = (Math.random() - 0.5) * 6;
 function animate() {
-requestAnimationFrame(animate);
-palm.rotation.y += 0.01;
-crown.rotation.x = Math.sin(Date.now() * 0.002) * 0.08;
-posX += velX;
-posY += velY;
-if (posX < 100 || posX > window.innerWidth - 100) velX *= -1;
-if (posY < 150 || posY > window.innerHeight - 150) velY *= -1;
-palm.position.x = (posX - window.innerWidth / 2) / 120;
-palm.position.y = (posY - window.innerHeight / 2) / 120;
-renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+    palm.rotation.y += 0.01;
+    crown.rotation.x = Math.sin(Date.now() * 0.002) * 0.08;
+    posX += velX;
+    posY += velY;
+    if (posX < 100 || posX > window.innerWidth - 100) velX *= -1;
+    if (posY < 150 || posY > window.innerHeight - 150) velY *= -1;
+    palm.position.x = (posX - window.innerWidth / 2) / 120;
+    palm.position.y = (posY - window.innerHeight / 2) / 120;
+    renderer.render(scene, camera);
 }
 animate();
 window.addEventListener('resize', () => {
-camera.aspect = window.innerWidth / window.innerHeight;
-camera.updateProjectionMatrix();
-renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 });
 </script>
-  
-  
-  
-  
-  
-  
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>TXT2IMG.app</title>
-  <style>
-    body {
-      font-family: "MS Sans Serif", Arial, sans-serif;
-      background: linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);
-      background-size: 400% 400%;
-      animation: psychedelic 10s ease infinite;
-      overflow: hidden;
-      user-select: none;
-      margin: 0;
-      height: 100vh;
-    }
-    @keyframes psychedelic {
-      0%   { background-position: 0%   50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0%   50%; }
-    }
-    .desktop {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-    .icon.xp {
-      position: fixed; /* Changed to fixed to prevent it from being hidden on scroll */
-      top: 370px;
-      left: 10px;
-      width: 80px;
-      cursor: pointer;
-      text-align: center;
-      touch-action: manipulation;
-      z-index: 9999; /* Increased z-index to ensure it's always on top */
-    }
-    .icon.xp img {
-      width: 56px;
-      height: 56px;
-      display: block;
-      margin: 0 auto 4px;
-    }
-    .icon.xp span {
-      font-size: 12px;
-      font-weight: bold;
-      color: #000;
-      text-shadow: 1px 1px 1px #fff;
-      user-select: none;
-    }
-    .window {
-      position: absolute;
-      border: 1px solid #003c74;
-      border-radius: 8px;
-      background: #c0c0c0; /* Reverted to classic gray */
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      z-index: 10;
-      width: 600px;
-      height: 600px;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.3s ease;
-      color: #000; /* Text color inside window */
-    }
-    @media(max-width: 767px) {
-      .window { width: 320px; height: 400px; }
-    }
-    .window-bar {
-      background-image: linear-gradient(to right,#0054e3,#27a9e3);
-      color: white;
-      padding: 6px 10px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: move;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 8px 8px 0 0;
-      user-select: none;
-      touch-action: none;
-    }
-    .window-content {
-      padding: 15px;
-      background: #c0c0c0; /* Reverted to classic gray */
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    textarea#prompt-input {
-      width: 100%;
-      height: 100px;
-      font-family: "MS Sans Serif", Arial, sans-serif;
-      padding: 6px;
-      resize: none;
-      margin-bottom: 10px;
-      border: 1px solid #999;
-      border-radius: 4px;
-      background: #f0f0f0; /* Light gray for input */
-      color: #000;
-    }
-    label, select, button { margin-top: 5px; }
-    button#generate-btn, button#download-btn {
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 4px;
-      border: 1px solid #0054e3;
-      background-color: #27a9e3;
-      color: white;
-    }
-    button#generate-btn:hover, button#download-btn:hover {
-      background-color: #0054e3;
-    }
-    canvas#image-output {
-      max-width: 100%;
-      max-height: 400px;
-      margin-top: 15px;
-      border: 1px solid #0f0;
-      display: none;
-      border-radius: 4px;
-      filter: contrast(1.5) grayscale(0.8) hue-rotate(90deg);
-    }
-    #spinner {
-      display: none;
-      margin-top: 15px;
-      border: 4px solid #444;
-      border-top: 4px solid #27a9e3;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0%   { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    p#status-message {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #0f0;
-      min-height: 20px;
-      text-align: center;
-    }
-    .close-btn {
-      background: #c0c0c0;
-      border: 1px solid #7f7f7f;
-      width: 22px;
-      height: 22px;
-      font-size: 14px;
-      cursor: pointer;
-      color: #000;
-      box-shadow: inset 1px 1px #fff, inset -1px -1px #808080;
-      border-radius: 3px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .close-btn:hover {
-      background: #ff6f6f;
-      border: 1px solid #ff0000;
-      color: #fff;
-    }
-    .trail {
-      position: absolute;
-      pointer-events: none;
-      z-index: 5;
-      opacity: 0.3;
-      transition: opacity 1.6s;
-    }
-  </style>
-</head>
-<body>
-  <div class="desktop" id="desktop">
-    <div class="icon xp" id="txt2img-icon">
-      <img src="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/brush-icon.png" alt="TXT2IMG Icon"/>
-      <span>TXT2IMG.app</span>
-    </div>
-  </div>
-
-  <script>
-    const desktop = document.getElementById('desktop');
-    const icon    = document.getElementById('txt2img-icon');
-
-    function attachWindowInteractions(win) {
-      let dragging = false, offsetX, offsetY;
-      const start = (x, y) => {
-        dragging = true;
-        offsetX = x - win.offsetLeft;
-        offsetY = y - win.offsetTop;
-        win.style.zIndex = 1000;
-      };
-      const drag = (x, y) => {
-        if (!dragging) return;
-        let l = x - offsetX, t = y - offsetY;
-        l = Math.max(0, Math.min(l, window.innerWidth - win.offsetWidth));
-        t = Math.max(0, Math.min(t, window.innerHeight - win.offsetHeight));
-        const trail = document.createElement('div');
-        trail.className = 'trail';
-        trail.style.width  = win.offsetWidth + 'px';
-        trail.style.height = win.offsetHeight + 'px';
-        trail.style.left   = win.offsetLeft + 'px';
-        trail.style.top    = win.offsetTop + 'px';
-        trail.style.border = '2px solid #0f0';
-        desktop.appendChild(trail);
-        setTimeout(() => trail.style.opacity = '0', 50);
-        setTimeout(() => trail.remove(), 1600);
-        win.style.left = l + 'px';
-        win.style.top  = t + 'px';
-      };
-      const end = () => dragging = false;
-
-      const bar = win.querySelector('.window-bar');
-      bar.addEventListener('mousedown', e => {
-        if (e.target.closest('.close-btn')) return;
-        start(e.clientX, e.clientY);
-        e.preventDefault();
-      });
-      bar.addEventListener('touchstart', e => {
-        const t = e.touches[0];
-        if (t.target.closest('.close-btn')) return;
-        start(t.clientX, t.clientY);
-        e.preventDefault();
-      });
-      window.addEventListener('mousemove', e => drag(e.clientX, e.clientY));
-      window.addEventListener('touchmove', e => {
-        const t = e.touches[0];
-        drag(t.clientX, t.clientY);
-      });
-      window.addEventListener('mouseup', end);
-      window.addEventListener('touchend', end);
-
-      win.querySelector('.close-btn').addEventListener('click', e => {
-        e.stopPropagation();
-        win.remove();
-      });
-    }
-
-    icon.addEventListener('click', () => {
-      if (document.getElementById('txt2img-window')) return;
-
-      const win = document.createElement('div');
-      win.id = 'txt2img-window';
-      win.className = 'window';
-      const wW = window.innerWidth < 768 ? 320 : 600;
-      const wH = window.innerHeight< 768 ? 400 : 600;
-      win.style.width  = wW + 'px';
-      win.style.height = wH + 'px';
-      win.style.left   = (window.innerWidth - wW)/2 + 'px';
-      win.style.top    = (window.innerHeight- wH)/2 + 'px';
-
-      win.innerHTML = `
-        <div class="window-bar">
-          <span>TXT2IMG</span>
-          <button class="close-btn">x</button>
-        </div>
-        <div class="window-content">
-          <textarea id="prompt-input" placeholder="Prompt"></textarea>
-          <label for="orientation">Orientation:</label>
-          <select id="orientation">
-            <option value="square">Square</option>
-            <option value="landscape">Landscape</option>
-            <option value="portrait">Portrait</option>
-          </select>
-          <label for="img-size">Size:</label>
-          <select id="img-size"></select>
-          <button id="generate-btn">Generate</button>
-          <div id="spinner"></div>
-          <canvas id="image-output"></canvas>
-          <button id="download-btn" style="display:none;">Download Image</button>
-          <p id="status-message"></p>
-        </div>
-      `;
-      desktop.appendChild(win);
-      attachWindowInteractions(win);
-
-      const promptInput  = win.querySelector('#prompt-input');
-      const oriSelect    = win.querySelector('#orientation');
-      const sizeSelect   = win.querySelector('#img-size');
-      const genBtn       = win.querySelector('#generate-btn');
-      const spinner      = win.querySelector('#spinner');
-      const canvas       = win.querySelector('#image-output');
-      const downloadBtn  = win.querySelector('#download-btn');
-      const statusMsg    = win.querySelector('#status-message');
-      const ctx          = canvas.getContext('2d');
-
-      function updateSizes() {
-        const o = oriSelect.value;
-        sizeSelect.innerHTML = '';
-        let opts = [];
-        if (o === 'square')      opts = ['256x256','512x512','1024x1024'];
-        if (o === 'landscape')   opts = ['320x180','640x360','1024x576'];
-        if (o === 'portrait')    opts = ['180x320','360x640','576x1024'];
-        opts.forEach(val => {
-          const opt = document.createElement('option');
-          opt.value = val;
-          opt.textContent = val.replace('x','×');
-          sizeSelect.appendChild(opt);
-        });
-      }
-      oriSelect.addEventListener('change', updateSizes);
-      updateSizes();
-
-      function showSpinner(on) {
-        spinner.style.display     = on ? 'block' : 'none';
-        genBtn.disabled           = on;
-        statusMsg.textContent     = on ? 'Generating...' : '';
-        canvas.style.display      = 'none';
-        downloadBtn.style.display = 'none';
-      }
-
-      function buildImageUrl(w, h) {
-        const seed = Date.now() + '-' + Math.random();
-        return `https://picsum.photos/seed/${seed}/${w}/${h}`;
-      }
-
-      function loadImage(url) {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = () => {
-          const [w,h] = sizeSelect.value.split('x').map(n=>+n);
-          canvas.width  = w;
-          canvas.height = h;
-          ctx.drawImage(img, 0, 0, w, h);
-          ctx.fillStyle    = 'white';
-          ctx.font         = `bold ${Math.round(h/20)}px Arial`;
-          ctx.textAlign    = 'center';
-          ctx.textBaseline = 'bottom';
-          ctx.fillText(promptInput.value, w/2, h-10);
-
-          statusMsg.textContent = '';
-
-          spinner.style.display     = 'none';
-          genBtn.disabled           = false;
-          canvas.style.display      = 'block';
-          downloadBtn.style.display = 'inline-block';
-        };
-        img.onerror = () => {
-          spinner.style.display = 'none';
-          genBtn.disabled       = false;
-          statusMsg.textContent = "could not generate the image";
-        };
-        img.src = url;
-      }
-
-      genBtn.addEventListener('click', () => {
-        showSpinner(true);
-        const [w,h] = sizeSelect.value.split('x').map(n=>+n);
-        const url = buildImageUrl(w, h);
-        loadImage(url);
-      });
-
-      downloadBtn.addEventListener('click', () => {
-        canvas.toBlob(blob => {
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(blob);
-          link.download = 'generated.png';
-          document.body.appendChild(link);
-          link.click();
-          link.remove();
-        }, 'image/png');
-      });
-    });
-  </script>
-</body>
-</html>
-  
-  
-  
-  
-  
-  
-  
-  <script>
-window.addEventListener('DOMContentLoaded', () => {
-  class Txt2ImgApp extends HTMLElement {
-    constructor() {
-      super();
-      const sh = this.attachShadow({ mode: 'open' });
-
-      // 1) Host does NOT block clicks...
-      const hostStyle = document.createElement('style');
-      hostStyle.textContent = `
-:host {
-  position: fixed; top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-}`;
-      sh.appendChild(hostStyle);
-
-      // 2) App CSS: only icon & window intercept events
-      const style = document.createElement('style');
-      style.textContent = `
-.icon.xp {
-  position: absolute; top: 420px; left: 10px;
-  width: 80px; text-align: center;
-  cursor: pointer; touch-action: manipulation;
-  pointer-events: auto;
-}
-.icon.xp img, .icon.xp span {
-  pointer-events: auto;
-}
-.icon.xp img {
-  width: 56px; height: 56px;
-  display: block; margin: 0 auto 4px;
-}
-.icon.xp span {
-  font-size: 12px; font-weight: bold;
-  color: #000; text-shadow: 1px 1px 1px #fff;
-  user-select: none;
-}
-
-/* window styles — exactly as you had before */
-.window {
-  position: absolute; z-index: 10;
-  border: 1px solid #003c74; border-radius: 8px;
-  background: #000; box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  display: flex; flex-direction: column;
-  color: #fff; pointer-events: auto;
-}
-@media(max-width:767px){ .window{ width:320px;height:400px;} }
-.window-bar {
-  background-image: linear-gradient(to right,#0054e3,#27a9e3);
-  padding:6px 10px; font-size:14px; font-weight:bold;
-  display:flex; justify-content:space-between; align-items:center;
-  cursor:move; user-select:none; touch-action:none;
-  border-radius:8px 8px 0 0;
-}
-.close-btn {
-  width:22px;height:22px;font-size:14px;font-weight:bold;
-  background:#c0c0c0;border:1px solid #7f7f7f;
-  border-radius:3px;cursor:pointer;
-  box-shadow:inset 1px 1px #fff, inset -1px -1px #808080;
-}
-.close-btn:hover {
-  background:#ff6f6f;border-color:#ff0000;color:#fff;
-}
-.window-content {
-  padding:15px;background:#111;
-  flex:1;display:flex;flex-direction:column;align-items:center;
-}
-#prompt-input {
-  width:100%;height:100px;margin-bottom:10px;padding:6px;
-  font-family:"MS Sans Serif",Arial,sans-serif;
-  background:#222;color:#0f0;
-  border:1px solid #999;border-radius:4px;resize:none;
-}
-label,select,button { margin-top:5px; }
-select,button { font-size:14px;border-radius:4px; }
-button#generate-btn,button#download-btn {
-  padding:8px 16px;background:#27a9e3;border:1px solid #0054e3;
-  color:#fff;cursor:pointer;
-}
-button#generate-btn:hover,button#download-btn:hover {
-  background:#0054e3;
-}
-canvas#image-output {
-  display:none;max-width:100%;max-height:400px;
-  margin-top:15px;border:1px solid #0f0;border-radius:4px;
-  filter:contrast(1.5) grayscale(0.8) hue-rotate(90deg);
-}
-#spinner {
-  display:none;margin-top:15px;
-  width:30px;height:30px;
-  border:4px solid #444;border-top:4px solid #27a9e3;
-  border-radius:50%;animation:spin 1s linear infinite;
-}
-@keyframes spin { 0%{transform:rotate(0)}100%{transform:rotate(360deg)} }
-p#status-message {
-  margin-top:10px;font-size:13px;color:#0f0;
-  min-height:20px;text-align:center;
-}
-.trail {
-  position:absolute;pointer-events:none;
-  z-index:5;opacity:0.3;transition:opacity 1.6s;
-}`;
-      sh.appendChild(style);
-
-      // 3) Create the icon as a direct child of the host
-      const icon = document.createElement('div');
-      icon.className = 'icon xp';
-      icon.id = 'txt2img-icon';
-      icon.innerHTML = `
-        <img src="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/brush-icon.png" alt="TXT2IMG Icon">
-        <span>TXT2IMG.app</span>`;
-      sh.appendChild(icon);
-
-      this._init();
-    }
-
-    _init() {
-      const sh = this.shadowRoot;
-      const icon = sh.getElementById('txt2img-icon');
-
-      icon.addEventListener('click', () => {
-        // prevent reopening
-        if (sh.getElementById('txt2img-window')) return;
-
-        // build the window exactly as before
-        const win = document.createElement('div');
-        win.id = 'txt2img-window';
-        win.className = 'window';
-        const w = window.innerWidth < 768 ? 320 : 600;
-        const h = window.innerHeight < 768 ? 400 : 600;
-        win.style.width  = w + 'px';
-        win.style.height = h + 'px';
-        win.style.left   = (window.innerWidth - w)/2 + 'px';
-        win.style.top    = (window.innerHeight - h)/2 + 'px';
-        win.style.pointerEvents = 'auto';
-
-        win.innerHTML = `
-          <div class="window-bar">
-            <span>TXT2IMG</span>
-            <button class="close-btn">x</button>
-          </div>
-          <div class="window-content">
-            <textarea id="prompt-input" placeholder="Prompt"></textarea>
-            <label for="orientation">Orientation:</label>
-            <select id="orientation"></select>
-            <label for="img-size">Size:</label>
-            <select id="img-size"></select>
-            <button id="generate-btn">Generate</button>
-            <div id="spinner"></div>
-            <canvas id="image-output"></canvas>
-            <button id="download-btn" style="display:none;">Download Image</button>
-            <p id="status-message"></p>
-          </div>`;
-        sh.appendChild(win);
-
-        // drag/drop helper
-        let dragging = false, ox = 0, oy = 0;
-        const bar = win.querySelector('.window-bar');
-        const startDrag = (x,y) => {
-          dragging = true;
-          ox = x - win.offsetLeft;
-          oy = y - win.offsetTop;
-          win.style.zIndex = 1000;
-        };
-        const doDrag = (x,y) => {
-          if (!dragging) return;
-          let nx = x - ox, ny = y - oy;
-          nx = Math.max(0,Math.min(nx,window.innerWidth-win.offsetWidth));
-          ny = Math.max(0,Math.min(ny,window.innerHeight-win.offsetHeight));
-          const trail = document.createElement('div');
-          trail.className = 'trail';
-          trail.style.width  = win.offsetWidth + 'px';
-          trail.style.height = win.offsetHeight + 'px';
-          trail.style.left   = win.offsetLeft + 'px';
-          trail.style.top    = win.offsetTop + 'px';
-          trail.style.border = '2px solid #0f0';
-          sh.appendChild(trail);
-          setTimeout(()=>trail.style.opacity='0',50);
-          setTimeout(()=>trail.remove(),1600);
-          win.style.left = nx + 'px';
-          win.style.top  = ny + 'px';
-        };
-        const endDrag = () => dragging = false;
-
-        bar.addEventListener('mousedown', e => {
-          if (e.target.closest('.close-btn')) return;
-          startDrag(e.clientX,e.clientY);
-          e.preventDefault();
-        });
-        bar.addEventListener('touchstart', e => {
-          const t=e.touches[0];
-          if (t.target.closest('.close-btn')) return;
-          startDrag(t.clientX,t.clientY);
-          e.preventDefault();
-        });
-        window.addEventListener('mousemove', e => doDrag(e.clientX,e.clientY));
-        window.addEventListener('touchmove', e => {
-          const t=e.touches[0];
-          doDrag(t.clientX,t.clientY);
-        });
-        window.addEventListener('mouseup', endDrag);
-        window.addEventListener('touchend', endDrag);
-
-        win.querySelector('.close-btn').addEventListener('click', () => win.remove());
-
-        // populate orientation & size
-        const ori = win.querySelector('#orientation');
-        const sz  = win.querySelector('#img-size');
-        ori.innerHTML = `
-          <option value="square">Square</option>
-          <option value="landscape">Landscape</option>
-          <option value="portrait">Portrait</option>`;
-        const refreshSizes = () => {
-          sz.innerHTML = '';
-          let opts = ori.value==='square'
-            ? ['256x256','512x512','1024x1024']
-            : ori.value==='landscape'
-              ? ['320x180','640x360','1024x576']
-              : ['180x320','360x640','576x1024'];
-          opts.forEach(o=>{
-            const opt = document.createElement('option');
-            opt.value = o;
-            opt.textContent = o.replace('x','×');
-            sz.appendChild(opt);
-          });
-        };
-        ori.addEventListener('change', refreshSizes);
-        refreshSizes();
-
-        // generation & download logic
-        const inp = win.querySelector('#prompt-input');
-        const btnGen = win.querySelector('#generate-btn');
-        const spinner = win.querySelector('#spinner');
-        const canvas  = win.querySelector('#image-output');
-        const btnDl   = win.querySelector('#download-btn');
-        const status  = win.querySelector('#status-message');
-        const ctx     = canvas.getContext('2d');
-
-        const toggle = on => {
-          spinner.style.display    = on ? 'block' : 'none';
-          btnGen.disabled          = on;
-          status.textContent       = on ? 'Generating...' : '';
-          canvas.style.display     = 'none';
-          btnDl.style.display      = 'none';
-        };
-        const buildUrl = (w,h) => {
-          const seed = Date.now()+'-'+Math.random();
-          return `https://picsum.photos/seed/${seed}/${w}/${h}`;
-        };
-
-        btnGen.addEventListener('click', ()=>{
-          toggle(true);
-          const [w,h] = sz.value.split('x').map(Number);
-          const img = new Image();
-          img.crossOrigin = 'anonymous';
-          img.onload = ()=>{
-            canvas.width  = w; canvas.height = h;
-            ctx.drawImage(img,0,0,w,h);
-            ctx.fillStyle    = 'white';
-            ctx.font         = `bold ${Math.round(h/20)}px Arial`;
-            ctx.textAlign    = 'center';
-            ctx.textBaseline = 'bottom';
-            ctx.fillText(inp.value,w/2,h-10);
-            toggle(false);
-            canvas.style.display = 'block';
-            btnDl.style.display  = 'inline-block';
-          };
-          img.onerror = ()=>{
-            toggle(false);
-            status.textContent = 'could not generate the image';
-          };
-          img.src = buildUrl(w,h);
-        });
-
-        btnDl.addEventListener('click', ()=>{
-          canvas.toBlob(blob=>{
-            const link = document.createElement('a');
-            link.href    = URL.createObjectURL(blob);
-            link.download= 'generated.png';
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
-          }, 'image/png');
-        });
-      });
-    }
-  }
-
-  customElements.define('txt2img-app', Txt2ImgApp);
-  document.body.appendChild(document.createElement('txt2img-app'));
-});
-</script>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <scritpt>
-;(function(){
-  // 1) Inject our CSS overrides
-  const css = document.createElement('style');
-  css.innerHTML = `
-    .window { background: #c0c0c0 !important; }
-    .drag-trail {
-      position: absolute;
-      pointer-events: none;
-      z-index: 5;
-      border: 2px solid #0f0;
-      transition: opacity 1.2s ease-out;
-    }
-  `;
-  document.head.appendChild(css);
-
-  const desktop   = document.querySelector('.desktop');
-  const allWindows= [...document.querySelectorAll('.window')];
-  const allIcons  = [...document.querySelectorAll('.icon')];
-  const txtIcon   = document.getElementById('txt2img-icon');
-
-  // 2) FALL: only when clicking the TXT2IMG icon
-  function triggerFall() {
-    allWindows.concat(allIcons).forEach(el => {
-      el.style.transition = 'transform 1s ease-in';
-      el.style.transform  = 'translateY(200vh)';
-    });
-    setTimeout(() => location.reload(), 1400);
-  }
-  if (txtIcon) {
-    txtIcon.addEventListener('click', triggerFall);
-  }
-
-  // 3) DRIFT + DRAG-TRAIL (unchanged)
-  function startDrift(win) {
-    let x = parseFloat(win.style.left)||win.offsetLeft,
-        y = parseFloat(win.style.top )||win.offsetTop;
-    let vx = (Math.random()-0.5)*2,
-        vy = (Math.random()-0.5)*2;
-    (function frame(){
-      if (!win.classList.contains('dragging')) {
-        x += vx; y += vy;
-        if (x < 0 || x > innerWidth - win.offsetWidth)   vx = -vx;
-        if (y < 0 || y > innerHeight - win.offsetHeight) vy = -vy;
-        win.style.left = x + 'px';
-        win.style.top  = y + 'px';
-      }
-      requestAnimationFrame(frame);
-    })();
-  }
-
-  function attachDrag(win) {
-    let dragging = false, ox, oy;
-    function makeTrail(){
-      const t = win.cloneNode(true);
-      t.className = 'drag-trail';
-      t.style.cssText += `;left:${win.style.left};top:${win.style.top};
-                         width:${win.offsetWidth}px;
-                         height:${win.offsetHeight}px;`;
-      desktop.appendChild(t);
-      requestAnimationFrame(()=> t.style.opacity = '0');
-      setTimeout(() => t.remove(), 1200);
-    }
-    function start(e){
-      if (e.target.closest('.close-btn')) return;
-      dragging = true;
-      win.classList.add('dragging');
-      const cx = (e.touches ? e.touches[0] : e).clientX;
-      const cy = (e.touches ? e.touches[0] : e).clientY;
-      ox = cx - win.offsetLeft;
-      oy = cy - win.offsetTop;
-      e.preventDefault();
-      window.addEventListener('mousemove', drag);
-      window.addEventListener('touchmove', drag);
-      window.addEventListener('mouseup',   end);
-      window.addEventListener('touchend',  end);
-    }
-    function drag(e){
-      if (!dragging) return;
-      const cx = (e.touches ? e.touches[0] : e).clientX;
-      const cy = (e.touches ? e.touches[0] : e).clientY;
-      let nx = cx - ox, ny = cy - oy;
-      nx = Math.max(0, Math.min(nx, innerWidth - win.offsetWidth));
-      ny = Math.max(0, Math.min(ny, innerHeight- win.offsetHeight));
-      win.style.left = nx + 'px';
-      win.style.top  = ny + 'px';
-      makeTrail();
-    }
-    function end(){
-      dragging = false;
-      win.classList.remove('dragging');
-      window.removeEventListener('mousemove', drag);
-      window.removeEventListener('touchmove', drag);
-      window.removeEventListener('mouseup',   end);
-      window.removeEventListener('touchend',  end);
-    }
-    win.addEventListener('mousedown', start);
-    win.addEventListener('touchstart', start);
-    win.querySelectorAll('.close-btn').forEach(btn =>
-      btn.addEventListener('click', e=>{
-        e.stopPropagation();
-        win.remove();
-      })
-    );
-  }
-
-  // initialize existing windows
-  allWindows.forEach(win=>{
-    attachDrag(win);
-    startDrift(win);
-  });
-
-  // 4) TXT2IMG opener stays the same as before…
-  if (txtIcon) {
-    txtIcon.addEventListener('click', ()=>{
-      if (document.getElementById('txt2img-window')) return;
-      const win = document.createElement('div');
-      win.id = 'txt2img-window';
-      win.className = 'window';
-      win.style.transform       = 'scale(.5)';
-      win.style.transformOrigin = 'top left';
-      const W = innerWidth/2, H = innerHeight/2;
-      win.style.cssText += `
-        width:${W}px;height:${H}px;
-        left:${(innerWidth-W)/2}px;
-        top:${(innerHeight-H)/2}px;
-      `;
-      win.innerHTML = `
-        <div class="window-bar">
-          <span>TXT2IMG</span><button class="close-btn">x</button>
-        </div>
-        <div class="window-content">
-          <!-- your existing TXT2IMG form + canvas here -->
-        </div>
-      `;
-      desktop.appendChild(win);
-      attachDrag(win);
-      // …re-hook your existing generate/download logic here…
-    });
-  }
-})();
-</scritpt>
-
-  
-
 </body>
 </html>
