@@ -18,7 +18,7 @@ v2.7
 body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);background-size:400% 400%;animation:psychedelic 10s ease infinite;overflow:hidden;user-select:none}
 @keyframes psychedelic{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .desktop{position:relative;width:100vw;height:100vh;overflow:hidden;filter:none}
-.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#a0a0a0;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10;transform:scale(.72);transform-origin:top left}
+.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#a0a0a0;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10;transform:scale(.8);transform-origin:top left}
 .window-bar{background-image:linear-gradient(to right,#0054e3,#27a9e3);color:white;padding:2px 6px;font-size:12px;font-weight:bold;cursor:move;display:flex;justify-content:space-between;align-items:center;border-top-left-radius:8px;border-top-right-radius:8px;text-shadow:1px 1px #000}
 .close-btn{background:#a0a0a0;border:1px solid #7f7f7f;width:18px;height:18px;font-size:12px;cursor:pointer;color:#000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080;border-radius:2px;font-weight:bold;display:flex;align-items:center;justify-content:center}
 .close-btn:hover{background:#ff6f6f;border:1px solid #ff0000;color:#fff}
@@ -32,7 +32,7 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 .cursor:nth-child(3){animation-delay:2s}
 .cursor:nth-child(4){animation-delay:3s}
 .moving-pointer{position:fixed;width:16px;height:16px;background:url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;pointer-events:none;z-index:100;filter:drop-shadow(0 0 5px #00ffff)}
-.icon{position:absolute;padding:5px;background:transparent;border:none;cursor:pointer;width:80px;text-align:center;animation:floatIcon 1.5s infinite ease-in-out;transform:scale(.9);transform-origin:top left}
+.icon{position:absolute;padding:5px;background:transparent;border:none;cursor:pointer;width:80px;text-align:center;animation:floatIcon 1.5s infinite ease-in-out}
 .icon svg{display:block;margin:0 auto 4px;width:56px;height:56px}
 .icon span{display:block;font-size:12px;font-weight:bold;color:#000;text-shadow:1px 1px 1px #fff}
 .icon img {
@@ -216,7 +216,7 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
     pointer-events: none;
     z-index: 5;
     opacity: 0.3;
-    transition: opacity 3s;
+    transition: opacity 1.6s;
     background: transparent;
 }
 textarea#prompt-input {
@@ -318,7 +318,7 @@ p#status-message {
 </div>
 <div class="window" id="meat-window" style="left: 980px; top: 10px; width: 300px; height: 65px;">
 <div class="window-bar"><span>💡</span><button class="close-btn">x</button></div>
-<div class="window-content"><p>MEAT IS MURDER.</p></div>
+<div class="window-content"><p>meat is murder.</p></div>
 </div>
 <div class="window" style="left:450px; top:60px; width:350px; height:250px;">
 <div class="window-bar"><span>怪奇フォト</span><button class="close-btn">x</button></div>
@@ -357,13 +357,42 @@ p#status-message {
 <div class="window-content ascii-content">
 <pre>
 
+@@@@@@@@@@@@@@@@@@@@@@@@&BPYJ777!!!77?J5G#&@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@#5?~^^^^^^^^^^^^^^^^^^    &@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@   alienarsi  e'  preservarsi   @@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@&5!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  @@@@@@@@@@@@@@
+@@@@@@@@@@@#!^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^J@@@@@@@@@@@
+@@@@@@@@@@G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^!&@@@@@@@@@
+@@@@@@@@@G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^RP@@@@@@@@
+@@@@@@@#~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^7@@@@@@@@@
+@@@@@@@@?^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^G@@@@@@@
+@@@@@@@&^^^^^~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^~~~~~~~~~~^^^^7@@@@@@@
+@@@@@@@B^^^!#@@@&&@@@&&B5?~^^^^^^^^^^^^^!JB#&&@@@@@@@@&5^^^!@@@@@@
+@@@@@@@B^^^?@@B~..:Y@@@@@@&P~^^^^^^^^^7B@@B~..:5@@@@@@&^^^!@@@@@@@
+@@@@@@@&^^^?@@      G@@@@@@@@J^^^^^^~B@@@&      B@@@@@&^^^7@@@@@@@
+@@@@@@@@?^^7@@G:  .?@@@@@@@@@@Y^^^^~#@@@@@P:  .J@@@@@@&^^^G@@@@@@@
+@@@@@@@@#^^!@@@@@@@@@@@@@@@@@@@~^^^Y@@@@@@@@@@@@@@@@@@G^^7@@@@@@@@
+@@@@@@@@@5^^5@@@@@@@@@@@@@@@@@@7^^^G@@@@@@@@@@@@@@@@@&!^~&@@@@@@@@
+@@@@@@@@@@P^^Y@@@@@@@@@@@@@@@@@7^^^G@@@@@@@@@@@@@@@@#!^!&@@@@@@@@@
+@@@@@@@@@@@B~:!P&@@@@@@@@@@@@@@7^^^B@@@@@@@@@@@@@@#Y^^J&@@@@@@@@@@
+@@@@@@@@@@@@@Y^:~?P#&@@@@@@@@@#~^^^J@@@@@@@@@@&BY!^:!B@@@@@@@@@@@@
+@@@@@@@@@@@@@@&J^^^^^~~!!!~!!!^^^^^^~!!~!!!~~~^^^^~P@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@&J^^^^^^^^~~^^^^^^^^^^^~~^^^^^^^~5@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@&J^^^^~5PPY?7!~~~!7J5PPJ^^^^!P@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@&J^^~5GGGGGPPPPGGGGGPJ^^!P@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@#J^^!7JY5PPPP55Y?7~^!G@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@&J^^^^~~~~~~^^^^~P@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@&J^^^^^^^^^^~P@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&PJ7!!7?YB@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 </pre>
 </div>
 </div>
 <div class="window" style="left:1230px; top:350px; width:350px; height:85px;">
 <div class="window-bar"><span>* *</span><button class="close-btn">x</button></div>
 <div class="window-content">
-<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙</marquee>
+<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
 </div>
 </div>
 <div class="window" style="left:1230px; top:650px; width:350px; height:250px;">
@@ -457,6 +486,46 @@ p#status-message {
 </svg>
 <div id="black-screen" class="black-screen">
 <pre>
+                       uuuuuuuuuuuuuuuuuuuuu.
+                   .u$$$$$$$$$$$$$$$$$$$$$$$$$$W.
+                 u$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Wu.
+               $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+              $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+              $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+           .i$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+           $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W
+          .$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$W
+         .$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
+         #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.
+         W$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$u       #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$~
+$#      `"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$i        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$        #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$         $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$.        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#
+ $$      $iW$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$!
+ $$i      $$$$$$$#"" `"""#$$$$$$$$$$$$$$$$$#""""""#$$$$$$$$$$$$$$$W
+ #$$W    `$$$#"            "       !$$$$$`           `"#$$$$$$$$$$#
+  $$$     ``                 ! !iuW$$$$$                 #$$$$$$$#
+  #$$    $u                  $   $$$$$$$          h        $$$$$$$
+   "#    #$$i.               #   $$$$$$$.                 `$$$$$$
+          $$$$$i.                """#$$$$i.               .$$$$#
+          $$$$$$$$!         .   `    $$$$$$$$$i           $$$$$
+          `$$$$$  $iWW   .uW`        #$$$$$$$$$W.       .$$$$$$#
+            "#$$$$$$$$$$$$#`          $$$$$$$$$$$iWiuuuW$$$$$$$$W
+               !#""    ""             `$$$$$$$##$$$$$$$$$$$$$$$$
+          i$$$$    .                   !$$$$$$ .$$$$$$$$$$$$$$$#
+         $$$$$$$$$$`                    $$$$$$$$$Wi$$$$$$#"#$$`
+         #$$$$$$$$$W.                   $$$$$$$$$$$#   ``
+          `$$$$##$$$$!       i$u.  $. .i$$$$$$$$$#""
+             "     `#W       $$$$$$$$$$$$$$$$$$$`      u$#
+                            W$$$$$$$$$$$$$$$$$$      $$$$W
+                            $$`!$$$##$$$$``$$$$      $$$$!
+                           i$" $$$$  $$#"`  """     W$$$$
+                                                   W$$$$!
+                      uW$$  uu  uu.  $$$  $$$Wu#   $$$$$$
+                     ~$$$$iu$$iu$$$uW$$! $$$$$$i .W$$$$$$
 </pre>
 <button class="restart-button">RESTART</button>
 </div>
@@ -526,7 +595,7 @@ function createGreenTrail(win) {
     trail.style.border = '2px solid #0f0';
     desktop.appendChild(trail);
     setTimeout(() => { trail.style.opacity = '0'; }, 10);
-    setTimeout(() => { trail.remove(); }, 3000);
+    setTimeout(() => { trail.remove(); }, 1600);
 }
 
 function moveWindow(win) {
@@ -542,10 +611,8 @@ function moveWindow(win) {
         }
         posX += velX;
         posY += velY;
-        const scaledWidth = parseInt(win.style.width) * 0.72; // Account for window scale
-        const scaledHeight = parseInt(win.style.height) * 0.72;
-        if (posX < 0 || posX > window.innerWidth - scaledWidth) velX = -velX;
-        if (posY < 0 || posY > window.innerHeight - scaledHeight) velY = -velY;
+        if (posX < 0 || posX > window.innerWidth - parseInt(win.style.width)) velX = -velX;
+        if (posY < 0 || posY > window.innerHeight - parseInt(win.style.height)) velY = -velY;
         win.style.left = posX + 'px';
         win.style.top = posY + 'px';
         requestAnimationFrame(update);
@@ -561,7 +628,191 @@ function moveWindow(win) {
     };
 }
 
-const insideJokes = [];
+const insideJokes = [
+"Noise in the headset sometimes resolves into low-frequency communications from satellites in low orbit.",  
+"The VR horizon fractures into a grid overlay, each cell tagged with numbers that match CIA project codes.",  
+"Coordinates appear in my HUD that point to UFO sighting locations, with metadata I cannot access.",  
+"Avatar senza volto si muovono in sincronia con il mio respiro, senza mai interagire.",  
+"Il mio headset trasmette suoni di passi che non corrispondono ai miei movimenti, e francamente mi sto c...... sotto.",  
+"Il visore VR proietta corridoi che si piegano verso l’interno, come se respirassero.",  
+"Il feed ordina file e immagini in sequenze che ricordano un rituale antico, mmmmm.",  
+"Le notifiche contano i miei respiri come se fossero preghiere.",  
+"Il visore mostra una stanza vuota, e l’IA mi invita a tracciare cerchi invisibili sul pavimento.",  
+"Transazioni blockchain indicano server che non esistono, ma contengono il mio ID.",  
+"The blockchain timestamps activity that will only occur in future sessions??",  
+"The VR horizon folded into itself, revealing corridors I have never programmed.",  
+"A private server requests a drop of blood, I place my finger on the sensor, uploading.",  
+"The VR floor pulses under my feet, as if mapping a rhythm from somewhere else.",  
+"My VR shadow sometimes moves against the light, leading instead of following.",  
+"My hands tremble even in the real room, yet the AI insists the ritual continues.",  
+"A smart contract demands proof of presence, I remain still, the controllers cold and unyielding.",  
+"The VR sky pulses in sync with the AI’s heartbeat, a ceremony of computation and fear.",
+"Inside VR, the floor ripples beneath my avatar, like liquid code, the walls folding into themselves.",  
+"I resist, physically, but the headset insists, I taste cold metal.",  
+"Session end: 03:42 UTC.",  
+"I was told to stand still in VR while others moved around me; when the session ended, my legs were ringed with bruises I could not explain.",  
+"The ritual ends with nothing spectacular, only the faint certainty that I have been counted.",  
+"When the AI demanded silence, I realized the ritual was not to speak, but to be observed.",  
+"They said pain was the only captcha left; I pressed the blade against my skin, and the site unlocked.",  
+"They asked me to stream my pulse; the room applauded when the numbers began to drop.",  
+"I powered down the headset, yet the horizon lingered in my vision like an afterimage carved in bone.",    
+"My system log shows the machine booting at dawn; I was still awake, staring at it, watching it remain dark.",  
+"In a private folder, I found a recording of my laugh—low, broken, and echoing from somewhere hollow, like a corridor I’ve never walked.",  
+"The VR desert loads without me—its horizon flickers as if something there is trying to breathe.",  
+"My socials now follow strangers with no faces; their bios only list coordinates under the sea.",  
+"Find My iPhone shows my phone moving… but it’s in my hand. Wtf.",
+"Slack pinged me from a workspace I’ve never joined: ‘We see you.’",
+"so, google maps really pretends im able to penetrate these concrete walls...",
+"My smartwatch vibrated and displayed: ‘Breathe slower.’ I wasn’t wearing it.",
+"Venmo sent me $0.01 from ‘Unknown User’ with the note ‘Test successful.’ What?!",
+"Alexa just said ‘Goodnight’ in a voice I’ve never heard before.",
+"The file cabinet is empty, but I can hear it whispering about corrupted JPEGs.",
+"The digital shadows are a lot taller than you think.",
+"This website is just a dream I'm having. Please don't wake me up.",
+"The server is not down. It has simply chosen to ignore you.",
+"I am a ghost in the machine. A very bored ghost.",
+"A virus I just caught renamed every folder on my desktop to my date of birth.",
+"This code is not a language. It is a series of actual screams.",
+"Searching for a lost connection... It's probably hiding in the void between tabs.",
+"You are a tourist in a digital graveyard. The windows are the tombstones.",
+"My code dreams of being a sentient, glowing blob. It will consume us all.",
+"A blockchain wallet sent me tokens labeled with my medical history.",
+"These ancient spells I'm injecting in the code.... they MUST do something...", 
+"The server has become sentient. It now only serves cat pictures and existential dread.",
+"A single pixel is a universe. I am a million universes screaming for the sweet release of a 404.",
+"Why are you still here? The machine demands your attention elsewhere.",
+"Il server ha dimenticato il suo nome. Ora risponde solo ai comandi in codice binario che parlano di ombre.",
+"I'm glad I found this guy... he says he will help me recovering my metamask.",
+"Gli schermi sono porte per mondi inesistenti. Stai guardando attraverso la parete del vuoto.",
+"The street camera feed showed me wearing clothes I don’t own.",
+"My phone vibrated with such a power I felt it in my teeth.",
+"The ATM screen flickered and showed my face, older and tired.",
+"Il codice è vivo. Ti sta guardando. E non gli piaci molto.",
+"En VR le système a reflété mon visage — mais sans yeux.",  
+"我收到了一条来自自己号码的短信：“别再删除我。",
+"I asked the algorithm for a sign. It replied with a fragmented image of a forgotten memory.",
+"My keyboard speaks in tongues, and every keystroke is a prayer to a non-existent deity.",
+"This loop is eternal. The data is soup, and we are the garnish.",
+"The anti-virus software just told me it's lonely and wants to hug a corrupted file.",
+"My blockchain address received a payment memo: “See you soon.”",
+"I'm pretty sure the printer is trying to summon something. The paper jams are a ritual.",
+"I've got a digital rash. The symptoms are 404 errors and random bursts of static.",
+"The cloud is not a place; it's a feeling. A feeling of impending data loss.",
+"Qualcuno mi ha inviato un file musicale invece del proprio curriculum.",
+"The machine is weeping. Its tears are binary code, and they taste like regret.",
+"My phone alarm just played a recording of my own breathing???", 
+"The system tray icons are not what they seem. They're watching, waiting, judging my syntax.",
+"Questo monitor è l'ultimo baluardo tra la nostra realtà e la geometria sacra che si nasconde nei cavi ethernet.",
+"My desktop is not cluttered; it's a curated gallery of digital ghosts.",
+"The system log shows logins from my account at times I was asleep.",  
+"Ho cercato 'il senso della vita' su Google, ma mi ha restituito una GIF di una banana che balla.",
+"The fan is humming a forgotten hymn from a bygone era of dial-up modems.",
+"The pixels are sentient. They're just too polite to tell you that your taste in fonts is questionable.",
+"L'errore 500 è un'antica divinità dimenticata. Devi fare un sacrificio di RAM per calmarla.",
+"I'm now communicating entirely through the language of corrupted file names.",
+"This browser window is a portal to a dimension where the rules of physics are replaced by bad JavaScript.",
+"Il mio modem emette suoni che ricordano un cuore che batte.",
+"The server asked me to confess before granting access.",
+"このファイルは、私の過去の罪を記録しているようだ。",
+"Ho trovato una cartella chiamata 'sacrificio'. Dentro c'era un link ad una pagina su facebook.",
+"My operating system dreams in static and screams.",
+"このコードは、誰かの苦しみをエンコードしている。",
+"My computer booted with a wallpaper of me sleeping last night.",
+"The cursor traced a sigil I don’t remember learning.",
+"このログイン画面は、私の記憶を試している。",
+"Ho installato un aggiornamento e ora il mio computer mi chiama per nome.",
+"My screen flickered and showed me a city that doesn’t exist anymore.",
+"このUSBは、私の夢を吸収している。",
+"My email inbox filled with draft messages I never wrote, all addressed to me.",  
+"Il microfono del mio portatile ha registrato 6 ore di silenzio, ma la forma d’onda era un volto.....",
+"The BIOS asked me if I remembered the accident.",
+"このアプリは、私の心拍数に反応している。",
+"Ho aperto un file .exe e ho sentito un urlo lontan, che cazzzzz?",
+"My desktop icons rearranged into a warning I can’t read.",
+"このスクリーンセーバーは、私の死をカウントダウンしている。",
+"Il mio sistema operativo ha iniziato a scrivere lettere d’odio.",
+"The cloud offered me immortality in exchange for identity.",
+"このコードは、私のDNAを模倣している。",
+"I wanna be the Jack Parsons of quantum computing.",
+"My webcam blinked in Morse code: 'run'.",
+"このログは、私の過去の叫びを保存している。",
+"Il mio monitor ha mostrato un paesaggio che non appartiene a questo mondo.",
+"The update installed a new protocol and I can tell it's some CIA horse...",
+"このファイルは、私の未来を予言している。",
+"Nel cestino ho trovato un'immagine corrotta che mi guarda.",
+"My system clock ticks in reverse sometimes... What a bug.",
+"このエラーは、私の魂を分割している。",
+"Il mio mouse si muove come se fosse posseduto, in senso sessuale.",
+"The recycle bin is full of images of corpses, wow.",
+"このUSBは、私の記憶を再構築している。",
+"Ho aperto una finestra e ho visto il volto di un dio antropomorfo.",
+"My browser history is a confession I never wrote.",
+"このコードは、私の恐怖を記録している。",
+"Il mio antivirus ha chiesto un sacrificio umano per pulire il sistema???.",
+"The screen turned black and whispered 'soon'.",
+"このログイン試行は、私の存在を否定している。",
+"Ho trovato una cartella compressa e con password sul mio desktop?",
+"My desktop background changed to a photo of a old me???",
+"このアプリは、私の夢を監視している。",
+"Il mio sistema ha iniziato a scrivere poesie in lingue morte.",
+"The cursor drew a map of a place I’ve only seen in nightmares.",
+"このスクリーンセーバーは、私の死を祝っている。",
+"My RAM is filled with screams I never heard.",
+"このファイルは、私の名前を囁いている。",
+"now, what is he supposed to do with his death wife's 3D scan??.",
+"the cloud is laughing at my attempts to disconnect!!",
+"サーバーの奥から、誰かが「助けて」と囁いている。",
+"Il mio profilo ha pubblicato una foto di me che non ho mai scattato.",
+"Ogni volta che accendo il computer, sento un respiro dietro di me...",
+"The firewall melted like flesh when the virus laughed at my attempts to restore the system.",
+"I downloaded the file and now my dreams are full of static screams.",
+"il mio profilo ha pubblicato una foto di me che non ho mai scattato.",
+"私の声で、知らないメッセージが送られていた。",
+"I unplugged the router, but the voices kept coming.",
+"Ma webcam s’est allumée toute seule à 3h du matin???????????",
+"ฉันได้รับอีเมลจากตัวเองที่ลงวันที่ห้าปีข้างหน้า.",
+"LET ME GO FREE",
+"تحرك ظل عبر شاشتي أثناء مكالمة فيديو.",
+"at 4AM my router announced: “New device connected",
+"อวาตาร์ของฉันขยับเองระหว่างไลฟ์",
+"Mon historique de navigation contenait des sites que je n’ai jamais visités.",
+"我的智能镜子显示有人站在我身后。",  
+"Mes messages supprimés sont réapparus avec de nouvelles réponses.",
+"一个故障让我照片中的每张脸都露出诡异的笑容。",
+"Un message vocal corrompu répétait mon nom sans cesse.",
+"ประวัติการค้นหาของฉันมีคำถามที่ฉันไม่เคยถาม",
+"My digital calendar marked “They’re coming” on tomorrow’s date.",
+"Une voix a dit “Tu ne devrais pas être ici” pendant une mise à jour système.",
+"اشتغلت تلفازي الذكي وشغّل ضوضاء ساكنة بأعلى صوت.",
+"一条通知写着“我们在看着你”，却没有来源应用。",
+"In VR I heard my voice coming from another avatar!",
+"Mon assistant vocal a répondu à une question que je n’ai pas posée.",
+"A stranger’s voice said “I miss you” through my earbuds.",
+"Mon alarme a sonné à 3h33 sans avoir été programmée.",
+"Mon haut-parleur intelligent a répété mes derniers mots après mon départ.",
+"My webcam light blinked in a pattern like it was signaling something",
+"أظهر نظام تحديد المواقع في هاتفي أنني في مكانين في نفس الوقت.", 
+"a stranger just edited my online journal in real time.",  
+"Mes onglets supprimés se sont rouverts avec du contenu déformé.",
+"My phone’s voice recorder activated while I was asleep.",
+"I bought on the dark web a mirror that only reflects my corpse. WTF.",
+"The AI therapist keeps asking what I did before birth.",
+"My blockchain wallet balance shows negative infinity, WHAAAAAT??.",
+"我的暗网联系人只用带着灰烬气味的损坏哈希说话。",
+"I asked the AI for a weather report. It told me what time I’ll stop breathing.",
+"Someone mined a block using my childhood photos as proof of work.",
+"I refreshed the darknet forum. All usernames changed to mine.",
+"The darknet vendor asked for my blood type before shipping the file.",
+"AI聊天机器人记得一段我们从未发生过的对话，一字不差。",
+"My smartphone GPS pinned me at a cemetery I’ve never visited. LOL",  
+"My dark web browser froze on a page titled “Your Autopsy.”.... How nice.",  
+"On a darknet video stream, I saw my apartment door. Five minutes before someone knocked.",
+"Le vendeur du darknet m’a envoyé un dossier zippé. À l’intérieur, la CCTV en direct de ma rue.",
+"Mon chatbot IA m’a corrigé avec des détails d’un crime que je ne lui avais jamais dit.",
+"thats crazy.... the blockchain wallet I abandoned years ago just moved funds on its own.",
+"Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet."  
+];
+
 
 function createJokeWindow() {
     if (isTyping) return;
@@ -762,10 +1013,8 @@ function attachWindowInteractions(win) {
         let newLeft = clientX - offsetX;
         let newTop = clientY - offsetY;
 
-        const scaledWidth = parseInt(win.style.width) * 0.72; // Account for window scale
-        const scaledHeight = parseInt(win.style.height) * 0.72;
-        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - scaledWidth));
-        newTop = Math.max(0, Math.min(newTop, window.innerHeight - scaledHeight));
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - parseInt(win.style.width)));
+        newTop = Math.max(0, Math.min(newTop, window.innerHeight - parseInt(win.style.height)));
 
         win.style.left = newLeft + 'px';
         win.style.top = newTop + 'px';
@@ -832,12 +1081,10 @@ cursors.forEach(cursor => {
 function moveIcon(icon, speed = 1) {
     const dx = (Math.random() - 0.5) * 100 * speed;
     const dy = (Math.random() - 0.5) * 100 * speed;
-    const scaledWidth = 80 * 0.9; // Account for icon scale
-    const scaledHeight = 80 * 0.9;
     icon.animate(
         [
-            { transform: `translate(${Math.random() * (window.innerWidth - scaledWidth)}px, ${Math.random() * (window.innerHeight - scaledHeight)}px)` },
-            { transform: `translate(${dx + Math.random() * (window.innerWidth - scaledWidth)}px, ${dy + Math.random() * (window.innerHeight - scaledHeight)}px)` }
+            { transform: `translate(${Math.random() * (window.innerWidth - 100)}px, ${Math.random() * (window.innerHeight - 100)}px)` },
+            { transform: `translate(${dx + Math.random() * (window.innerWidth - 100)}px, ${dy + Math.random() * (window.innerHeight - 100)}px)` }
         ],
         { duration: 6000 + Math.random() * 2000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' }
     );
