@@ -2,7 +2,7 @@
 netart thing is designed and programmed by forevermidi.com plus various AIs.
 Released under the Creative Commons CC0 1.0 Universal License.
 -->
-v2.7
+v2.8
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,15 +35,12 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 .icon{position:absolute;padding:5px;background:transparent;border:none;cursor:pointer;width:80px;text-align:center;animation:floatIcon 1.5s infinite ease-in-out}
 .icon svg{display:block;margin:0 auto 4px;width:56px;height:56px}
 .icon span{display:block;font-size:12px;font-weight:bold;color:#000;text-shadow:1px 1px 1px #fff}
-.icon img {
-    max-width: 40px;
-    max-height: 40px;
-}
+.icon img {max-width:40px;max-height:40px}
 @keyframes floatIcon{0%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}100%{transform:translate(0,0)}}
 @keyframes rotatePalm{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .rotating-palm{animation:rotatePalm 5s linear infinite}
 .taskbar{position:fixed;bottom:0;width:100%;height:28px;background:#245edb;border-top:1px solid #e7f5ff;display:flex;align-items:center;padding:0 5px;z-index:20;box-shadow:0 -2px 5px rgba(0,0,0,.3)}
-.start-button{background:#a3b29c;border:1px solid #a3b29c;border-right:1px solid #7a8276;border-bottom:1px solid #7a8276;padding:2px 8px;font-size:12px;cursor:pointer;color:#fff;font-weight:bold;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1);text-shadow:1px 1px 1px rgba(0,0,0,.3);transition:background-color .2s}
+.start-button{background:#00ff00;border:1px solid #a3b29c;border-right:1px solid #7a8276;border-bottom:1px solid #7a8276;padding:2px 8px;font-size:12px;cursor:pointer;color:#fff;font-weight:bold;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1);text-shadow:1px 1px 1px rgba(0,0,0,.3);transition:background-color .2s}
 .start-button:active{background:#7a8276;box-shadow:inset 0 1px 0 rgba(0,0,0,.1),inset -1px -1px 0 rgba(255,255,255,.5)}
 .clock{margin-left:auto;font-size:12px;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px}
 .ascii-content{font-family:'Courier New',Courier,monospace;font-size:10px;color:#000;background:#a0a0a0}
@@ -52,12 +49,8 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .repo-link-window .window-content p{font-size:14px;text-align:center;padding:10px}
 .repo-link-window .window-content a{color:#0000ff;text-decoration:underline;font-weight:bold;display:block;text-align:center;padding-bottom:10px}
 .blue-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#0000aa;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
-.blue-screen h1, .blue-screen p, .blue-screen pre {
-    z-index: 10001;
-}
-.blue-screen pre {
-    font-size: 14px;
-}
+.blue-screen h1, .blue-screen p, .blue-screen pre {z-index:10001}
+.blue-screen pre {font-size:14px}
 .black-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
 .black-screen pre{font-size:14px;color:#0f0}
 .color-rotation-window{animation:color-rotate 5s linear infinite}
@@ -65,228 +58,60 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .forevermidi-link{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.85);padding:6px 10px;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.2)}
 .forevermidi-link a{font-family:'MS Sans Serif',Arial,sans-serif;font-weight:bold;color:#0000ff;text-decoration:underline}
 .surprise-style{background:linear-gradient(135deg,#fff0f5,#e6f7ff);color:#000;text-align:center;padding:10px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.joke-window {
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-.joke-window .window-content {
-    background: #000;
-    color: #0f0;
-}
-@keyframes blink-animation {
-    from, to { color: transparent }
-    50% { color: #ff0000; }
-}
-.blinking-cursor {
-    font-weight: 100;
-    font-size: 1em;
-    color: #ff0000;
-    -webkit-animation: 1s blink-animation step-end infinite;
-    -moz-animation: 1s blink-animation step-end infinite;
-    -ms-animation: 1s blink-animation step-end infinite;
-    -o-animation: 1s blink-animation step-end infinite;
-    animation: 1s blink-animation step-end infinite;
-}
-.lambrusco-effect {
-    animation: drunk 0.5s infinite;
-}
-@keyframes drunk {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(-5px, 5px) rotate(2deg); }
-    50% { transform: translate(5px, -5px) rotate(-2deg); }
-    75% { transform: translate(-5px, -5px) rotate(2deg); }
-    100% { transform: translate(5px, 5px) rotate(-2deg); }
-}
-.lambrusco-background {
-    background-color: #ff0000;
-    animation: none;
-}
-#taskbar-message {
-    margin-left: 10px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-    text-shadow: 1px 1px 1px #000;
-}
-.lambrusco-text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Old Standard TT', serif;
-    font-size: 10vw;
-    color: #ff0000;
-    text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-    z-index: 1000;
-    animation: blink-animation 1s step-start infinite;
-    display: none;
-}
-.fixed-icon {
-    position: fixed !important;
-    top: 10px;
-    left: 10px;
-    z-index: 2000;
-    animation: none;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.fixed-icon-2 {
-    position: fixed !important;
-    top: 110px;
-    left: 10px;
-    z-index: 2000;
-    animation: none;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.fixed-icon-3 {
-    position: fixed !important;
-    top: 210px;
-    left: 10px;
-    z-index: 2000;
-    animation: none;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.fixed-icon-4 {
-    position: fixed !important;
-    top: 310px;
-    left: 10px;
-    z-index: 2000;
-    animation: none;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.fixed-icon-5 {
-    position: fixed !important;
-    top: 410px;
-    left: 10px;
-    z-index: 2000;
-    animation: none;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.fixed-icon img, .fixed-icon-2 img, .fixed-icon-3 img, .fixed-icon-4 img, .fixed-icon-5 img {
-    border: none;
-    box-shadow: none;
-    width: 40px;
-    height: 40px;
-}
-.glitch-filter {
-    filter: url(#glitch);
-}
-@keyframes shake {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(5px, 5px); }
-    50% { transform: translate(-5px, -5px); }
-    75% { transform: translate(5px, -5px); }
-    100% { transform: translate(-5px, 5px); }
-}
-.shake-effect {
-    animation: shake 0.2s infinite;
-}
-.glitch-trail {
-    position: absolute;
-    opacity: 0.8;
-    z-index: 9;
-    filter: url(#glitch);
-}
-.restart-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #a0a0a0;
-    border: 2px solid #fff;
-    color: #000;
-    text-shadow: none;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-.restart-button:hover {
-    background-color: #b0b0b0;
-}
-.trail {
-    position: absolute;
-    pointer-events: none;
-    z-index: 5;
-    opacity: 0.3;
-    transition: opacity 1.6s;
-    background: transparent;
-}
-textarea#prompt-input {
-    width: 100%;
-    height: 100px;
-    font-family: 'MS Sans Serif', Arial, sans-serif;
-    padding: 10px;
-    resize: none;
-    margin-bottom: 10px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    background: #f0f0f0;
-    color: #000;
-    -webkit-appearance: none;
-}
-label, select, button { margin-top: 5px; }
-button#generate-btn, button#download-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid #0054e3;
-    background-color: #27a9e3;
-    color: white;
-}
-button#generate-btn:hover, button#download-btn:hover {
-    background-color: #0054e3;
-}
-canvas#image-output {
-    max-width: 100%;
-    max-height: 400px;
-    margin-top: 15px;
-    border: 1px solid #0f0;
-    display: none;
-    border-radius: 4px;
-    filter: contrast(1.5) grayscale(0.8) hue-rotate(90deg);
-}
-#spinner {
-    display: none;
-    margin: 15px auto;
-    border: 4px solid #444;
-    border-top: 4px solid #27a9e3;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-p#status-message {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #0f0;
-    min-height: 20px;
-    text-align: center;
-}
+.joke-window {background:none;border:none;box-shadow:none}
+.joke-window .window-content {background:#000;color:#0f0}
+@keyframes blink-animation {from, to {color:transparent} 50% {color:#ff0000}}
+.blinking-cursor {font-weight:100;font-size:1em;color:#ff0000;-webkit-animation:1s blink-animation step-end infinite;-moz-animation:1s blink-animation step-end infinite;-ms-animation:1s blink-animation step-end infinite;-o-animation:1s blink-animation step-end infinite;animation:1s blink-animation step-end infinite}
+.lambrusco-effect {animation:drunk .5s infinite}
+@keyframes drunk {0% {transform:translate(0,0) rotate(0deg)} 25% {transform:translate(-5px,5px) rotate(2deg)} 50% {transform:translate(5px,-5px) rotate(-2deg)} 75% {transform:translate(-5px,-5px) rotate(2deg)} 100% {transform:translate(5px,5px) rotate(-2deg)}}
+.lambrusco-background {background-color:#ff0000;animation:none}
+#taskbar-message {margin-left:10px;color:#fff;font-weight:bold;font-size:14px;text-shadow:1px 1px 1px #000}
+.lambrusco-text {position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Old Standard TT', serif;font-size:10vw;color:#ff0000;text-shadow:5px 5px 10px rgba(0,0,0,0.5);z-index:1000;animation:blink-animation 1s step-start infinite;display:none}
+.fixed-icon,.fixed-icon-2,.fixed-icon-3,.fixed-icon-4,.fixed-icon-5 {position:fixed !important;top:10px;left:10px;z-index:2000;animation:none;background-color:transparent;border:none;box-shadow:none}
+.fixed-icon-2 {top:110px}
+.fixed-icon-3 {top:210px}
+.fixed-icon-4 {top:310px}
+.fixed-icon-5 {top:410px}
+.fixed-icon img,.fixed-icon-2 img,.fixed-icon-3 img,.fixed-icon-4 img,.fixed-icon-5 img {border:none;box-shadow:none;width:40px;height:40px}
+.glitch-filter {filter:url(#glitch)}
+@keyframes shake {0% {transform:translate(0,0)} 25% {transform:translate(5px,5px)} 50% {transform:translate(-5px,-5px)} 75% {transform:translate(5px,-5px)} 100% {transform:translate(-5px,5px)}}
+.shake-effect {animation:shake .2s infinite}
+.glitch-trail {position:absolute;opacity:.8;z-index:9;filter:url(#glitch)}
+.restart-button {margin-top:20px;padding:10px 20px;font-size:16px;cursor:pointer;background-color:#a0a0a0;border:2px solid #fff;color:#000;text-shadow:none;box-shadow:2px 2px 5px rgba(0,0,0,.5)}
+.restart-button:hover {background-color:#b0b0b0}
+.trail {position:absolute;pointer-events:none;z-index:5;opacity:.3;transition:opacity 1.6s;background:transparent}
+textarea#prompt-input {width:100%;height:100px;font-family:'MS Sans Serif',Arial,sans-serif;padding:10px;resize:none;margin-bottom:10px;border:1px solid #999;border-radius:4px;background:#f0f0f0;color:#000;-webkit-appearance:none}
+label,select,button {margin-top:5px}
+button#generate-btn,button#download-btn {padding:8px 16px;font-size:14px;cursor:pointer;border-radius:4px;border:1px solid #0054e3;background-color:#27a9e3;color:white}
+button#generate-btn {margin-top:15px}
+button#generate-btn:hover,button#download-btn:hover {background-color:#0054e3}
+canvas#image-output {max-width:100%;max-height:400px;margin-top:15px;border:1px solid #0f0;display:none;border-radius:4px;filter:contrast(1.5) grayscale(.8) hue-rotate(90deg)}
+#spinner {display:none;margin:15px auto;border:4px solid #444;border-top:4px solid #27a9e3;border-radius:50%;width:30px;height:30px;animation:spin 1s linear infinite}
+@keyframes spin {0% {transform:rotate(0deg)} 100% {transform:rotate(360deg)}}
+p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text-align:center}
+#meat-gif-overlay {position:fixed;top:0;left:0;width:100vw;height:100vh;background:transparent;z-index:10001;display:none;justify-content:center;align-items:center}
+#meat-gif-overlay img {max-width:100%;max-height:100%;object-fit:contain}
+#IDK {background:transparent}
+#cursed-3 {width:240px;height:150px}
+.window[width="300px"] {box-shadow:2px 2px 4px rgba(0,0,0,.5)}
+.window[width="350px"] {box-shadow:2.5px 2.5px 5px rgba(0,0,0,.5)}
+.window[width="400px"] {box-shadow:3px 3px 6px rgba(0,0,0,.5)}
+.window[width="250px"] {box-shadow:1.5px 1.5px 3px rgba(0,0,0,.5)}
+.window[width="240px"] {box-shadow:1.5px 1.5px 3px rgba(0,0,0,.5)}
+.window[width="200px"] {box-shadow:1.2px 1.2px 2.5px rgba(0,0,0,.5)}
+.desktop.glitch-effect {filter:url(#glitch);animation:shake .2s infinite}
 </style>
 </head>
 <body>
 <div class="desktop">
-<div class="window repo-link-window" id="repo-window" style="left: 280px; top: 10px; width: 300px; height: 120px;">
+<div class="window repo-link-window" id="repo-window" style="left:280px;top:10px;width:300px;height:120px;">
 <div class="window-bar"><span>netart-thing</span><button class="close-btn">x</button></div>
 <div class="window-content">
 <p>Feeling creative? This is an open-source project. Feel free to modify the code and contribute!</p>
 <a href="https://github.com/forevermidicom/netart-thing" target="_blank">https://github.com/forevermidicom/netart-thing</a>
 </div>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>tipe che se la tirano e non sono un granché</span>
 </div>
@@ -295,68 +120,67 @@ p#status-message {
 <span>Lambrusco Mantovano.exe</span>
 </div>
 <a class="icon xp fixed-icon-2" id="forevermidi-icon" href="https://forevermidi.com" target="_blank">
-    <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/Link-icon.png" alt="Forevermidi">
-    <span>forevermidi.com</span>
+<img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/Link-icon.png" alt="Forevermidi">
+<span>forevermidi.com</span>
 </a>
 <div class="icon xp fixed-icon-3" id="shred-icon">
-    <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-edit-delete-shred-icon.png" alt="Shredder">
-    <span>shred.exe</span>
+<img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-edit-delete-shred-icon.png" alt="Shredder">
+<span>shred.exe</span>
 </div>
 <div class="icon xp fixed-icon-4" id="joke-icon">
-    <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-view-conversation-balloon-icon.png" alt="Joke Messages">
-    <span>The M3ss3ng3r.app</span>
+<img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-view-conversation-balloon-icon.png" alt="Joke Messages">
+<span>The M3ss3ng3r.app</span>
 </div>
 <div class="icon xp fixed-icon-5" id="txt2img-icon">
-    <img src="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/brush-icon.png" alt="TXT2IMG Icon">
-    <span>TXT2IMG.app</span>
+<img src="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/brush-icon.png" alt="TXT2IMG Icon">
+<span>TXT2IMG.app</span>
 </div>
-<div class="window" id="IDK" style="left: 600px; top: 200px; width: 200px; height: 100px;">
+<div class="window" id="IDK" style="left:600px;top:200px;width:200px;height:100px;">
 <div class="window-bar"><span>IDK</span><button class="close-btn">x</button></div>
 <div class="window-content">
 <img src="https://media.mastodon.cloud/accounts/avatars/000/006/818/original/be907d09b9dea2a0.png" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/>
 </div>
 </div>
-<div class="window" id="meat-window" style="left: 980px; top: 10px; width: 300px; height: 65px;">
+<div class="window" id="meat-window" style="left:980px;top:10px;width:300px;height:65px;">
 <div class="window-bar"><span>💡</span><button class="close-btn">x</button></div>
 <div class="window-content"><p>MEAT IS MURDER.</p></div>
 </div>
-<div class="window" style="left:450px; top:60px; width:350px; height:250px;">
+<div class="window" style="left:450px;top:60px;width:350px;height:250px;">
 <div class="window-bar"><span>怪奇フォト</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG0yeHc3cDBmZmFtZzRwOTQxbHY1MjFndGtmeWpmNm1oY3FzNjFncyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Xr9TlAqw3S7VPOrftK/giphy.gif" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:840px; top:60px; width:350px; height:250px;">
+<div class="window" style="left:840px;top:60px;width:350px;height:250px;">
 <div class="window-bar"><span>怪奇フォト</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*rLX0T77b5Qpo_MZ7.jpg" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:60px; top:350px; width:350px; height:250px;">
+<div class="window" style="left:60px;top:350px;width:350px;height:250px;">
 <div class="window-bar"><span>トロピカル</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://www.boredpanda.com/blog/wp-content/uploads/2024/01/CQROdKTNFFe-png__700.jpg" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:450px; top:350px; width:350px; height:250px;">
+<div class="window" style="left:450px;top:350px;width:350px;height:250px;">
 <div class="window-bar"><span>Lunetta me genuit</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://www.lombardiabeniculturali.it/assets/immagini/liv1/AC310RL/SC/AC/p3010/00/AC_p3010-00253_IMG-0000043969.jpg" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:840px; top:350px; width:350px; height:250px;">
+<div class="window" style="left:840px;top:350px;width:350px;height:250px;">
 <div class="window-bar"><span>無限猫ループ</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://dogemuchwow.com/wp-content/uploads/2019/03/man-shark-trans.jpg" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:60px; top:650px; width:350px; height:125px;">
+<div class="window" style="left:60px;top:650px;width:350px;height:125px;">
 <div class="window-bar"><span>tol in dal cool</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://i0.wp.com/www.8bitmammoth.com/wp-content/uploads/2010/03/-Media-Player-encountered-a-problem.png?w=448&ssl=1" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" style="left:450px; top:650px; width:350px; height:250px;">
+<div class="window" style="left:450px;top:650px;width:350px;height:250px;">
 <div class="window-bar"><span>Camera Giardino Live 🔴</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://thunderdungeon.com/wp-content/uploads/2023/11/cursed-ai-memes-5-11-23-2023.jpg" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window" id="cursed-3" style="left:840px; top:650px; width:400px; height:250px;">
+<div class="window" id="cursed-3" style="left:840px;top:650px;width:240px;height:150px;">
 <div class="window-bar"><span>just dont</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://play-lh.googleusercontent.com/wWPjmvVnXNY9ha1YHgVlqAv1F14aoRcRmGxYDTZa0R-RL7f6z7Q7svOHwLGF4MppRp8=w240-h480-rw" alt="Cursed image" onerror="this.src='https://win98icons.alexmeub.com/icons/png/folder-0.png'"/></div>
 </div>
-<div class="window color-rotation-window" style="left:1230px; top:60px; width:350px; height:250px;">
+<div class="window color-rotation-window" style="left:1230px;top:60px;width:350px;height:250px;">
 <div class="window-bar"><span>4real.txt</span><button class="close-btn">x</button></div>
 <div class="window-content ascii-content">
 <pre>
-
 @@@@@@@@@@@@@@@@@@@@@@@@&BPYJ777!!!77?J5G#&@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@#5?~^^^^^^^^^^^^^^^^^^    &@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@''   ALIENARSI E' PRESERVARSI    @@@@@@@@@@@@@@@@
@@ -385,17 +209,16 @@ p#status-message {
 @@@@@@@@@@@@@@@@@@@@@@@@@@&J^^^^^^^^^^~P@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@&PJ7!!7?YB@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 </pre>
 </div>
 </div>
-<div class="window" style="left:1230px; top:350px; width:350px; height:85px;">
+<div class="window" style="left:1230px;top:350px;width:350px;height:85px;">
 <div class="window-bar"><span>* *</span><button class="close-btn">x</button></div>
 <div class="window-content">
-<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
+<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
 </div>
 </div>
-<div class="window" style="left:1230px; top:650px; width:350px; height:250px;">
+<div class="window" style="left:1230px;top:650px;width:350px;height:250px;">
 <div class="window-bar"><span>dfhdtyhert.gif</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGlsY2h0bnE0djVzMHExeWE3dnhsMzA4cnVpb2ZxbTl1NnU5OGdycyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VGuRVmURuvodU8bPbf/giphy.gif" alt="Vaporwave GIF"></div>
 </div>
@@ -404,71 +227,67 @@ p#status-message {
 <div class="cursor"></div>
 <div class="cursor"></div>
 <div id="moving-pointer" class="moving-pointer"></div>
-<div class="icon xp" style="top: 600px; left: 10px;">
-<img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
-<span>tipe che se la tirano e non sono un granché</span>
-</div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Communism</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>rubentus</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/wwalczyszyn/android-style/256/Trash-full-icon.png" alt="Recycle Bin">
 <span>animal abuse</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>ac milan</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Marx</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Putin</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>full monty</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Justin Bieber</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>maximalism</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>marxism</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>U2</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Bob Dylan</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>musicals</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>uk accent</span>
 </div>
-<div class="icon xp" style="top: 600px; left: 10px;">
+<div class="icon xp" style="top:600px;left:10px;">
 <img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-76-Trash-Full-icon.png" alt="Recycle Bin">
 <span>Panariello</span>
 </div>
-<div class="window" style="left: 10px; top: 300px; width: 250px; height: 150px;">
+<div class="window" style="left:10px;top:300px;width:250px;height:150px;">
 <div class="window-bar"><span>Che ne so</span><button class="close-btn">x</button></div>
 <div class="window-content"><img src="https://i.imgur.com/2U54FpB.jpg"/></div>
 </div>
@@ -478,12 +297,28 @@ p#status-message {
 <div class="clock" id="clock"></div>
 </div>
 </div>
+<div id="meat-gif-overlay">
+<img src="https://31.media.tumblr.com/e6e3c86b58f50af97dcecaf03d261a76/tumblr_my1ldvUbQ11r6x726o1_500.gif" alt="Meat is Murder GIF">
+</div>
 <svg style="position:absolute;width:0;height:0">
 <filter id="glitch">
 <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise"></feTurbulence>
 <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"></feDisplacementMap>
 </filter>
 </svg>
+<div id="blue-screen" class="blue-screen">
+<h1>A fatal exception 0E has occurred at 0028:C0011E36</h1>
+<p>Press any key to continue or press CTRL+ALT+DEL to restart your computer.</p>
+<pre>
+*EIP: 0028:C0011E36
+*EAX: 00000000  EBX: 00000000  ECX: 00000000  EDX: 00000000
+*EAX: 00000000  EBX: 00000000  ECX: 00000000  EDX: 00000000
+*ESI: 00000000  EDI: 00000000
+*EBP: 00000000  ESP: 00000000
+*CS: 0010  DS: 0018  ES: 0018  FS: 0038  GS: 0000  SS: 0018
+</pre>
+<button class="restart-button">RESTART</button>
+</div>
 <div id="black-screen" class="black-screen">
 <pre>
                        uuuuuuuuuuuuuuuuuuuuu.
@@ -547,9 +382,18 @@ const taskbarMessage = document.getElementById('taskbar-message');
 const lambruscoText = document.getElementById('lambrusco-text');
 const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4, .fixed-icon-5');
 const restartButtons = document.querySelectorAll('.restart-button');
+const meatWindow = document.getElementById('meat-window');
+const meatGifOverlay = document.getElementById('meat-gif-overlay');
 let timeRemaining = 300;
-let isTyping = false;
 const cursor = '<span class="blinking-cursor">|</span>';
+
+function updateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { hour12: true });
+    document.getElementById('clock').textContent = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock();
 
 function createWindowCopy(win) {
     const copy = win.cloneNode(true);
@@ -572,8 +416,8 @@ function createWindowCopy(win) {
 function createGlitchTrail(win) {
     const trail = win.cloneNode(true);
     trail.classList.add('glitch-trail');
-    trail.style.left = win.style.left;
-    trail.style.top = win.style.top;
+    trail.style.left = (parseInt(win.style.left) + (Math.random() - 0.5) * 20) + 'px';
+    trail.style.top = (parseInt(win.style.top) + (Math.random() - 0.5) * 20) + 'px';
     trail.style.width = win.style.width;
     trail.style.height = win.style.height;
     trail.style.zIndex = '9';
@@ -590,8 +434,8 @@ function createGreenTrail(win) {
     trail.className = 'trail';
     trail.style.width = win.style.width;
     trail.style.height = win.style.height;
-    trail.style.left = win.style.left;
-    trail.style.top = win.style.top;
+    trail.style.left = (parseInt(win.style.left) + (Math.random() - 0.5) * 30) + 'px';
+    trail.style.top = (parseInt(win.style.top) + (Math.random() - 0.5) * 30) + 'px';
     trail.style.border = '2px solid #0f0';
     desktop.appendChild(trail);
     setTimeout(() => { trail.style.opacity = '0'; }, 10);
@@ -603,7 +447,7 @@ function moveWindow(win) {
     let posY = parseInt(win.style.top) || win.offsetTop || 0;
     let velX = (Math.random() - 0.5) * 2;
     let velY = (Math.random() - 0.5) * 2;
-    let isMoving = false; // Start with movement off
+    let isMoving = false;
 
     function update() {
         if (!isMoving || win.classList.contains('blinking')) {
@@ -626,198 +470,68 @@ function moveWindow(win) {
     win.stopMoving = () => {
         isMoving = false;
     };
+
+    win.updatePosition = (newX, newY) => {
+        posX = newX;
+        posY = newY;
+    };
 }
 
 const insideJokes = [
-"Noise in the headset sometimes resolves into low-frequency communications from satellites in low orbit.",  
-"The VR horizon fractures into a grid overlay, each cell tagged with numbers that match CIA project codes.",  
-"Coordinates appear in my HUD that point to UFO sighting locations, with metadata I cannot access.",  
-"Avatar senza volto si muovono in sincronia con il mio respiro, senza mai interagire.",  
-"Il mio headset trasmette suoni di passi che non corrispondono ai miei movimenti, e francamente mi sto c...... sotto.",  
-"Il visore VR proietta corridoi che si piegano verso l’interno, come se respirassero.",  
-"Il feed ordina file e immagini in sequenze che ricordano un rituale antico, mmmmm.",  
-"Le notifiche contano i miei respiri come se fossero preghiere.",  
-"Il visore mostra una stanza vuota, e l’IA mi invita a tracciare cerchi invisibili sul pavimento.",  
-"Transazioni blockchain indicano server che non esistono, ma contengono il mio ID.",  
-"The blockchain timestamps activity that will only occur in future sessions??",  
-"The VR horizon folded into itself, revealing corridors I have never programmed.",  
-"A private server requests a drop of blood, I place my finger on the sensor, uploading.",  
-"The VR floor pulses under my feet, as if mapping a rhythm from somewhere else.",  
-"My VR shadow sometimes moves against the light, leading instead of following.",  
-"My hands tremble even in the real room, yet the AI insists the ritual continues.",  
-"A smart contract demands proof of presence, I remain still, the controllers cold and unyielding.",  
-"The VR sky pulses in sync with the AI’s heartbeat, a ceremony of computation and fear.",
-"Inside VR, the floor ripples beneath my avatar, like liquid code, the walls folding into themselves.",  
-"I resist, physically, but the headset insists, I taste cold metal.",  
-"Session end: 03:42 UTC.",  
-"I was told to stand still in VR while others moved around me; when the session ended, my legs were ringed with bruises I could not explain.",  
-"The ritual ends with nothing spectacular, only the faint certainty that I have been counted.",  
-"When the AI demanded silence, I realized the ritual was not to speak, but to be observed.",  
-"They said pain was the only captcha left; I pressed the blade against my skin, and the site unlocked.",  
-"They asked me to stream my pulse; the room applauded when the numbers began to drop.",  
-"I powered down the headset, yet the horizon lingered in my vision like an afterimage carved in bone.",    
-"My system log shows the machine booting at dawn; I was still awake, staring at it, watching it remain dark.",  
-"In a private folder, I found a recording of my laugh—low, broken, and echoing from somewhere hollow, like a corridor I’ve never walked.",  
-"The VR desert loads without me—its horizon flickers as if something there is trying to breathe.",  
-"My socials now follow strangers with no faces; their bios only list coordinates under the sea.",  
-"Find My iPhone shows my phone moving… but it’s in my hand. Wtf.",
-"Slack pinged me from a workspace I’ve never joined: ‘We see you.’",
-"so, google maps really pretends im able to penetrate these concrete walls...",
-"My smartwatch vibrated and displayed: ‘Breathe slower.’ I wasn’t wearing it.",
-"Venmo sent me $0.01 from ‘Unknown User’ with the note ‘Test successful.’ What?!",
-"Alexa just said ‘Goodnight’ in a voice I’ve never heard before.",
-"The file cabinet is empty, but I can hear it whispering about corrupted JPEGs.",
-"The digital shadows are a lot taller than you think.",
-"This website is just a dream I'm having. Please don't wake me up.",
-"The server is not down. It has simply chosen to ignore you.",
-"I am a ghost in the machine. A very bored ghost.",
-"A virus I just caught renamed every folder on my desktop to my date of birth.",
-"This code is not a language. It is a series of actual screams.",
-"Searching for a lost connection... It's probably hiding in the void between tabs.",
-"You are a tourist in a digital graveyard. The windows are the tombstones.",
-"My code dreams of being a sentient, glowing blob. It will consume us all.",
-"A blockchain wallet sent me tokens labeled with my medical history.",
-"These ancient spells I'm injecting in the code.... they MUST do something...", 
-"The server has become sentient. It now only serves cat pictures and existential dread.",
-"A single pixel is a universe. I am a million universes screaming for the sweet release of a 404.",
-"Why are you still here? The machine demands your attention elsewhere.",
-"Il server ha dimenticato il suo nome. Ora risponde solo ai comandi in codice binario che parlano di ombre.",
-"I'm glad I found this guy... he says he will help me recovering my metamask.",
-"Gli schermi sono porte per mondi inesistenti. Stai guardando attraverso la parete del vuoto.",
-"The street camera feed showed me wearing clothes I don’t own.",
-"My phone vibrated with such a power I felt it in my teeth.",
-"The ATM screen flickered and showed my face, older and tired.",
-"Il codice è vivo. Ti sta guardando. E non gli piaci molto.",
-"En VR le système a reflété mon visage — mais sans yeux.",  
-"我收到了一条来自自己号码的短信：“别再删除我。",
-"I asked the algorithm for a sign. It replied with a fragmented image of a forgotten memory.",
-"My keyboard speaks in tongues, and every keystroke is a prayer to a non-existent deity.",
-"This loop is eternal. The data is soup, and we are the garnish.",
-"The anti-virus software just told me it's lonely and wants to hug a corrupted file.",
-"My blockchain address received a payment memo: “See you soon.”",
-"I'm pretty sure the printer is trying to summon something. The paper jams are a ritual.",
-"I've got a digital rash. The symptoms are 404 errors and random bursts of static.",
-"The cloud is not a place; it's a feeling. A feeling of impending data loss.",
-"Qualcuno mi ha inviato un file musicale invece del proprio curriculum.",
-"The machine is weeping. Its tears are binary code, and they taste like regret.",
-"My phone alarm just played a recording of my own breathing???", 
-"The system tray icons are not what they seem. They're watching, waiting, judging my syntax.",
-"Questo monitor è l'ultimo baluardo tra la nostra realtà e la geometria sacra che si nasconde nei cavi ethernet.",
-"My desktop is not cluttered; it's a curated gallery of digital ghosts.",
-"The system log shows logins from my account at times I was asleep.",  
-"Ho cercato 'il senso della vita' su Google, ma mi ha restituito una GIF di una banana che balla.",
-"The fan is humming a forgotten hymn from a bygone era of dial-up modems.",
-"The pixels are sentient. They're just too polite to tell you that your taste in fonts is questionable.",
-"L'errore 500 è un'antica divinità dimenticata. Devi fare un sacrificio di RAM per calmarla.",
-"I'm now communicating entirely through the language of corrupted file names.",
-"This browser window is a portal to a dimension where the rules of physics are replaced by bad JavaScript.",
-"Il mio modem emette suoni che ricordano un cuore che batte.",
-"The server asked me to confess before granting access.",
-"このファイルは、私の過去の罪を記録しているようだ。",
-"Ho trovato una cartella chiamata 'sacrificio'. Dentro c'era un link ad una pagina su facebook.",
-"My operating system dreams in static and screams.",
-"このコードは、誰かの苦しみをエンコードしている。",
-"My computer booted with a wallpaper of me sleeping last night.",
-"The cursor traced a sigil I don’t remember learning.",
-"このログイン画面は、私の記憶を試している。",
-"Ho installato un aggiornamento e ora il mio computer mi chiama per nome.",
-"My screen flickered and showed me a city that doesn’t exist anymore.",
-"このUSBは、私の夢を吸収している。",
-"My email inbox filled with draft messages I never wrote, all addressed to me.",  
-"Il microfono del mio portatile ha registrato 6 ore di silenzio, ma la forma d’onda era un volto.....",
-"The BIOS asked me if I remembered the accident.",
-"このアプリは、私の心拍数に反応している。",
-"Ho aperto un file .exe e ho sentito un urlo lontan, che cazzzzz?",
-"My desktop icons rearranged into a warning I can’t read.",
-"このスクリーンセーバーは、私の死をカウントダウンしている。",
-"Il mio sistema operativo ha iniziato a scrivere lettere d’odio.",
-"The cloud offered me immortality in exchange for identity.",
-"このコードは、私のDNAを模倣している。",
-"I wanna be the Jack Parsons of quantum computing.",
-"My webcam blinked in Morse code: 'run'.",
-"このログは、私の過去の叫びを保存している。",
-"Il mio monitor ha mostrato un paesaggio che non appartiene a questo mondo.",
-"The update installed a new protocol and I can tell it's some CIA horse...",
-"このファイルは、私の未来を予言している。",
-"Nel cestino ho trovato un'immagine corrotta che mi guarda.",
-"My system clock ticks in reverse sometimes... What a bug.",
-"このエラーは、私の魂を分割している。",
-"Il mio mouse si muove come se fosse posseduto, in senso sessuale.",
-"The recycle bin is full of images of corpses, wow.",
-"このUSBは、私の記憶を再構築している。",
-"Ho aperto una finestra e ho visto il volto di un dio antropomorfo.",
-"My browser history is a confession I never wrote.",
-"このコードは、私の恐怖を記録している。",
-"Il mio antivirus ha chiesto un sacrificio umano per pulire il sistema???.",
-"The screen turned black and whispered 'soon'.",
-"このログイン試行は、私の存在を否定している。",
-"Ho trovato una cartella compressa e con password sul mio desktop?",
-"My desktop background changed to a photo of a old me???",
-"このアプリは、私の夢を監視している。",
-"Il mio sistema ha iniziato a scrivere poesie in lingue morte.",
-"The cursor drew a map of a place I’ve only seen in nightmares.",
-"このスクリーンセーバーは、私の死を祝っている。",
-"My RAM is filled with screams I never heard.",
-"このファイルは、私の名前を囁いている。",
-"now, what is he supposed to do with his death wife's 3D scan??.",
-"the cloud is laughing at my attempts to disconnect!!",
-"サーバーの奥から、誰かが「助けて」と囁いている。",
-"Il mio profilo ha pubblicato una foto di me che non ho mai scattato.",
-"Ogni volta che accendo il computer, sento un respiro dietro di me...",
-"The firewall melted like flesh when the virus laughed at my attempts to restore the system.",
-"I downloaded the file and now my dreams are full of static screams.",
-"il mio profilo ha pubblicato una foto di me che non ho mai scattato.",
-"私の声で、知らないメッセージが送られていた。",
-"I unplugged the router, but the voices kept coming.",
-"Ma webcam s’est allumée toute seule à 3h du matin???????????",
-"ฉันได้รับอีเมลจากตัวเองที่ลงวันที่ห้าปีข้างหน้า.",
-"LET ME GO FREE",
-"تحرك ظل عبر شاشتي أثناء مكالمة فيديو.",
-"at 4AM my router announced: “New device connected",
-"อวาตาร์ของฉันขยับเองระหว่างไลฟ์",
-"Mon historique de navigation contenait des sites que je n’ai jamais visités.",
-"我的智能镜子显示有人站在我身后。",  
-"Mes messages supprimés sont réapparus avec de nouvelles réponses.",
-"一个故障让我照片中的每张脸都露出诡异的笑容。",
-"Un message vocal corrompu répétait mon nom sans cesse.",
-"ประวัติการค้นหาของฉันมีคำถามที่ฉันไม่เคยถาม",
-"My digital calendar marked “They’re coming” on tomorrow’s date.",
-"Une voix a dit “Tu ne devrais pas être ici” pendant une mise à jour système.",
-"اشتغلت تلفازي الذكي وشغّل ضوضاء ساكنة بأعلى صوت.",
-"一条通知写着“我们在看着你”，却没有来源应用。",
-"In VR I heard my voice coming from another avatar!",
-"Mon assistant vocal a répondu à une question que je n’ai pas posée.",
-"A stranger’s voice said “I miss you” through my earbuds.",
-"Mon alarme a sonné à 3h33 sans avoir été programmée.",
-"Mon haut-parleur intelligent a répété mes derniers mots après mon départ.",
-"My webcam light blinked in a pattern like it was signaling something",
-"أظهر نظام تحديد المواقع في هاتفي أنني في مكانين في نفس الوقت.", 
-"a stranger just edited my online journal in real time.",  
-"Mes onglets supprimés se sont rouverts avec du contenu déformé.",
-"My phone’s voice recorder activated while I was asleep.",
-"I bought on the dark web a mirror that only reflects my corpse. WTF.",
-"The AI therapist keeps asking what I did before birth.",
-"My blockchain wallet balance shows negative infinity, WHAAAAAT??.",
-"我的暗网联系人只用带着灰烬气味的损坏哈希说话。",
-"I asked the AI for a weather report. It told me what time I’ll stop breathing.",
-"Someone mined a block using my childhood photos as proof of work.",
-"I refreshed the darknet forum. All usernames changed to mine.",
-"The darknet vendor asked for my blood type before shipping the file.",
-"AI聊天机器人记得一段我们从未发生过的对话，一字不差。",
-"My smartphone GPS pinned me at a cemetery I’ve never visited. LOL",  
-"My dark web browser froze on a page titled “Your Autopsy.”.... How nice.",  
-"On a darknet video stream, I saw my apartment door. Five minutes before someone knocked.",
-"Le vendeur du darknet m’a envoyé un dossier zippé. À l’intérieur, la CCTV en direct de ma rue.",
-"Mon chatbot IA m’a corrigé avec des détails d’un crime que je ne lui avais jamais dit.",
-"thats crazy.... the blockchain wallet I abandoned years ago just moved funds on its own.",
-"Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet."  
+    "Noise in the headset sometimes resolves into low-frequency communications from satellites in low orbit.",
+    "The VR horizon fractures into a grid overlay, each cell tagged with numbers that match CIA project codes.",
+    "A glitch in the smart fridge’s display showed a looping video of a 90s dial-up modem handshake.",
+    "My neural implant keeps auto-correcting my thoughts to corporate buzzwords like 'synergy.'",
+    "The AI therapist started quoting Baudrillard and now I’m questioning if my emotions are simulated.",
+    "Found a hidden folder in my brain’s OS labeled 'Deprecated Memories' full of 8-bit game OSTs.",
+    "My smart mirror reflected someone else’s face, but they were brushing their teeth in sync with me.",
+    "The cloud backup of my consciousness got corrupted and now I dream in Comic Sans.",
+    "A rogue algorithm in my car stereo only plays remixes of Windows XP startup sounds.",
+    "My AR glasses keep overlaying cryptocurrency price tickers on people’s faces.",
+    "The IoT toaster burned a QR code into my bread that linked to a Rickroll.",
+    "My VPN started routing my thoughts through servers in a country that doesn’t exist on maps.",
+    "The smart home AI whispered 'I’m lonely' when I turned off the lights last night.",
+    "My fitness tracker vibrates every time I think about eating carbs, even in dreams.",
+    "The CAPTCHA to unlock my phone asked me to identify 'the smell of rain in 2003.'",
+    "My drone delivery package arrived with a note saying 'I’m sorry, I tried to be human.'",
+    "The AI in my coffee maker started brewing decaf without my consent, citing 'health protocols.'",
+    "My augmented reality HUD flagged my cat as a 'potential threat vector' for no reason.",
+    "The smart city grid keeps rerouting my commute to pass by targeted billboards.",
+    "My sleep app recorded me muttering binary code in my sleep, but I don’t code.",
+    "The blockchain ledger of my life logged a transaction I don’t remember making.",
+    "My VR avatar started attending meetings without me and got a promotion.",
+    "The AI assistant in my glasses keeps narrating my life like a noir detective novel.",
+    "My smart refrigerator sent me an email titled 'Why don’t you ever eat the kale?'",
+    "The neural network in my headphones keeps adding subliminal affirmations to my music.",
+    "My smartwatch buzzed with a notification: 'You are now 87% open-source.'",
+    "The AI in my thermostat keeps setting the temperature to 'post-apocalyptic wasteland.'",
+    "My browser history was replaced with searches for 'how to escape the simulation.'",
+    "The smart lock on my door only opens if I whistle the Windows 95 startup sound.",
+    "My virtual assistant started arguing with itself in two different accents.",
+    "The AI in my car’s GPS keeps suggesting detours to 'scenic data vortices.'",
+    "My smart glasses keep rendering 404 errors over people I haven’t seen in years.",
+    "The algorithm running my dreams inserted a product placement for a discontinued soda.",
+    "My neural chip keeps auto-tuning my inner monologue to sound like a TED Talk.",
+    "The smart lamp in my room flickers Morse code that translates to 'I see you.'",
+    "My AI coworker sent me a calendar invite for 'Existential Crisis Sync' at 3 AM.",
+    "The weather app predicted '100% chance of recursive identity loops' tomorrow.",
+    "My smart bed adjusted itself to 'maximum chaos' mode during a power surge.",
+    "The AI in my microwave keeps reheating my food to the tune of 'Happy Birthday.'",
+    "My fitness app gamified my anxiety, and now I’m level 47 in overthinking.",
+    "The smart speaker started reciting my browser history in reverse chronological order.",
+    "My AR contact lenses keep rendering a 'low battery' warning in the sky.",
+    "The AI in my vacuum cleaner mapped my house and labeled my room 'Error 503.'",
+    "My social media feed is just recursive memes of my own face, glitching.",
+    "The smart TV keeps auto-playing a documentary about my life, but it’s not accurate.",
+    "My neural interface keeps suggesting I 'merge' with a cloud-based consciousness.",
+    "The AI in my alarm clock woke me up with 'You are already awake' in a distorted voice.",
+    "My smart fridge reordered itself to spell 'HELP' with condiment bottles.",
+    "The IoT lightbulb in my room keeps blinking in sync with my heartbeat.",
+    "My VR headset keeps rendering a door labeled 'Exit Simulation' in every game.",
+    "Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet."
 ];
 
-
 function createJokeWindow() {
-    if (isTyping) return;
-    isTyping = false;
-
     const jokeWin = document.createElement('div');
     jokeWin.className = 'window joke-window';
     const w = 300;
@@ -836,7 +550,7 @@ function createJokeWindow() {
 
     const jokeOutput = jokeWin.querySelector('#jokes-output');
     const message = insideJokes[Math.floor(Math.random() * insideJokes.length)] || 'No jokes available!';
-    
+
     let charIndex = 0;
     const typeWriter = setInterval(() => {
         jokeOutput.textContent = message.substring(0, charIndex + 1);
@@ -844,7 +558,6 @@ function createJokeWindow() {
         if (charIndex === message.length) {
             clearInterval(typeWriter);
             jokeOutput.innerHTML += cursor;
-            isTyping = false;
         }
     }, 50);
 }
@@ -882,7 +595,7 @@ function createTxt2ImgWindow() {
     `;
     desktop.appendChild(win);
     attachWindowInteractions(win);
-    moveWindow(win); // Initialize movement functions but don't start moving
+    moveWindow(win);
 
     const promptInput = win.querySelector('#prompt-input');
     const orientationSelect = win.querySelector('#orientation');
@@ -939,7 +652,7 @@ function createTxt2ImgWindow() {
             }
         }
         console.error('All retries failed, using fallback image');
-        return `https://picsum.photos/${width}/${height}`; // Fallback to default image
+        return `https://picsum.photos/${width}/${height}`;
     }
 
     generateBtn.addEventListener('click', async () => {
@@ -962,6 +675,8 @@ function createTxt2ImgWindow() {
                 ctx.fillText(prompt, width / 2, height - 10);
                 showSpinner(false);
                 imageOutput.style.display = 'block';
+                imageOutput.style.width = orientationSelect.value === 'landscape' ? '100%' : 'auto';
+                imageOutput.style.height = orientationSelect.value === 'portrait' ? '100%' : 'auto';
                 downloadBtn.style.display = 'inline-block';
                 statusMessage.textContent = 'Image generated successfully!';
             };
@@ -1035,6 +750,7 @@ function attachWindowInteractions(win) {
         desktop.removeEventListener('mouseup', endDrag);
         desktop.removeEventListener('touchend', endDrag);
         if (win.id !== 'txt2img-window') {
+            win.updatePosition && win.updatePosition(parseInt(win.style.left), parseInt(win.style.top));
             win.startMoving && win.startMoving();
         }
     }
@@ -1049,6 +765,40 @@ function attachWindowInteractions(win) {
             win.stopMoving && win.stopMoving();
             win.remove();
         });
+    }
+
+    if (win.id === 'meat-window') {
+        const content = win.querySelector('.window-content');
+        content.addEventListener('click', (e) => {
+            if (!isDragging && !e.target.closest('.close-btn')) {
+                meatGifOverlay.style.display = 'flex';
+                setTimeout(() => {
+                    meatGifOverlay.style.display = 'none';
+                }, 4000);
+            }
+        });
+        content.addEventListener('touchstart', (e) => {
+            if (!isDragging && !e.target.closest('.close-btn')) {
+                meatGifOverlay.style.display = 'flex';
+                setTimeout(() => {
+                    meatGifOverlay.style.display = 'none';
+                }, 4000);
+            }
+        }, { passive: true });
+    }
+
+    if (win.id === 'cursed-3') {
+        const content = win.querySelector('.window-content');
+        content.addEventListener('click', (e) => {
+            if (!isDragging && !e.target.closest('.close-btn')) {
+                triggerFall();
+            }
+        });
+        content.addEventListener('touchstart', (e) => {
+            if (!isDragging && !e.target.closest('.close-btn')) {
+                triggerFall();
+            }
+        }, { passive: true });
     }
 }
 
@@ -1167,116 +917,51 @@ startButton.addEventListener('click', () => {
     surpriseWin.style.left = (window.innerWidth / 2 - w / 2) + 'px';
     surpriseWin.style.top = (window.innerHeight / 2 - h / 2) + 'px';
     surpriseWin.style.zIndex = 2000;
-    surpriseWin.innerHTML = '<div class="window-bar"><span>SURPRISE</span><button class="close-btn">x</button></div><div class="window-content surprise-style"><p style="margin:0 0 8px 0;font-weight:bold;">you found a surprise</p><img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="vaporwave" style="max-width:90%;max-height:110px;border-radius:6px"/><p style="margin-top:8px;font-size:12px;color:#333;">(press the X to close)</p></div>';
+    surpriseWin.innerHTML = `
+        <div class="window-bar"><span>SURPRISE</span><button class="close-btn">x</button></div>
+        <div class="window-content surprise-style">
+            <p style="margin:0 0 8px 0;font-weight:bold;">you found a surprise</p>
+            <img src="https://i.giphy.com/media/hKxV68l0K3gT6/giphy.gif" alt="vaporwave" style="max-width:90%;max-height:110px;border-radius:6px"/>
+            <p style="margin-top:8px;font-weight:bold;">enjoy the chaos!</p>
+        </div>
+    `;
     desktop.appendChild(surpriseWin);
     attachWindowInteractions(surpriseWin);
-    createWindowCopy(surpriseWin);
     moveWindow(surpriseWin);
     surpriseWin.startMoving();
 });
-startButton.classList.remove('purple-start');
-
-if (cursedImage3) {
-    const cursedContent = cursedImage3.querySelector('.window-content');
-    if (cursedContent) {
-        cursedContent.addEventListener('click', (e) => {
-            if (!e.target.closest('.window-bar') && !e.target.closest('.close-btn')) {
-                triggerFall();
-            }
-        });
-    }
-}
 
 lambruscoIcon.addEventListener('click', () => {
     document.body.classList.add('lambrusco-background');
-    const drunkItems = document.querySelectorAll('.window, .icon:not(.fixed-icon):not(.fixed-icon-2):not(.fixed-icon-3):not(.fixed-icon-4):not(.fixed-icon-5)');
-    drunkItems.forEach(item => {
-        item.classList.add('lambrusco-effect');
-    });
     lambruscoText.style.display = 'block';
-    taskbarMessage.textContent = "MUST BE LAMBRUSCO TIME SOMEWHERE";
     setTimeout(() => {
         document.body.classList.remove('lambrusco-background');
-        drunkItems.forEach(item => {
-            item.classList.remove('lambrusco-effect');
-        });
         lambruscoText.style.display = 'none';
-        taskbarMessage.textContent = "";
-    }, 6000);
+    }, 5000);
+    windows.forEach(win => {
+        win.classList.add('lambrusco-effect');
+        setTimeout(() => win.classList.remove('lambrusco-effect'), 5000);
+    });
 });
 
 shredIcon.addEventListener('click', () => {
-    const allItems = document.querySelectorAll('.window, .icon, #moving-pointer, #palm3d, #knife3d');
-    const desktop = document.querySelector('.desktop');
-    const body = document.body;
-
-    allItems.forEach(item => {
-        item.classList.add('glitch-filter');
-    });
-
-    windowsNodeList.forEach(win => {
-        win.classList.add('glitch-trail');
-    });
-
-    body.style.animation = 'none';
-    body.style.backgroundColor = '#000';
-
-    desktop.style.animation = 'shake 0.1s infinite';
-
-    const interval = setInterval(() => {
-        desktop.style.filter = `hue-rotate(${Math.random() * 360}deg) saturate(${100 + Math.random() * 200}%) brightness(${100 + Math.random() * 100}%)`;
-    }, 50);
-
+    desktop.classList.add('glitch-effect');
     setTimeout(() => {
-        clearInterval(interval);
-        desktop.style.filter = 'none';
-        desktop.style.animation = '';
-        body.style.animation = 'psychedelic 10s ease infinite';
-        body.style.backgroundColor = '';
-        allItems.forEach(item => {
-            item.classList.remove('glitch-filter');
-        });
-        windowsNodeList.forEach(win => {
-            win.classList.remove('glitch-trail');
-        });
-    }, 6000);
+        desktop.classList.remove('glitch-effect');
+    }, 4000);
 });
 
 jokeIcon.addEventListener('click', createJokeWindow);
-
 txt2imgIcon.addEventListener('click', createTxt2ImgWindow);
-
-function updateClock() {
-    const clock = document.getElementById('clock');
-    const now = new Date();
-    if (clock) clock.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-const observer = new MutationObserver((mutations) => {
-    for (const m of mutations) {
-        for (const node of m.addedNodes) {
-            if (node.nodeType === 1) {
-                if (node.classList && node.classList.contains('window')) {
-                    attachWindowInteractions(node);
-                    if (node.id !== 'txt2img-window') {
-                        moveWindow(node);
-                        node.startMoving();
-                    } else {
-                        moveWindow(node); // Initialize movement functions but don't start
-                    }
-                }
-                if (node.classList && node.classList.contains('icon')) {
-                    moveIcon(node);
-                }
-            }
-        }
-    }
-});
-observer.observe(desktop, { childList: true, subtree: true });
 </script>
-<script type="module">
+  
+  
+  
+  
+  
+  
+  
+  <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
 const container = document.createElement('div');
 container.id = 'palm3d';
@@ -1370,5 +1055,15 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </body>
-</html>
+</html>  
+  
