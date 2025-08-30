@@ -16,15 +16,15 @@ Released under the Creative Commons CC0 1.0 Universal License.
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(45deg,#ff69b4,#8a2be2,#add8e6,#ff69b4);background-size:400% 400%;animation:psychedelic 10s ease infinite;overflow:hidden;user-select:none}
 @keyframes psychedelic{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.desktop{position:relative;width:100vw;height:100vh;overflow:hidden;filter:none}
-.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#a0a0a0;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10;transform:scale(.8);transform-origin:top left}
+.desktop{position:relative;width:100vw;height:100vh;overflow:visible;filter:none;transform:scale(1.0);transform-origin:top left}
+.window{position:absolute;border:1px solid #003c74;border-top-left-radius:8px;border-top-right-radius:8px;background:#a0a0a0;box-shadow:2px 2px 4px rgba(0,0,0,.5);z-index:10}
 .window-bar{background-image:linear-gradient(to right,#0054e3,#27a9e3);color:white;padding:2px 6px;font-size:12px;font-weight:bold;cursor:move;display:flex;justify-content:space-between;align-items:center;border-top-left-radius:8px;border-top-right-radius:8px;text-shadow:1px 1px #000}
 .close-btn{background:#a0a0a0;border:1px solid #7f7f7f;width:18px;height:18px;font-size:12px;cursor:pointer;color:#000;box-shadow:inset 1px 1px #fff,inset -1px -1px #808080;border-radius:2px;font-weight:bold;display:flex;align-items:center;justify-content:center}
 .close-btn:hover{background:#ff6f6f;border:1px solid #ff0000;color:#fff}
 .window-content{border-right:1px solid #7f7f7f;border-left:1px solid #7f7f7f;border-bottom:1px solid #7f7f7f;background:#a0a0a0;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 .window-content img,.window-content iframe,.window-content canvas{display:block;width:100%;height:auto}
 .window-content p{font-family:'MS Sans Serif',Arial,sans-serif;font-size:16px;padding:10px;text-align:center;font-weight:bold}
-.window-content textarea, .window-content select, .window-content button {user-select: auto; -webkit-user-select: text;}
+.window-content textarea,.window-content select,.window-content button{user-select:auto;-webkit-user-select:text}
 .cursor{position:absolute;width:16px;height:16px;background:url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;pointer-events:none;animation:float 5s infinite ease-in-out;opacity:.7}
 @keyframes float{0%{transform:translate(0,0)}50%{transform:translate(20px,20px)}100%{transform:translate(0,0)}}
 .cursor:nth-child(2){animation-delay:1s}
@@ -32,24 +32,26 @@ body{font-family:"MS Sans Serif", Arial, sans-serif;background:linear-gradient(4
 .cursor:nth-child(4){animation-delay:3s}
 .moving-pointer{position:fixed;width:16px;height:16px;background:url('https://win98icons.alexmeub.com/cursors/Arrow.cur') no-repeat;pointer-events:none;z-index:100;filter:drop-shadow(0 0 5px #00ffff)}
 .icon{position:absolute;padding:5px;background:transparent;border:none;cursor:pointer;width:80px;text-align:center;animation:floatIcon 1.5s infinite ease-in-out}
-.icon svg{display:block;margin:0 auto 4px;width:56px;height:56px}
+.icon img{max-width:40px;max-height:40px;border:none;box-shadow:none}
 .icon span{display:block;font-size:12px;font-weight:bold;color:#000;text-shadow:1px 1px 1px #fff}
-.icon img {max-width:40px;max-height:40px}
+#forevermidi-icon span{text-decoration:none}
 @keyframes floatIcon{0%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}100%{transform:translate(0,0)}}
 @keyframes rotatePalm{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .rotating-palm{animation:rotatePalm 5s linear infinite}
-.taskbar{position:fixed;bottom:0;width:100%;height:28px;background:#245edb;border-top:1px solid #e7f5ff;display:flex;align-items:center;padding:0 5px;z-index:20;box-shadow:0 -2px 5px rgba(0,0,0,.3)}
+.taskbar{position:fixed;bottom:0;left:0;width:100%;height:28px;background:#245edb;border-top:1px solid #e7f5ff;display:flex;align-items:center;padding:0 5px;z-index:20;box-shadow:0 -2px 5px rgba(0,0,0,.3)}
 .start-button{background:#00ff00;border:1px solid #a3b29c;border-right:1px solid #7a8276;border-bottom:1px solid #7a8276;padding:2px 8px;font-size:12px;cursor:pointer;color:#fff;font-weight:bold;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.1);text-shadow:1px 1px 1px rgba(0,0,0,.3);transition:background-color .2s}
 .start-button:active{background:#7a8276;box-shadow:inset 0 1px 0 rgba(0,0,0,.1),inset -1px -1px 0 rgba(255,255,255,.5)}
-.clock{margin-left:auto;font-size:12px;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px}
+.clock-container{display:flex;align-items:center;margin-left:auto}
+.version{font-size:12px;color:#fff;margin-right:10px}
+.clock{font-size:12px;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:3px}
 .ascii-content{font-family:'Courier New',Courier,monospace;font-size:10px;color:#000;background:#a0a0a0}
 .ascii-content pre{margin:0;padding:10px;white-space:pre}
 marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00ff;-webkit-text-stroke:1px #000;text-transform:uppercase;padding-top:25px}
 .repo-link-window .window-content p{font-size:14px;text-align:center;padding:10px}
 .repo-link-window .window-content a{color:#0000ff;text-decoration:underline;font-weight:bold;display:block;text-align:center;padding-bottom:10px}
 .blue-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#0000aa;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
-.blue-screen h1, .blue-screen p, .blue-screen pre {z-index:10001}
-.blue-screen pre {font-size:14px}
+.blue-screen h1,.blue-screen p,.blue-screen pre{z-index:10001}
+.blue-screen pre{font-size:14px}
 .black-screen{position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;color:#fff;z-index:10000;display:none;justify-content:center;align-items:center;flex-direction:column;padding:20px;font-family:'Courier New',Courier,monospace;font-size:18px;line-height:1.5;filter:none;text-align:center}
 .black-screen pre{font-size:14px;color:#0f0}
 .color-rotation-window{animation:color-rotate 5s linear infinite}
@@ -57,48 +59,50 @@ marquee{font-family:'MS Sans Serif',Arial,sans-serif;font-size:24px;color:#ff00f
 .forevermidi-link{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.85);padding:6px 10px;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.2)}
 .forevermidi-link a{font-family:'MS Sans Serif',Arial,sans-serif;font-weight:bold;color:#0000ff;text-decoration:underline}
 .surprise-style{background:linear-gradient(135deg,#fff0f5,#e6f7ff);color:#000;text-align:center;padding:10px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.joke-window {background:none;border:none;box-shadow:none}
-.joke-window .window-content {background:#000;color:#0f0}
-@keyframes blink-animation {from, to {color:transparent} 50% {color:#ff0000}}
-.blinking-cursor {font-weight:100;font-size:1em;color:#ff0000;-webkit-animation:1s blink-animation step-end infinite;-moz-animation:1s blink-animation step-end infinite;-ms-animation:1s blink-animation step-end infinite;-o-animation:1s blink-animation step-end infinite;animation:1s blink-animation step-end infinite}
-.lambrusco-effect {animation:drunk .5s infinite}
-@keyframes drunk {0% {transform:translate(0,0) rotate(0deg)} 25% {transform:translate(-5px,5px) rotate(2deg)} 50% {transform:translate(5px,-5px) rotate(-2deg)} 75% {transform:translate(-5px,-5px) rotate(2deg)} 100% {transform:translate(5px,5px) rotate(-2deg)}}
-.lambrusco-background {background-color:#ff0000;animation:none}
-#taskbar-message {margin-left:10px;color:#fff;font-weight:bold;font-size:14px;text-shadow:1px 1px 1px #000}
-.lambrusco-text {position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Old Standard TT', serif;font-size:10vw;color:#ff0000;text-shadow:5px 5px 10px rgba(0,0,0,0.5);z-index:1000;animation:blink-animation 1s step-start infinite;display:none}
-.fixed-icon,.fixed-icon-2,.fixed-icon-3,.fixed-icon-4,.fixed-icon-5 {position:fixed !important;top:10px;left:10px;z-index:2000;animation:none;background-color:transparent;border:none;box-shadow:none}
-.fixed-icon-2 {top:110px}
-.fixed-icon-3 {top:210px}
-.fixed-icon-4 {top:310px}
-.fixed-icon-5 {top:410px}
-.fixed-icon img,.fixed-icon-2 img,.fixed-icon-3 img,.fixed-icon-4 img,.fixed-icon-5 img {border:none;box-shadow:none;width:40px;height:40px}
-.glitch-filter {filter:url(#glitch)}
-@keyframes shake {0% {transform:translate(0,0)} 25% {transform:translate(5px,5px)} 50% {transform:translate(-5px,-5px)} 75% {transform:translate(5px,-5px)} 100% {transform:translate(-5px,5px)}}
-.shake-effect {animation:shake .2s infinite}
-.glitch-trail {position:absolute;opacity:.8;z-index:9;filter:url(#glitch)}
-.restart-button {margin-top:20px;padding:10px 20px;font-size:16px;cursor:pointer;background-color:#a0a0a0;border:2px solid #fff;color:#000;text-shadow:none;box-shadow:2px 2px 5px rgba(0,0,0,.5)}
-.restart-button:hover {background-color:#b0b0b0}
-.trail {position:absolute;pointer-events:none;z-index:5;opacity:.3;transition:opacity 1.6s;background:transparent}
-textarea#prompt-input {width:100%;height:100px;font-family:'MS Sans Serif',Arial,sans-serif;padding:10px;resize:none;margin-bottom:10px;border:1px solid #999;border-radius:4px;background:#f0f0f0;color:#000;-webkit-appearance:none}
-label,select,button {margin-top:5px}
-button#generate-btn,button#download-btn {padding:8px 16px;font-size:14px;cursor:pointer;border-radius:4px;border:1px solid #0054e3;background-color:#27a9e3;color:white}
-button#generate-btn {margin-top:15px}
-button#generate-btn:hover,button#download-btn:hover {background-color:#0054e3}
-canvas#image-output {max-width:100%;max-height:400px;margin-top:15px;border:1px solid #0f0;display:none;border-radius:4px;filter:contrast(1.5) grayscale(.8) hue-rotate(90deg)}
-#spinner {display:none;margin:15px auto;border:4px solid #444;border-top:4px solid #27a9e3;border-radius:50%;width:30px;height:30px;animation:spin 1s linear infinite}
-@keyframes spin {0% {transform:rotate(0deg)} 100% {transform:rotate(360deg)}}
-p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text-align:center}
-#meat-gif-overlay {position:fixed;top:0;left:0;width:100vw;height:100vh;background:transparent;z-index:10001;display:none;justify-content:center;align-items:center}
-#meat-gif-overlay img {max-width:100%;max-height:100%;object-fit:contain}
-#IDK {background:transparent}
-#cursed-3 {width:240px;height:150px}
-.window[width="300px"] {box-shadow:2px 2px 4px rgba(0,0,0,.5)}
-.window[width="350px"] {box-shadow:2.5px 2.5px 5px rgba(0,0,0,.5)}
-.window[width="400px"] {box-shadow:3px 3px 6px rgba(0,0,0,.5)}
-.window[width="250px"] {box-shadow:1.5px 1.5px 3px rgba(0,0,0,.5)}
-.window[width="240px"] {box-shadow:1.5px 1.5px 3px rgba(0,0,0,.5)}
-.window[width="200px"] {box-shadow:1.2px 1.2px 2.5px rgba(0,0,0,.5)}
-.desktop.glitch-effect {filter:url(#glitch);animation:shake .2s infinite}
+.joke-window{background:none;border:none;box-shadow:none}
+.joke-window .window-content{background:#000;color:#0f0}
+@keyframes blink-animation{from,to{color:transparent}50%{color:#ff0000}}
+.blinking-cursor{font-weight:100;font-size:1em;color:#ff0000;-webkit-animation:1s blink-animation step-end infinite;-moz-animation:1s blink-animation step-end infinite;-ms-animation:1s blink-animation step-end infinite;-o-animation:1s blink-animation step-end infinite;animation:1s blink-animation step-end infinite}
+.lambrusco-effect{animation:drunk .5s infinite}
+@keyframes drunk{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(-5px,5px) rotate(2deg)}50%{transform:translate(5px,-5px) rotate(-2deg)}75%{transform:translate(-5px,-5px) rotate(2deg)}100%{transform:translate(5px,5px) rotate(-2deg)}}
+.lambrusco-background{background-color:#ff0000;animation:none}
+#taskbar-message{margin-left:10px;color:#fff;font-weight:bold;font-size:14px;text-shadow:1px 1px 1px #000}
+.lambrusco-text{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Old Standard TT', serif;font-size:10vw;color:#ff0000;text-shadow:5px 5px 10px rgba(0,0,0,0.5);z-index:1000;animation:blink-animation 1s step-start infinite;display:none;text-align:center}
+.fixed-icon,.fixed-icon-2,.fixed-icon-3,.fixed-icon-4,.fixed-icon-5{position:fixed !important;top:10px;left:10px;z-index:2000;animation:none;background-color:transparent;border:none;box-shadow:none}
+.fixed-icon-2{top:110px}
+.fixed-icon-3{top:210px}
+.fixed-icon-4{top:310px}
+.fixed-icon-5{top:410px}
+.fixed-icon img,.fixed-icon-2 img,.fixed-icon-3 img,.fixed-icon-4 img,.fixed-icon-5 img{border:none;box-shadow:none;width:40px;height:40px}
+.glitch-filter{filter:url(#glitch)}
+@keyframes shake{0%{transform:translate(0,0)}25%{transform:translate(5px,5px)}50%{transform:translate(-5px,-5px)}75%{transform:translate(5px,-5px)}100%{transform:translate(-5px,5px)}}
+.shake-effect{animation:shake .2s infinite}
+.glitch-trail{position:absolute;opacity:.8;z-index:9;filter:url(#glitch)}
+.restart-button{margin-top:20px;padding:10px 20px;font-size:16px;cursor:pointer;background-color:#a0a0a0;border:2px solid #fff;color:#000;text-shadow:none;box-shadow:2px 2px 5px rgba(0,0,0,.5)}
+.restart-button:hover{background-color:#b0b0b0}
+.trail{position:absolute;pointer-events:none;z-index:5;opacity:.3;transition:opacity 1.6s;background:transparent}
+textarea#prompt-input{width:100%;height:100px;font-family:'MS Sans Serif',Arial,sans-serif;padding:10px;resize:none;margin-bottom:10px;border:1px solid #999;border-radius:4px;background:#f0f0f0;color:#000;-webkit-appearance:none}
+label,select,button{margin-top:5px}
+button#generate-btn,button#download-btn{padding:8px 16px;font-size:14px;cursor:pointer;border-radius:4px;border:1px solid #0054e3;background-color:#27a9e3;color:white}
+button#generate-btn{margin-top:15px}
+button#generate-btn:hover,button#download-btn:hover{background-color:#0054e3}
+canvas#image-output{max-width:100%;max-height:400px;margin-top:15px;border:1px solid #0f0;display:none;border-radius:4px;filter:contrast(1.5) grayscale(.8) hue-rotate(90deg)}
+#spinner{display:none;margin:15px auto;border:4px solid #444;border-top:4px solid #27a9e3;border-radius:50%;width:30px;height:30px;animation:spin 1s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+p#status-message{margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text-align:center}
+#meat-gif-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:transparent;z-index:10001;display:none;justify-content:center;align-items:center}
+#meat-gif-overlay img{max-width:100%;max-height:100%;object-fit:contain}
+#IDK{background:transparent}
+#cursed-3{width:240px;height:150px}
+.window[width="300px"]{box-shadow:2px 2px 4px rgba(0,0,0,.5)}
+.window[width="350px"]{box-shadow:2.5px 2.5px 5px rgba(0,0,0,.5)}
+.window[width="400px"]{box-shadow:3px 3px 6px rgba(0,0,0,.5)}
+.window[width="250px"]{box-shadow:1.5px 1.5px 3px rgba(0,0,0,.5)}
+.window[width="240px"]{box-shadow:1.5px 1.5px 3px rgba(0,0,0,.5)}
+.window[width="200px"]{box-shadow:1.2px 1.2px 2.5px rgba(0,0,0,.5)}
+.desktop.glitch-effect{filter:url(#glitch);animation:shake .2s infinite}
+.lambrusco-drop{position:fixed;width:10px;height:20px;background:#ff0000;border-radius:50% 50% 10% 10%;z-index:999;animation:fall 2s linear forwards}
+@keyframes fall{0%{top:-20px;opacity:1}100%{top:100vh;opacity:0.5}}
 </style>
 </head>
 <body>
@@ -214,7 +218,7 @@ p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text
 <div class="window" style="left:1230px;top:350px;width:350px;height:85px;">
 <div class="window-bar"><span>* *</span><button class="close-btn">x</button></div>
 <div class="window-content">
-<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
+<marquee behavior="scroll" direction="left" scrollamount="10">⭐__𝓕 𝓞 𝓡 𝓩 𝓐____𝓘 𝓝 𝓣 𝓔 𝓡__⭐    🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙🖤💙</marquee>
 </div>
 </div>
 <div class="window" style="left:1230px;top:650px;width:350px;height:250px;">
@@ -293,7 +297,10 @@ p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text
 <div class="taskbar">
 <button class="start-button">Start</button>
 <div id="taskbar-message"></div>
+<div class="clock-container">
+<span class="version">v2.9</span>
 <div class="clock" id="clock"></div>
+</div>
 </div>
 </div>
 <div id="meat-gif-overlay">
@@ -301,8 +308,9 @@ p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text
 </div>
 <svg style="position:absolute;width:0;height:0">
 <filter id="glitch">
-<feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise"></feTurbulence>
-<feDisplacementMap in="SourceGraphic" in2="noise" scale="15"></feDisplacementMap>
+<feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="3" result="noise"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="25"/>
+<feColorMatrix type="hueRotate" values="360"/>
 </filter>
 </svg>
 <div id="blue-screen" class="blue-screen">
@@ -320,7 +328,10 @@ p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text
 </div>
 <div id="black-screen" class="black-screen">
 <pre>
-                   .u$$$$$$$$$$$$$$$$$$$$$$$$$$W.
+
+
+
+                     .u$$$$$$$$$$$$$$$$$$$$$$$$$$W.
                  u$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Wu.
                $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$i
               $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -359,10 +370,12 @@ p#status-message {margin-top:10px;font-size:13px;color:#0f0;min-height:20px;text
                                                    W$$
                       uW$$  uu  uu.  $$$  $$$Wu#   $
                        --$iu$$ u$$$uW$$! $$$$ i .W$
+
 </pre>
 <button class="restart-button">RESTART</button>
 </div>
-<div id="lambrusco-text" class="lambrusco-text">IT'S LAMBRUSCO TIME</div>
+<div id="lambrusco-text" class="lambrusco-text">IT'S LAMBRUSCO MANTOVANO TIME</div>
+<canvas id="lambrusco-drops" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;display:none;"></canvas>
 <script>
 const desktop = document.querySelector('.desktop');
 const startButton = document.querySelector('.start-button');
@@ -378,6 +391,7 @@ const jokeIcon = document.getElementById('joke-icon');
 const txt2imgIcon = document.getElementById('txt2img-icon');
 const taskbarMessage = document.getElementById('taskbar-message');
 const lambruscoText = document.getElementById('lambrusco-text');
+const lambruscoDropsCanvas = document.getElementById('lambrusco-drops');
 const fixedIcons = document.querySelectorAll('.fixed-icon, .fixed-icon-2, .fixed-icon-3, .fixed-icon-4, .fixed-icon-5');
 const restartButtons = document.querySelectorAll('.restart-button');
 const meatWindow = document.getElementById('meat-window');
@@ -438,6 +452,40 @@ function createGreenTrail(win) {
     desktop.appendChild(trail);
     setTimeout(() => { trail.style.opacity = '0'; }, 10);
     setTimeout(() => { trail.remove(); }, 1600);
+}
+
+function createLambruscoDrops() {
+    const ctx = lambruscoDropsCanvas.getContext('2d');
+    lambruscoDropsCanvas.width = window.innerWidth;
+    lambruscoDropsCanvas.height = window.innerHeight;
+    const drops = [];
+    for (let i = 0; i < 200; i++) {
+        drops.push({
+            x: Math.random() * window.innerWidth,
+            y: -20,
+            speed: 2 + Math.random() * 3,
+            opacity: 1
+        });
+    }
+    function animateDrops() {
+        ctx.clearRect(0, 0, lambruscoDropsCanvas.width, lambruscoDropsCanvas.height);
+        drops.forEach(drop => {
+            drop.y += drop.speed;
+            drop.opacity = Math.max(0, 1 - drop.y / window.innerHeight);
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 0, 0, ${drop.opacity})`;
+            ctx.ellipse(drop.x, drop.y, 5, 10, Math.PI / 2, 0, 2 * Math.PI);
+            ctx.fill();
+        });
+        if (lambruscoDropsCanvas.style.display !== 'none') {
+            requestAnimationFrame(animateDrops);
+        }
+    }
+    lambruscoDropsCanvas.style.display = 'block';
+    animateDrops();
+    setTimeout(() => {
+        lambruscoDropsCanvas.style.display = 'none';
+    }, 5000);
 }
 
 function moveWindow(win) {
@@ -657,7 +705,8 @@ const insideJokes = [
 "Le vendeur du darknet m’a envoyé un dossier zippé. À l’intérieur, la CCTV en direct de ma rue.",
 "Mon chatbot IA m’a corrigé avec des détails d’un crime que je ne lui avais jamais dit.",
 "thats crazy.... the blockchain wallet I abandoned years ago just moved funds on its own.",
-"Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet."  
+"Sur le dark web j’ai trouvé un tutoriel titré avec mon nom légal complet." 
+
 ];
 
 function createJokeWindow() {
@@ -857,8 +906,8 @@ function attachWindowInteractions(win) {
         let newLeft = clientX - offsetX;
         let newTop = clientY - offsetY;
 
-        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - parseInt(win.style.width)));
-        newTop = Math.max(0, Math.min(newTop, window.innerHeight - parseInt(win.style.height)));
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - parseInt(win.style.width) * 0.9));
+        newTop = Math.max(0, Math.min(newTop, window.innerHeight - parseInt(win.style.height) * 0.9));
 
         win.style.left = newLeft + 'px';
         win.style.top = newTop + 'px';
@@ -1063,9 +1112,12 @@ startButton.addEventListener('click', () => {
 lambruscoIcon.addEventListener('click', () => {
     document.body.classList.add('lambrusco-background');
     lambruscoText.style.display = 'block';
+    taskbarMessage.textContent = 'MUST BE LAMBRUSCO TIME SOMEWHERE';
+    createLambruscoDrops();
     setTimeout(() => {
         document.body.classList.remove('lambrusco-background');
         lambruscoText.style.display = 'none';
+        taskbarMessage.textContent = '';
     }, 5000);
     windows.forEach(win => {
         win.classList.add('lambrusco-effect');
@@ -1083,14 +1135,7 @@ shredIcon.addEventListener('click', () => {
 jokeIcon.addEventListener('click', createJokeWindow);
 txt2imgIcon.addEventListener('click', createTxt2ImgWindow);
 </script>
-  
-  
-  
-  
-  
-  
-  
-  <script type="module">
+<script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
 const container = document.createElement('div');
 container.id = 'palm3d';
@@ -1101,6 +1146,7 @@ container.style.width = '100%';
 container.style.height = '100%';
 container.style.pointerEvents = 'none';
 container.style.zIndex = '10';
+container.style.transform = 'scale(0.9)';
 document.body.appendChild(container);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -1184,7 +1230,6 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 </script>
-  
 </body>
-</html>  
-  
+</html>	
+	
